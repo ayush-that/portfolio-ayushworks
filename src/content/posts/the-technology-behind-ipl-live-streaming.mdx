@@ -1,0 +1,69 @@
+---
+title: "The Technology Behind IPL Live Streaming"
+description: Discover the technology powering IPL live streaming, from capturing to delivering cricket action to your devices
+tags: ["cdn", "devops"]
+date: 2024-05-22
+published: true
+cover: "./images/cover/the-technology-behind-ipl-live-streaming.avif"
+---
+
+The Indian Premier League (IPL) is one of the most popular cricket tournaments, watched by millions of fans. In 2024, the first 51 matches of IPL got over 510 million eyeballs glued to their screens.
+
+But have you ever wondered how the live action from the Wankhede Stadium's pitch reaches your TV, smartphone, or computer? Let’s break down the process into five simple steps:
+
+### **#1 Capturing the Match 🎥**
+
+![Behind the camera - cricket photographer Gareth Copley on 100 Tests](https://i.ytimg.com/vi/XxeVsGjvUxQ/maxresdefault.jpg)
+
+It all starts at the cricket stadium, where multiple high-definition cameras and microphones are set up to capture every moment of the match. The cameras record the video of the players, the field, and the crowd, while the microphones pick up the sounds of the game, including commentary and the roar of the fans.
+
+### **#2 Encoding the Content 💿**
+
+![TATA IPL 2023: Dolby's Jayant Shah talks about IPL's Live audio tech, video  mixing process, and more](https://st1.techlusive.in/wp-content/uploads/2023/05/IPL-Live-mixing.jpg)
+
+Once the video and audio are captured, they are sent to an encoder. An encoder is a device or software that takes these raw video and audio files and compresses them into a format suitable for streaming.
+
+_Think of it as packing all the game footage and sounds into a neat container that can be easily sent over the Internet._
+
+### **#3 Sending to the Server ☁️**
+
+![ Live Streaming Workflow](https://miro.medium.com/v2/resize:fit:744/1*4ypGL-73GE9oJmYeLPGHqg.png)
+
+The encoded stream is then sent to a server. A server is a powerful computer located in a data centre that can be accessed via the Internet. The server’s job is to take this single package and create multiple versions of it at different quality levels.
+
+This is important because people have different internet speeds and devices. For example, someone with a fast internet connection can watch in high definition, while someone with slower internet might watch in a lower resolution.
+
+![Adaptive Bitrate Vs Multi-bitrate Streaming - What's the Difference? - Muvi](https://www.muvi.com/wp-content/uploads/2020/04/adaptive-birtate-vs-multi-bitrate-streaming.jpg)
+
+**Adaptive Bitrate Streaming (ABR) -** To ensure the best viewing experience, the server uses a technology called Adaptive Bitrate Streaming (ABR). ABR automatically adjusts the quality of the video based on the viewer’s internet speed. So if your internet speed drops, the server sends a lower-quality version to prevent buffering.
+
+### **#4 Using a Content Delivery Network (CDN) 🌨️**
+
+Before the stream reaches your device, it passes through a Content Delivery Network (CDN). A CDN is a network of servers distributed around the world that helps deliver the stream quickly and efficiently.
+
+![A Brief Introduction to Content Delivery Network(CDN) - Cloudkul](https://cloudkul.com/blog/wp-content/uploads/2020/02/Untitled-Diagram-8.jpg)
+
+The CDN ensures that the video reaches you with minimal delay by sending it from a server that is geographically closest to you. This reduces buffering and improves the streaming experience.
+
+**Streaming Protocols -** The video stream is transferred from the server to the CDN using specific protocols. One common protocol is RTMP (Real-Time Messaging Protocol), which is known for its low latency and ability to stream high-definition video smoothly. Another popular protocol is HLS (HTTP Live Streaming), developed by Apple. HLS is widely used because it allows viewers to rewind, fast-forward, and pause the live stream, similar to how you use YouTube and Netflix.
+
+### **#5 Delivering to Your Device 📱**
+
+![ipl playoffs 2023: Record high viewership for IPL playoffs in 2023, 44%  higher YoY - The Economic Times](https://m.economictimes.com/thumb/msid-100679056,width-1600,height-900,resizemode-4,imgsize-191320/ipl-tv-viewership-draws-451-million-unique-audience-as-of-week-5-21-higher-than-last-full-season.jpg)
+
+Finally, the CDN sends the video stream to your device. The nearest CDN server to you will handle your request, making sure you get the stream quickly and without much delay. Your video player—whether it’s on your TV, smartphone, or computer—then decodes the stream, allowing you to watch the match live.
+
+To make sure everything runs smoothly, streaming companies constantly optimize their systems. They prepare for high traffic during big matches by balancing the load across multiple servers and using efficient data routing. This way, even when millions of fans are watching at the same time, the stream remains stable and high quality.
+
+_To learn more about the process of online video streaming, you may watch this video by Apna College:_
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/RXk9tndVOAg?si=GyoAAYYpLK8J2Jaj"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>

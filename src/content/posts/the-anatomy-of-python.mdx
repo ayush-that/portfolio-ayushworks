@@ -1,0 +1,81 @@
+---
+title: "The Anatomy of Python 🐍"
+description: Discover Python's internal workings, from source code writing to CPU execution, in this comprehensive guide for developers seeking deeper insights
+tags: ["python"]
+date: 2024-05-17
+published: true
+cover: "./images/cover/the-anatomy-of-python.avif"
+---
+
+Python was my first programming language. It is a popular object-oriented language known for its simplicity and versatility. As an interpreted language, Python executed code line by line using an interpreter, rather than compiling the entire code to machine language in one go.
+
+In this article, we will explore the internal workings of Python, from writing source code to its execution. Understanding these stages helps developers appreciate the efficiency and power of Python as a programming language.
+
+## Basic Terms to Know
+
+Before we dive into the workings of Python, let's first understand some basic terms:
+
+### **Code Editor**
+
+This is the environment where the source code is written. It is the starting point of the Python program, where developers write instructions in a human-readable format.
+
+### **Source Code**
+
+The human-readable instructions written in the code editor and saved as a `.py` file. This file contains the code that the Python compiler will process.
+
+### **Compilation Stage**
+
+In this stage, the Python compiler translates the source code into byte code, checking for syntax errors along the way. If no errors are found, a `.pyc` file containing the byte code is generated.
+
+### **Python Virtual Machine (PVM)**
+
+The PVM is the core runtime engine of Python. It interprets the byte code and translates it into machine code that the CPU can execute. The PVM ensures that Python code can be executed on any machine with a Python interpreter, making Python highly portable.
+
+### **Running Program**
+
+Once the machine code is generated, the CPU executes it, and the program performs the tasks and computations specified by the original Python script.
+
+## Python's Execution Process
+
+Python code undergoes several stages before it is executed by the computer's CPU. Here’s a step-by-step breakdown of how Python code is converted into executable code:
+
+![Code Editor](https://cdn.hashnode.com/res/hashnode/image/upload/v1715955234708/e46fbbb2-e325-4197-ae40-7511d6bfebb9.png)
+
+1. ### Writing the Source Code
+
+   ![](https://live.staticflickr.com/4836/44661017890_eb4f288ffe_b.jpg)
+
+   The first step in any Python program is writing the source code in a code editor. This is human-readable code, written according to Python’s syntax rules. Once written, this source code is saved as a `.py` file.
+
+2. ### Compilation to Byte Code
+
+   ![](https://prepinstadotcom.s3.ap-south-1.amazonaws.com/wp-content/uploads/2020/07/Pythonbyte.webp)
+
+   When the .py file is executed, the Python compiler first reads the source code. During this stage, the compiler checks for any syntax errors. If no errors are found, the compiler converts the source code into byte code, resulting in a .pyc file. Unlike machine code, byte code is not directly executable by the CPU but serves as an intermediate representation.
+
+3. ### **Interpretation by the Python Virtual Machine (PVM)**
+
+   The byte code is then fed into the Python Virtual Machine (PVM). The PVM is an interpreter that reads the byte code and translates it into machine-executable code. This translation happens line by line, meaning that the PVM interprets and executes each line of byte code sequentially.
+
+4. ### Execution by the CPU
+
+   Finally, the machine code produced by the PVM is executed by the CPU. The CPU, which understands only binary code, performs the tasks and computations specified in the original Python program, producing the desired output.
+
+## Summary
+
+![](https://www.devopsschool.com/blog/wp-content/uploads/2020/08/python-virtual-machine.png)
+
+Python’s internal working involves a multi-stage process where source code is compiled into byte code, interpreted by the PVM, and finally executed as machine code by the CPU.
+
+To learn more, refer to [https://www.geeksforgeeks.org/internal-working-of-python/](https://www.geeksforgeeks.org/internal-working-of-python/) or watch the below YouTube video by Hitesh Chaudhary(Chai aur Code).
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/3HTKc-ZgZbg?si=-I9mzcFKF-TiugI5"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
