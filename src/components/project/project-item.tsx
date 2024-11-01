@@ -1,16 +1,16 @@
-import Image from 'next/image'
-import React from 'react'
-import {FaExternalLinkAlt} from 'react-icons/fa'
-import {FaGithub} from 'react-icons/fa6'
-import {cn} from '~/lib/utils'
-import {CustomLink} from '../mdx'
-import {typo} from '../ui/typograpghy'
-import {TProject} from './_project-mock'
+import Image from "next/image";
+import React from "react";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
+import { cn } from "~/lib/utils";
+import { CustomLink } from "../mdx";
+import { typo } from "../ui/typograpghy";
+import { TProject } from "./_project-mock";
 
-type ProjectItemProps = {} & TProject
+type ProjectItemProps = {} & TProject;
 
 const linkClass =
-  '!p-0 h-full hover:!text-[#25dde5] !flex items-center gap-2 !text-sm !text-ring'
+  "!p-0 h-full hover:!text-[#25dde5] !flex items-center gap-2 !text-sm !text-ring";
 
 const ProjectItem: React.FC<ProjectItemProps> = ({
   Icon,
@@ -42,28 +42,30 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         <hgroup className="space-y-2 sm:space-y-1">
           <h2 className="font-medium font-ubuntu text-base">{title}</h2>
 
-          <p className={'text-xs text-ring'} aria-label="project stacks">
-            {stacks.join(' / ')}
+          <p className={"text-xs text-ring"} aria-label="project stacks">
+            {stacks.join(" / ")}
           </p>
 
           <p
             className={cn(
-              typo({variant: 'paragraph', size: 'sm'}),
-              'line-clamp-2 !mt-4',
+              typo({ variant: "paragraph", size: "sm" }),
+              "line-clamp-2 !mt-4"
             )}
           >
             {description}
           </p>
 
           <div className="flex items-center gap-4 !mt-2">
-            <CustomLink
-              aria-label={`visit ${title} live URL}`}
-              href={deployedURL}
-              className={linkClass}
-            >
-              <FaExternalLinkAlt size={12} />
-              <span> Live Preview</span>
-            </CustomLink>
+            {deployedURL && (
+              <CustomLink
+                aria-label={`visit ${title} live URL}`}
+                href={deployedURL}
+                className={linkClass}
+              >
+                <FaExternalLinkAlt size={12} />
+                <span> Live Preview</span>
+              </CustomLink>
+            )}
 
             {isRepo && (
               <CustomLink
@@ -79,9 +81,9 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         </hgroup>
       </div>
     </li>
-  )
-}
-export default ProjectItem
+  );
+};
+export default ProjectItem;
 
 {
   /* <div className="flex gap-2 items-center">
