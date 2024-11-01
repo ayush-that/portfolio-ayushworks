@@ -1,0 +1,124 @@
+---
+title: "LinkedIn Scraping with Python and Proxycurl API"
+description: Learn how to scrape LinkedIn profiles using Python and Proxycurl API, including setup, API configuration, and handling responses
+tags: ["web-scraping", "python"]
+date: 2024-08-21
+published: true
+cover: "./images/cover/linkedin-scraping-with-python-and-proxycurl-api.avif"
+---
+
+Scraping data from LinkedIn profiles can be incredibly useful for various purposes, from research to building resumes. In this article, I'll walk you through the process of using Python along with the Proxycurl API to scrape data from a LinkedIn profile.
+
+### Step 1: Set Up Your Proxycurl Account
+
+Before diving into the code, you'll need to create an account on the [Proxycurl website](https://nubela.co/proxycurl/). After registering, you'll receive an API key, which is essential for accessing the Proxycurl API.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1724180135536/7cb08f64-b07f-4983-b7b2-a69c480f9ed4.png)
+
+### Step 2: Store Your API Key Safely
+
+To keep your API key secure, it's a good practice to store it in a `.env` file. This file is used to keep sensitive information, like API keys, out of your codebase. Here’s how you can set up your `.env` file:
+
+```plaintext
+API_KEY=your_api_key_here
+```
+
+Replace `your_api_key_here` with the actual API key you received from Proxycurl.
+
+### Step 3: Writing the Python Script
+
+Now, let’s go through the Python code step by step. First, you'll need to import the necessary libraries:
+
+```python
+import requests
+import json
+from dotenv import load_dotenv
+import os
+```
+
+- **requests**: This library allows you to send HTTP requests in Python, which is how we'll interact with the Proxycurl API.
+- **json**: Used for handling JSON data, which is the format the API will return.
+- **dotenv**: Helps load environment variables from a `.env` file.
+- **os**: Provides functions for interacting with the operating system, such as accessing environment variables.
+
+Next, we load the API key from the `.env` file:
+
+The `load_dotenv()` function loads the environment variables from the `.env` file, and `os.getenv("API_KEY")` retrieves the value of the `API_KEY` variable.
+
+### Step 4: Setting Up the LinkedIn Profile URL and API Endpoint
+
+Now, you need to specify the LinkedIn profile URL you want to scrape and the Proxycurl API endpoint:
+
+```python
+linkedin_profile_url = "https://www.linkedin.com/in/ayush-that/"
+api_endpoint = "https://nubela.co/proxycurl/api/v2/linkedin"
+```
+
+- **linkedin_profile_url**: This is the URL of the LinkedIn profile you want to scrape.
+- **api_endpoint**: This is the Proxycurl API endpoint for scraping LinkedIn profile data.
+
+### Step 5: Configuring the API Request
+
+To customize the data you want to scrape, you need to set up the parameters and headers for the API request:
+
+```python
+params = {
+    "url": linkedin_profile_url,
+    "fallback_to_cache": "on-error",
+    "use_cache": "if-present",
+    "skills": "include",
+    "inferred_salary": "include",
+    "extra": "include",
+    "personal_email": "include",
+}
+headers = {
+    "Authorization": f"Bearer {API_KEY}",
+}
+```
+
+- **params**: These parameters control what data is returned by the API. For example, `skills` includes the profile's skills, `inferred_salary` provides an estimate of the profile's salary, and `personal_email` includes the email if available.
+- **headers**: This includes the `Authorization` header, which passes your API key to the API for authentication.
+
+### Step 6: Sending the Request and Handling the Response
+
+Now, we send the request to the Proxycurl API and handle the response:
+
+```python
+response = requests.get(api_endpoint, params=params, headers=headers)
+```
+
+This line sends a GET request to the API with the specified parameters and headers. The API will then return the profile data in JSON format.
+
+Next, we check if the request was successful and save the data:
+
+```python
+if response.status_code == 200:
+    profile_data = response.json()
+    with open("profile_data.json", "w") as json_file:
+        json.dump(profile_data, json_file, indent=4)
+else:
+    print(f"Error: {response.status_code}")
+```
+
+- **response.status_code**: This checks the status of the request. A status code of 200 means the request was successful.
+- **profile_data.json**: If successful, the profile data is saved to a file called `profile_data.json`.
+
+### Step 7: Running the Script
+
+Save your script as [`app.py`](http://app.py) and run it using the following command:
+
+```bash
+python app.py
+```
+
+After running the script, you'll find a file named `profile_data.json` in your directory. This file contains all the scraped data from the LinkedIn profile in a structured format.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1724180047004/7429386a-6b3c-43c2-a0b5-44f81ea29d6e.png)
+
+### Conclusion
+
+And that’s it! You've successfully scraped data from a LinkedIn profile using Python and the Proxycurl API. In the next tutorial, we'll explore how to use this scraped data to create an AI-generated, ATS-friendly resume.
+
+For the complete code, you can visit [GitHub](https://github.com/ayush-that/ResumeGenie).
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1724179604343/0e0ee533-6b25-47b4-9207-8e1afd41a82a.png)

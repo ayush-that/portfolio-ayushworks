@@ -1,0 +1,197 @@
+---
+title: "Build Your First Computer Vision Project"
+description: Create a solo ping pong game using Python, OpenCV, and hand-detection. Step-by-step guide included. Perfect for computer vision beginners
+tags: ["computer-vision", "python", "opencv"]
+date: 2024-07-13
+published: true
+cover: "./images/cover/build-your-first-computer-vision-project.avif"
+---
+
+Have you ever wanted to play ping pong but didn't have a partner? Well, with a bit of coding and [computer vision](https://en.wikipedia.org/wiki/Computer_vision), you can create a solo [ping-pong](https://en.wikipedia.org/wiki/Table_tennis) game that lets you play against yourself!
+
+In this blog post, I'll guide you step-by-step on how to make this game using Python, [OpenCV](https://opencv.org/), and a hand-detection module.
+
+## SoloPong Demo
+
+To see the solo ping pong game in action, check out the demo video below. Watch as I play the game using hand gestures detected by the webcam.
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/4_GEyFlE7M0?si=lV-2RyX04tJkmqgK"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+GitHub -
+[https://github.com/ayush-that/SoloPong](https://github.com/ayush-that/SoloPong)
+
+## What You'll Need
+
+- [Python](https://www.python.org/downloads/) installed on your computer
+- A webcam
+- Some image assets for the game (ball, bats, background, and game over screen) from the [GitHub](https://github.com/ayush-that/SoloPong) repository
+
+  ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1720892343515/26fd1a83-f262-4f47-baad-793403574a9b.png)
+
+## Writing Down the Code
+
+1. **Importing Libraries and Setting Up the Camera**
+
+```python
+import numpy as np
+import cv2 as cv
+import cvzone
+from cvzone.HandTrackingModule import HandDetector
+
+cap = cv.VideoCapture(0)
+cap.set(3, 1280)
+cap.set(4, 720)
+```
+
+We start by importing the necessary libraries. We use OpenCV (`cv`) for image processing, `cvzone` for hand detection, and [NumPy](https://numpy.org/doc/stable/) (`np`) for numerical operations. We then set up the webcam with a resolution of 1280x720.
+
+2. **Loading Image Assets**
+
+```python
+imgBg = cv.imread("assets/bg.png")
+imgGO = cv.imread("assets/gameover.png")
+imgBall = cv.imread("assets/ball.png", cv.IMREAD_UNCHANGED)
+imgBat1 = cv.imread("assets/bat1.png", cv.IMREAD_UNCHANGED)
+imgBat2 = cv.imread("assets/bat2.png", cv.IMREAD_UNCHANGED)
+```
+
+We load the images for the background, game over screen, ball, and bats. Make sure you have these images in the assets folder.
+
+3. **Setting Up the Hand Detector**
+
+```python
+detector = HandDetector(detectionCon=0.8, maxHands=2)
+```
+
+We initialize the hand detector with a detection confidence of 0.8 and allow it to detect up to 2 hands.
+
+4. **Initializing Game Variables**
+
+```python
+ballPos = [100, 100]
+speedX = 25
+speedY = 25
+gameOver = False
+score = [0, 0]
+```
+
+We set the initial position of the ball and its speed. We also initialize the game over flag and the score.
+
+5. **Main Game Loop**
+
+```python
+while True:
+    _, img = cap.read()
+    img = cv.flip(img, 1)
+    imgRaw = img.copy()
+```
+
+We enter the main game loop, read the frame from the webcam, and flip it horizontally for a mirror effect. We also make a copy of the original frame.
+
+6. **Hand Detection and Overlaying Bats**
+
+```python
+hands, img = detector.findHands(img, flipType=False)
+img = cv.addWeighted(img, 0.1, imgBg, 0.9, 0)
+
+if hands:
+    for hand in hands:
+        x, y, w, h = hand["bbox"]
+        h1, w1, _ = imgBat1.shape
+        y1 = y - h1 // 2
+        y1 = np.clip(y1, 20, 415)
+
+        if hand["type"] == "Left":
+            img = cvzone.overlayPNG(img, imgBat1, (59, y1))
+            if 59 < ballPos[0] < 59 + w1 and y1 < ballPos[1] < y1 + h1:
+                speedX = -speedX
+                ballPos[0] += 30
+                score[0] += 1
+
+        if hand["type"] == "Right":
+            img = cvzone.overlayPNG(img, imgBat2, (1195, y1))
+            if 1195 - 50 < ballPos[0] < 1195 and y1 < ballPos[1] < y1 + h1:
+                speedX = -speedX
+                ballPos[0] -= 30
+                score[1] += 1
+```
+
+We detect hands in the frame and overlay the bats based on the hand positions. If the ball hits a bat, its direction changes, and the score is updated.
+
+7. **Ball Movement and Collision Detection**
+
+```python
+if ballPos[0] < 40 or ballPos[0] > 1200:
+    gameOver = True
+if gameOver:
+    img = imgGO
+    cv.putText(
+        img,
+        str(score[1] + score[0]).zfill(2),
+        (585, 360),
+        cv.FONT_HERSHEY_COMPLEX,
+        2.5,
+        (200, 0, 200),
+        5,
+    )
+
+else:
+    if ballPos[1] >= 500 or ballPos[1] <= 10:
+        speedY = -speedY
+
+    ballPos[0] += speedX
+    ballPos[1] += speedY
+
+    img = cvzone.overlayPNG(img, imgBall, ballPos)
+    cv.putText(
+        img,
+        str(score[0]),
+        (300, 650),
+        cv.FONT_HERSHEY_COMPLEX,
+        3,
+        (255, 255, 255),
+        5,
+    )
+    cv.putText(
+        img,
+        str(score[1]),
+        (900, 650),
+        cv.FONT_HERSHEY_COMPLEX,
+        3,
+        (255, 255, 255),
+        5,
+    )
+```
+
+We update the ball's position and check for collisions with the screen edges. If the ball goes out of bounds, the game is over. Otherwise, we continue updating the ball's position and overlay it on the frame.
+
+8. **Displaying the Game**
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1720892600594/523b8490-cba7-45c6-b6cd-3b516b3ff6dc.png)
+
+```python
+img[580:700, 20:233] = cv.resize(imgRaw, (213, 120))
+cv.imshow("Image", img)
+key = cv.waitKey(1)
+if key == ord("r"):
+    ballPos = [100, 100]
+    speedX = 25
+    speedY = 25
+    gameOver = False
+    score = [0, 0]
+    imgGO = cv.imread("assets/gameover.png")
+```
+
+We display the game frame and handle the "R" key press to reset the game.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1720892568086/67aa413b-01c6-4c90-b153-2239c04e13ef.png)
+
+Thank you for following along! Have fun building and playing your own solo ping pong game. If you have any questions or run into issues, feel free to leave a comment below.
