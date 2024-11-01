@@ -8,7 +8,7 @@
     "dev:next": "next dev",
     "build:next": "next build",
     "dev": "run-p dev:*",
-    "build": "run-s build:*",
+    "build": "npm install --legacy-peer-deps && run-s build:*",
     "start": "next start",
     "upgrade:latest": "yarn upgrade-interactive --latest",
     "postinstall": "prisma generate"
@@ -30,7 +30,7 @@
     "@theme-toggles/react": "^4.1.0",
     "@uidotdev/usehooks": "^2.4.1",
     "@vercel/analytics": "^1.3.1",
-    "@vercel/speed-insights": "^1.0.11",
+    "@vercel/speed-insights": "^1.0.2",
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
