@@ -3,8 +3,7 @@ import { ConfigProps } from "./types/config";
 const config = {
   appName: "Ayush Singh",
   appDesignation: "Software Developer",
-  appDescription: `Hi, I'm Ayush, Software developer from India. Skilled in
-  JavaScript, C++, and Python. I bring humor in the room and creativity in projects.`,
+  appDescription: `Hi, I'm Ayush, Software developer from India. I'm funny.`,
 
   domainName: "ayush.pro",
 
