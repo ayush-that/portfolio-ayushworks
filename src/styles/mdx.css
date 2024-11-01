@@ -1,0 +1,124 @@
+[data-rehype-pretty-code-figure] pre {
+  @apply px-0;
+}
+
+[data-rehype-pretty-code-figure] code {
+  @apply text-sm !leading-loose md:text-base border-0 p-0;
+}
+
+[data-rehype-pretty-code-figure] code[data-line-numbers] {
+  counter-reset: line;
+}
+
+[data-rehype-pretty-code-figure] code[data-line-numbers]>[data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply mr-4 inline-block w-4 text-right text-gray-500;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply border-l-2 border-l-transparent px-3;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  background: rgba(21, 21, 205, 0.1);
+  @apply border-l-blue-400;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  @apply rounded bg-zinc-600/50;
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+}
+
+[data-rehype-pretty-code-figure] [data-chars-id] {
+  @apply border-b-2 p-1 shadow-none;
+}
+
+.subheading-anchor {
+  @apply no-underline hover:underline text-xl el-focus-styles;
+}
+
+.mdx-content p {
+  @apply text-base my-0 mt-3 text-muted-foreground font-ubuntu;
+}
+
+.mdx-content p code {
+  @apply font-ubuntu;
+}
+
+.mdx-content p a {
+  @apply text-ring el-focus-styles;
+}
+
+.mdx-content p:first-child {
+  @apply mt-0;
+}
+
+.mdx-content h2,
+.mdx-content h3,
+.mdx-content h1,
+.mdx-content h5 {
+  @apply mt-3 mb-0;
+}
+
+.mdx-content figure {
+  @apply my-6;
+}
+
+.mdx-content ol,
+.mdx-content ul {
+  @apply my-3 ps-[14px];
+}
+
+.mdx-content ol a,
+.mdx-content ul a {
+  @apply el-focus-styles hover:text-ring hover:underline;
+}
+
+.mdx-content ol li,
+.mdx-content ul li {
+  @apply ps-[2px];
+}
+
+.mdx-content hr {
+  @apply my-6;
+}
+
+.mdx-content figure,
+.mdx-content code,
+.mdx-content pre,
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply !font-dank el-focus-styles;
+}
+
+.mdx-content figure,
+.mdx-content pre {
+  @apply overflow-x-auto;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+.mdx-content div[data-ntpc='YouTubeEmbed'] {
+  margin-top: 0.75rem;
+  position: relative;
+  aspect-ratio: 16/9;
+}
+
+.mdx-content a:hover {
+  border-bottom: 2px dashed;
+}
+
+.mdx-content div[data-ntpc='YouTubeEmbed'] lite-youtube {
+  border-radius: 6px;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.mdx-content span[data-line] span[style='color:#6C7086;font-style:italic'],
+.mdx-content span[data-line] span[style='color: rgb(108, 112, 134); font-style: italic;'] {
+  @apply !text-[#8286a1];
+}
