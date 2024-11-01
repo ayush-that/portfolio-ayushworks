@@ -55,14 +55,14 @@ const AboutSection = () => {
           and ideathons, winning 4 of them. I'm an{" "}
           <span ref={annotationRefs[1]} className="text-white">
             AWS Cloud Club Captain
-          </span>{" "}
+          </span>
           , open-source contributor, and project maintainer.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
           I{" "}
           <span ref={annotationRefs[2]} className="text-white">
-            Love building
+            love building
           </span>{" "}
           tools that are user friendly, simple and scalable.
         </p>

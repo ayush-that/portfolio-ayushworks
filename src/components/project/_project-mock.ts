@@ -1,6 +1,5 @@
 import { createId } from "@paralleldrive/cuid2";
-import { ChainGpt, LumaIcon } from "~/assets/svg";
-import { MintKuto, PodPortal, PowerUp, worldRank } from "./project-icons";
+import { ChainGpt } from "~/assets/svg";
 
 // Project cover images
 import nykaaCover from "~/assets/images/cover/nykaa-product-advisor.png";
@@ -15,9 +14,6 @@ import typingCover from "~/assets/images/cover/100xtyping.png";
 import cookinghubCover from "~/assets/images/cover/cookinghub.png";
 import kooberCover from "~/assets/images/cover/koober.png";
 import webstCover from "~/assets/images/cover/webst.png";
-import { describe } from "node:test";
-import { Icon } from "lucide-react";
-import { Description } from "@radix-ui/react-dialog";
 
 const projects = [
   {
@@ -128,7 +124,6 @@ const projects = [
     cover: whatsmytrashCover,
     isRepo: true,
     repoUrl: "https://github.com/ayush-that/IOSC_whatsmytrash",
-    deployedURL: "https://github.com/ayush-that/IOSC_whatsmytrash",
   },
 
   {
@@ -139,8 +134,6 @@ const projects = [
       "Apple calculator inspired math-solver that uses Computer Vision and AI to solve mathematical problems.",
     isRepo: true,
     repoUrl:
-      "https://github.com/ayush-that/Apple-Calculator-Using-Computer-Vision",
-    deployedUrl:
       "https://github.com/ayush-that/Apple-Calculator-Using-Computer-Vision",
     cover: mathcamCover,
     stacks: ["Python", "Flask", "OpenCV", "Gemini"],
@@ -167,9 +160,8 @@ const projects = [
     description:
       "Classic pong game with a twist of Computer Vision. Play against yourself and see how long you can last.",
     isRepo: true,
-    deployedURL: "https://github.com/ayush-that/FinVeda",
     stacks: ["Python", "Flask", "OpenCV"],
-    repoUrl: "https://github.com/ayush-that/FinVeda",
+    repoUrl: "https://github.com/ayush-that/SoloPong",
   },
 
   {

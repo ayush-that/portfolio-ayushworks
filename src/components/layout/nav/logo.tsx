@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const Logo = () => {
   return (
@@ -18,7 +18,7 @@ const Logo = () => {
         className=" shadow-sm border rounded-md"
       />
     </Link>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;
