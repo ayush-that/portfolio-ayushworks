@@ -1,26 +1,20 @@
-import { createId } from "@paralleldrive/cuid2";
+import {createId} from '@paralleldrive/cuid2'
 
 export const navData = [
   {
     id: createId(),
-    label: "Home",
-    path: "/",
+    label: 'Home',
+    path: '/',
   },
   {
     id: createId(),
-    label: "Projects",
-    path: "/projects",
+    label: 'Projects',
+    path: '/projects',
   },
   {
     id: createId(),
-    label: "Blog",
-    path: "/blog",
-  },
-
-  {
-    id: createId(),
-    label: "Resume",
-    path: "https://drive.google.com/file/d/1KxBowYMX0q8_SPDbwjkATommvreypq1H/view?usp=sharing",
+    label: 'Blog',
+    path: '/blog',
   },
 
   // {
@@ -34,6 +28,6 @@ export const navData = [
   //   label: 'Contact',
   //   path: '/contact',
   // },
-];
+]
 
-export type NavType = typeof navData;
+export type NavType = typeof navData
