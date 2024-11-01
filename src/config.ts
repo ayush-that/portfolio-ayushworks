@@ -5,7 +5,7 @@ const config = {
   appDesignation: "Software Developer",
   appDescription: `Hi, I'm Ayush, Software developer from India. I'm funny.`,
 
-  domainName: "ayush.pro",
+  domainName: "ayush.top",
 
   colors: {
     theme: "dark",
