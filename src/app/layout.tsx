@@ -4,6 +4,7 @@ import { getSEOTags, renderSchemaTags } from "~/lib/seo";
 import { cn } from "~/lib/utils";
 import RootProviders from "~/providers";
 import "~/styles/globals.css";
+import CommandSearch from "~/components/command-search";
 
 export const viewport = {
   viewportFit: "cover",
@@ -37,6 +38,8 @@ export default function RootLayout({
         {renderSchemaTags()}
 
         <RootProviders>{children}</RootProviders>
+
+        <CommandSearch />
 
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
