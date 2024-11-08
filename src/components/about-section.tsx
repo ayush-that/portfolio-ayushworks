@@ -48,7 +48,7 @@ const AboutSection = () => {
         </h1>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          Self-taught developer with with hands-on experience across{" "}
+          Self-taught developer with hands-on experience across{" "}
           <span className="text-white" ref={annotationRefs[0]}>
             15+ hackathons{" "}
           </span>{" "}
