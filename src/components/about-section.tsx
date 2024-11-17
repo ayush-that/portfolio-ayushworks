@@ -44,40 +44,48 @@ const AboutSection = () => {
     <section className=" grid md:grid-cols-3 gap-8 sm:gap-4" aria-label="About">
       <div className="space-y-3 md:col-span-2 order-2 sm:order-1">
         <h1 className="font-semibold text-lg sm:text-xl font-ubuntu">
-          Hi, I&apos;m Ayush.
+          yo wassup wassup fambruh 😽
         </h1>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          Self-taught developer with hands-on experience across{" "}
+          i'm ayush, a developer who attended{" "}
           <span className="text-white" ref={annotationRefs[0]}>
             15+ hackathons{" "}
           </span>{" "}
-          and ideathons, winning 4 of them. I'm an{" "}
-          <span ref={annotationRefs[1]} className="text-white">
-            AWS Cloud Club Captain
-          </span>
-          , open-source contributor, and project maintainer.
+          and ideathons for free food but ended up winning 4 of them.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          I{" "}
+          i'm — full of latent, an{" "}
+          <span ref={annotationRefs[1]} className="text-white">
+            aws cloud club captain
+          </span>
+          , open-source contributor, and mother of{" "}
+          <a className="text-white" href="finveda.xyz">
+            finveda.xyz
+          </a>
+          .
+        </p>
+
+        <p className={typo({ variant: "paragraph", font: "sans" })}>
+          i{" "}
           <span ref={annotationRefs[2]} className="text-white">
             love building
           </span>{" "}
-          tools that are user friendly, simple and scalable.
+          apps that are user friendly, simple and scalable.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          When I’m not coding, I enjoy reading,{" "}
+          when not coding, i watch brainrot or scroll twitter (please follow
+          🙏🏻). i'm{" "}
           <span ref={annotationRefs[3]} className="text-white">
-            making people laugh
-          </span>
-          , and staying active by running. These experiences outside of tech
-          help fuel{" "}
+            funny and
+          </span>{" "}
+          pursuing{" "}
           <span ref={annotationRefs[4]} className="text-white">
-            fresh ideas
-          </span>
-          , which I bring back to my work.
+            phd in yappology
+          </span>{" "}
+          and btech it.
         </p>
 
         <p
@@ -86,14 +94,14 @@ const AboutSection = () => {
             "sm:!mt-4"
           )}
         >
-          I&apos;m currently looking for a new role as a developer.{" "}
+          wanna rizz up your ideas with my development skills???{" "}
           <a
             ref={annotationRefs[5] as React.RefObject<HTMLAnchorElement>}
             href={`mailto:${config.social.email}`}
-            aria-label="Hire me"
+            aria-label="Hire Me"
             className="text-ring el-focus-styles"
           >
-            Hire me?
+            hire me? ( ͡❛ ͜ʖ ͡❛)
           </a>
         </p>
       </div>

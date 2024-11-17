@@ -1,7 +1,7 @@
 import { ConfigProps } from "./types/config";
 
 const config = {
-  appName: "Ayush Singh",
+  appName: "Hi I'm Ayush",
   appDesignation: "Software Developer",
   appDescription: `Hi, I'm Ayush. I'm funny.`,
 
@@ -9,6 +9,7 @@ const config = {
 
   colors: {
     theme: "dark",
+    main: "#000000",
   },
 
   social: {
@@ -18,6 +19,7 @@ const config = {
     discord: "https://discordapp.com/users/fitlesshot",
     email: "ayush1337@hotmail.com",
     phone: "",
+    youtube: "https://www.youtube.com/@ayush-that",
   },
 
   auth: {

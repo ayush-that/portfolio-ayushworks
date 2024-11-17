@@ -1,10 +1,13 @@
-import Logo from './logo'
-import MobileNav from './mobile-nav'
-import NavList from './nav-list'
+import Logo from "./logo";
+import MobileNav from "./mobile-nav";
+import NavList from "./nav-list";
 
 const Navbar = () => {
   return (
-    <nav className="mt-2 mb-4 gap-4 flex items-center justify-between" role="navigation">
+    <nav
+      className="mt-2 mb-4 gap-4 flex items-center justify-between"
+      role="navigation"
+    >
       <Logo />
 
       <div className="hidden sm:block">
@@ -15,7 +18,7 @@ const Navbar = () => {
         <MobileNav />
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

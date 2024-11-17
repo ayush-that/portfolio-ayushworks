@@ -1,26 +1,27 @@
-export type Theme = 'light' | 'dark'
+export type Theme = "light" | "dark";
 
 export interface ConfigProps {
-  appName: string
-  appDescription: string
-  appDesignation: string
-  domainName: string
+  appName: string;
+  appDescription: string;
+  appDesignation: string;
+  domainName: string;
 
   social: {
-    github: string
-    linkedin: string
-    instagram: string
-    discord: string
-    email: string
-    phone: string
-  }
+    github: string;
+    linkedin: string;
+    instagram: string;
+    discord: string;
+    email: string;
+    phone: string;
+    youtube: string;
+  };
 
   colors: {
-    theme: Theme
-    main: string
-  }
+    theme: Theme;
+    main: string;
+  };
   auth: {
-    loginUrl: string
-    callbackUrl: string
-  }
+    loginUrl: string;
+    callbackUrl: string;
+  };
 }
