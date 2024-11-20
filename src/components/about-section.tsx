@@ -44,49 +44,50 @@ const AboutSection = () => {
     <section className=" grid md:grid-cols-3 gap-8 sm:gap-4" aria-label="About">
       <div className="space-y-3 md:col-span-2 order-2 sm:order-1">
         <h1 className="font-semibold text-lg sm:text-xl font-ubuntu">
-          yo wassup wassup fambruh 😽
+          Ayush Kumar Singh
         </h1>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          i'm ayush, a developer who attended{" "}
-          <span className="text-white" ref={annotationRefs[0]}>
-            15+ hackathons{" "}
-          </span>{" "}
-          and ideathons for free food but ended up winning 4 of them.
-        </p>
-
-        <p className={typo({ variant: "paragraph", font: "sans" })}>
-          i'm — full of latent, an{" "}
-          <span ref={annotationRefs[1]} className="text-white">
-            aws cloud club captain
+          <span className="text-white">
+            About Me <br />
           </span>
-          , open-source contributor, and mother of{" "}
-          <a className="text-white" href="finveda.xyz">
-            finveda.xyz
-          </a>
-          .
+          Hello! I'm a developer from Delhi, India. I enjoy programming and
+          exploring technology. I've participated in{" "}
+          <span className="text-white" ref={annotationRefs[0]}>
+            <a href="https://docs.google.com/spreadsheets/d/12_9qHndKpcrtrfCzGFSlu9Cb07TkeHIRHsQtRZdIeJ8/edit?usp=sharing">
+              ~15 hackathons
+            </a>
+          </span>{" "}
+          & ideathons and won 4 of them.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          i{" "}
+          <span className="text-white">
+            What I do? <br />
+          </span>{" "}
+          Currently, I'm handling tech in my agency,{" "}
+          <span ref={annotationRefs[1]} className="text-white">
+            <a className="text-white" href="https://cryptoniclabs.com/">
+              Cryptonic Labs
+            </a>
+          </span>
+          . I'm super active on X where I share my thoughts and{" "}
           <span ref={annotationRefs[2]} className="text-white">
-            love building
-          </span>{" "}
-          apps that are user friendly, simple and scalable.
+            #BuildInPublic
+          </span>
+          .{" "}
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          when not coding, i watch brainrot or scroll twitter (please follow
-          🙏🏻). i'm{" "}
+          I'm an{" "}
           <span ref={annotationRefs[3]} className="text-white">
-            funny and
-          </span>{" "}
-          pursuing{" "}
-          <span ref={annotationRefs[4]} className="text-white">
-            phd in yappology
-          </span>{" "}
-          and btech it.
+            AWS Cloud Club Captain
+          </span>
+          , a maintainer and contributor of open-source projects. When not
+          coding, I read books, go out for a run or binge YouTube.
         </p>
+
+        <p className={typo({ variant: "paragraph", font: "sans" })}></p>
 
         <p
           className={cn(
@@ -94,14 +95,18 @@ const AboutSection = () => {
             "sm:!mt-4"
           )}
         >
-          wanna rizz up your ideas with my development skills???{" "}
+          I'm{" "}
+          <span ref={annotationRefs[4]} className="text-white">
+            open to work
+          </span>
+          , freelance, or collaborate.{" "}
           <a
             ref={annotationRefs[5] as React.RefObject<HTMLAnchorElement>}
             href={`mailto:${config.social.email}`}
             aria-label="Hire Me"
             className="text-ring el-focus-styles"
           >
-            hire me? ( ͡❛ ͜ʖ ͡❛)
+            Contact Me.
           </a>
         </p>
       </div>
