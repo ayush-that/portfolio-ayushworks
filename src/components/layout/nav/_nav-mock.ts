@@ -19,7 +19,7 @@ export const navData = [
   {
     id: createId(),
     label: "Resume",
-    path: "https://drive.google.com/file/d/1Zc6rtDQJ1POsUgszR6I5VTMutNRBQ3Rf/view?usp=sharing",
+    path: "https://drive.google.com/file/d/1hjYXa-4jvB7SmEN7CsopiI_hX4fn0eVq/view?usp=sharing",
   },
 
   // {
