@@ -14,6 +14,8 @@ export interface ConfigProps {
     email: string;
     phone: string;
     youtube: string;
+    twitter: string;
+    buymeacoffee: string;
   };
 
   colors: {

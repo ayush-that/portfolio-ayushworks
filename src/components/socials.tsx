@@ -1,12 +1,13 @@
 import { ClassValue } from "clsx";
 import { Linkedin } from "lucide-react";
-import { FaInstagram, FaYoutube } from "react-icons/fa6";
+import { FaInstagram, FaYoutube, FaXTwitter } from "react-icons/fa6";
 import { FiGithub } from "react-icons/fi";
 import { TbBrandDiscord } from "react-icons/tb";
+import { SiBuymeacoffee } from "react-icons/si";
 import config from "~/config";
 import { cn } from "~/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
-``;
+
 const socialsIcons = [
   {
     id: 1,
@@ -44,7 +45,22 @@ const socialsIcons = [
     href: config.social.youtube,
     className: "hover:bg-red-600 hover:text-white" as ClassValue,
   },
+  {
+    id: 6,
+    label: "Twitter",
+    icon: <FaXTwitter className="size-[1.2rem]" />,
+    href: config.social.twitter,
+    className: "hover:bg-[#1DA1F2] hover:text-white" as ClassValue,
+  },
+  {
+    id: 7,
+    label: "Buy Me a Coffee",
+    icon: <SiBuymeacoffee className="size-[1.2rem]" />,
+    href: config.social.buymeacoffee,
+    className: "hover:bg-yellow-500 hover:text-black" as ClassValue,
+  },
 ];
+
 const Socials = () => {
   return (
     <ul className="flex items-center gap-2">
