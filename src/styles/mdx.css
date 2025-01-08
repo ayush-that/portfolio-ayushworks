@@ -3,7 +3,7 @@
 }
 
 [data-rehype-pretty-code-figure] code {
-  @apply text-sm !leading-loose md:text-base border-0 p-0;
+  @apply text-sm !leading-loose md:text-base border-0 p-0 font-mono;
 }
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
@@ -13,7 +13,7 @@
 [data-rehype-pretty-code-figure] code[data-line-numbers]>[data-line]::before {
   counter-increment: line;
   content: counter(line);
-  @apply mr-4 inline-block w-4 text-right text-gray-500;
+  @apply mr-4 inline-block w-4 text-right text-gray-400;
 }
 
 [data-rehype-pretty-code-figure] [data-line] {
@@ -21,13 +21,13 @@
 }
 
 [data-rehype-pretty-code-figure] [data-highlighted-line] {
-  background: rgba(21, 21, 205, 0.1);
-  @apply border-l-blue-400;
+  background: rgba(21, 21, 205, 0.15);
+  @apply border-l-blue-500;
 }
 
 [data-rehype-pretty-code-figure] [data-highlighted-chars] {
-  @apply rounded bg-zinc-600/50;
-  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+  @apply rounded bg-zinc-700/50;
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.6);
 }
 
 [data-rehype-pretty-code-figure] [data-chars-id] {
@@ -107,7 +107,8 @@
 }
 
 .mdx-content a:hover {
-  border-bottom: 2px dashed;
+  border-bottom: 2px dashed currentColor;
+  @apply text-ring transition-colors duration-200;
 }
 
 .mdx-content div[data-ntpc='YouTubeEmbed'] lite-youtube {
@@ -118,7 +119,13 @@
   width: 100%;
 }
 
-.mdx-content span[data-line] span[style='color:#6C7086;font-style:italic'],
-.mdx-content span[data-line] span[style='color: rgb(108, 112, 134); font-style: italic;'] {
-  @apply !text-[#8286a1];
+.mdx-content span[data-line] span[style*='color:#6C7086'],
+.mdx-content span[data-line] span[style*='color: rgb(108, 112, 134)'] {
+  @apply !text-[#9599b3];
+}
+
+.mdx-content p a,
+.mdx-content ol a,
+.mdx-content ul a {
+  @apply transition-colors duration-200;
 }
