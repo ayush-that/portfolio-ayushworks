@@ -35,7 +35,7 @@
 }
 
 .subheading-anchor {
-  @apply no-underline hover:underline text-xl el-focus-styles;
+  @apply no-underline hover:underline text-xl ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
 }
 
 .mdx-content p {
