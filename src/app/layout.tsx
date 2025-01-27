@@ -1,5 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
-import { dankMono, fontSans, ubuntu } from "~/components/ui/fonts";
+import { fontSans } from "~/components/ui/fonts";
 import { getSEOTags, renderSchemaTags } from "~/lib/seo";
 import { cn } from "~/lib/utils";
 import RootProviders from "~/providers";
@@ -29,9 +29,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
-          ubuntu.variable,
-          dankMono.variable
+          fontSans.variable
         )}
       >
         {renderSchemaTags()}
