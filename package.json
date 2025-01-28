@@ -10,8 +10,7 @@
     "dev": "run-p dev:*",
     "build": "npm install --legacy-peer-deps && run-s build:*",
     "start": "next start",
-    "upgrade:latest": "yarn upgrade-interactive --latest",
-    "postinstall": "prisma generate"
+    "upgrade:latest": "npm upgrade-interactive --latest"
   },
   "dependencies": {
     "@giscus/react": "^3.0.0",
