@@ -21,7 +21,7 @@ const nextConfig = {
       {
         source: "/resume",
         destination:
-          "https://drive.google.com/file/d/19hgxz_4PJF-NIv3QgFCEORadIzCaoxQY/view?usp=sharing",
+          "https://drive.google.com/file/d/1xCKayGBdsfh39OIaWlq4G95S38jx7ZIu/view?usp=sharing",
         permanent: true,
       },
       {
