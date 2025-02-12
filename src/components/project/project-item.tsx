@@ -13,7 +13,6 @@ const linkClass =
   "!p-0 h-full hover:!text-[#25dde5] !flex items-center gap-2 !text-sm !text-ring";
 
 const ProjectItem: React.FC<ProjectItemProps> = ({
-  Icon,
   title,
   description,
   deployedURL,
@@ -24,7 +23,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 }) => {
   return (
     <li role="listitem">
-      <div className="grid  gap-4 group el-focus-styles rounded-md">
+      <div className="grid gap-4 rounded-md">
         <div className="aspect-video relative">
           <Image
             alt={`${title} not found`}
@@ -33,10 +32,6 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
             src={cover}
             className="size-full object-cover rounded-md"
           />
-
-          <div className="absolute size-full group-hover:opacity-100 opacity-0 inset-0 bg-black/60 transition grid place-content-center">
-            <Icon />
-          </div>
         </div>
 
         <hgroup className="space-y-2 sm:space-y-1">

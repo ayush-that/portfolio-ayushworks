@@ -1,6 +1,6 @@
 import { ConfigProps } from "./types/config";
 
-const config = {
+export const config = {
   appName: "Hi I'm Ayush",
   appDesignation: "Software Developer",
   appDescription: `Hi, I'm Ayush. I'm funny.`,

@@ -1,54 +1,49 @@
-import {posts} from '#site/content'
-import Image from 'next/image'
-import {notFound} from 'next/navigation'
-import BackButton from '~/components/back-btn'
-import {MDXContent} from '~/components/mdx'
-import {
-  JsonSchemaLD,
-  PostComments,
-  PostMetadata,
-  TableOfContent,
-} from '~/components/post'
-import Tags from '~/components/tags'
-import {getSEOTags} from '~/lib/seo'
-import {cn} from '~/lib/utils'
-import '~/styles/mdx.css'
+import { posts } from "#site/content";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import BackButton from "~/components/back-btn";
+import { MDXContent } from "~/components/mdx";
+import { JsonSchemaLD, PostMetadata, TableOfContent } from "~/components/post";
+import Tags from "~/components/tags";
+import { getSEOTags } from "~/lib/seo";
+import { cn } from "~/lib/utils";
+import "~/styles/mdx.css";
 
 interface BlogPostParams {
   params: {
-    slug: string[]
-  }
+    slug: string[];
+  };
 }
 
-async function getPostFromParams(params: BlogPostParams['params']) {
-  const slug = params?.slug?.join('/')
-  const post = posts.find(post => post.slugAsParams === slug)
+async function getPostFromParams(params: BlogPostParams["params"]) {
+  const slug = params?.slug?.join("/");
+  const post = posts.find((post) => post.slugAsParams === slug);
 
   if (post === undefined || !post.published) {
-    return notFound()
+    return notFound();
   }
 
-  return post
+  return post;
 }
 
 export async function generateStaticParams(): Promise<
-  BlogPostParams['params'][]
+  BlogPostParams["params"][]
 > {
-  return posts.map(post => ({slug: post.slugAsParams.split('/')}))
+  return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
 }
 
-export async function generateMetadata({params}: BlogPostParams) {
-  const post = await getPostFromParams(params)
+export async function generateMetadata({ params }: BlogPostParams) {
+  const post = await getPostFromParams(params);
 
   return getSEOTags({
     title: post.title,
     description: post.description,
-    canonicalUrlRelative: `/blog/${post.slugAsParams.split('/')}`,
+    canonicalUrlRelative: `/blog/${post.slugAsParams.split("/")}`,
     extraTags: {
       openGraph: {
         title: post.title,
         description: post.description,
-        url: `/blog/${post.slug.split('/')}`,
+        url: `/blog/${post.slug.split("/")}`,
         images: [
           {
             url: post.cover.src,
@@ -56,15 +51,15 @@ export async function generateMetadata({params}: BlogPostParams) {
             height: 660,
           },
         ],
-        locale: 'en_US',
-        type: 'website',
+        locale: "en_US",
+        type: "website",
       },
     },
-  })
+  });
 }
 
-export default async function BlogDetail({params}: BlogPostParams) {
-  const post = await getPostFromParams(params)
+export default async function BlogDetail({ params }: BlogPostParams) {
+  const post = await getPostFromParams(params);
 
   return (
     <>
@@ -108,9 +103,7 @@ export default async function BlogDetail({params}: BlogPostParams) {
           <h3 className="font-bold">Tags</h3>
           <Tags tags={post.tags} />
         </div>
-
-        <PostComments />
       </article>
     </>
-  )
+  );
 }

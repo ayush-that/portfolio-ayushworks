@@ -11,13 +11,12 @@ import { useMediaQuery } from "~/hooks";
 import { cn } from "~/lib/utils";
 import { typo } from "./ui/typograpghy";
 import Image from "next/image";
-import dubaiCon from "~/assets/images/f-dubai-police.webp";
+import livethecode from "~/assets/images/live-the-code.webp";
 import { annotationsConfig } from "~/constants/anime";
 
 const AboutSection = () => {
   const isSmallDevice = useMediaQuery("(max-width: 500px)");
   const annotationRefs = annotationsConfig.map(() =>
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     useRef<HTMLSpanElement | HTMLAnchorElement>(null)
   );
 
@@ -55,23 +54,22 @@ const AboutSection = () => {
           exploring technology. I've participated in{" "}
           <span className="text-white" ref={annotationRefs[0]}>
             <a href="https://docs.google.com/spreadsheets/d/12_9qHndKpcrtrfCzGFSlu9Cb07TkeHIRHsQtRZdIeJ8/edit?usp=sharing">
-              ~15 hackathons
+              15+ hackathons
             </a>
           </span>{" "}
-          & ideathons and won 4 of them.
+          & ideathons and won 6 of them.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
           <span className="text-white">
             What I do? <br />
           </span>{" "}
-          Currently, I'm handling tech in my agency,{" "}
+          I've delivered 10+ freelance projects, interned at two companies and
+          failed to build my own startup twice.{" "}
           <span ref={annotationRefs[1]} className="text-white">
-            <a className="text-white" href="https://cryptoniclabs.com/">
-              Cryptonic Labs
-            </a>
+            #LifeGoesOn
           </span>
-          . I'm super active on X where I share my thoughts and{" "}
+          . I'm super active on X where I share funnies and{" "}
           <span ref={annotationRefs[2]} className="text-white">
             #BuildInPublic
           </span>
@@ -114,8 +112,8 @@ const AboutSection = () => {
       <div className="relative block sm:hidden md:block aspect-square order-1 sm:order-2">
         <div className="bg-[#00adb5] absolute inset-0 size-full rounded-md -z-10"></div>
         <Image
-          alt="Speaking on stage at Dubai police station during a presentation"
-          src={dubaiCon}
+          alt="Speaking on stage at for a hackathon presentation"
+          src={livethecode}
           placeholder="blur"
           className="rounded-md shadow-md size-full  transform -rotate-3"
           priority
