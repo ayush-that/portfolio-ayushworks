@@ -43,7 +43,8 @@ const AboutSection = () => {
     <section className=" grid md:grid-cols-3 gap-8 sm:gap-4" aria-label="About">
       <div className="space-y-3 md:col-span-2 order-2 sm:order-1">
         <h1 className="font-semibold text-lg sm:text-xl font-ubuntu">
-          Ayush Kumar Singh
+          Ayush Singh{" "}
+          <span className="font-normal text-white text-italic">aka shydev</span>
         </h1>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
