@@ -65,7 +65,7 @@ const AboutSection = () => {
           <span className="text-white">
             What I do? <br />
           </span>{" "}
-          I've delivered 10+ freelance projects, interned at two companies and
+          I've delivered 10+ freelance projects, interned at two startups and
           failed to build my own startup twice.{" "}
           <span ref={annotationRefs[1]} className="text-white">
             #LifeGoesOn
