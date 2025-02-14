@@ -93,7 +93,7 @@ export default async function BlogDetail({ params }: BlogPostParams) {
 
         <main
           id="main-content"
-          className={cn(`prose-invert mdx-content  !w-full`)}
+          className={cn("prose prose-invert max-w-none mdx-content")}
         >
           <MDXContent code={post.body} />
         </main>
