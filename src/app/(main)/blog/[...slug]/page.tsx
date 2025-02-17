@@ -26,9 +26,7 @@ async function getPostFromParams(params: BlogPostParams["params"]) {
   return post;
 }
 
-export async function generateStaticParams(): Promise<
-  BlogPostParams["params"][]
-> {
+export async function generateStaticParams(): Promise<BlogPostParams["params"][]> {
   return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
 }
 
@@ -67,7 +65,7 @@ export default async function BlogDetail({ params }: BlogPostParams) {
       <JsonSchemaLD post={post} />
       <article className="w-full">
         <BackButton>Back to Posts</BackButton>
-        <div className="space-y-6 mb-6 mt-2">
+        <div className="mb-6 mt-2 space-y-6">
           <PostMetadata
             isDetailPage
             title={post.title}
@@ -85,16 +83,13 @@ export default async function BlogDetail({ params }: BlogPostParams) {
               placeholder="blur"
               priority
               fill
-              className="rounded-md size-full object-cover"
+              className="size-full rounded-md object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         </div>
 
-        <main
-          id="main-content"
-          className={cn("prose prose-invert max-w-none mdx-content")}
-        >
+        <main id="main-content" className={cn("mdx-content prose prose-invert max-w-none")}>
           <MDXContent code={post.body} />
         </main>
 

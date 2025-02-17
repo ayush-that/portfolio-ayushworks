@@ -6,12 +6,8 @@ interface SVGRProps {
   titleId?: string;
 }
 
-const ChainGpt = ({
-  title,
-  titleId,
-  ...props
-}: SVGProps<SVGSVGElement> & SVGRProps) => (
-  <div className="size-16 border bg-neutral-900 grid place-content-center rounded-md hover:border-cyan-500 transition-colors">
+const ChainGpt = ({ title, titleId, ...props }: SVGProps<SVGSVGElement> & SVGRProps) => (
+  <div className="grid size-16 place-content-center rounded-md border bg-neutral-900 transition-colors hover:border-cyan-500">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={40}
@@ -30,18 +26,10 @@ const ChainGpt = ({
       </defs>
 
       {/* Abstract tech pattern */}
-      <path
-        fill="url(#gradient1)"
-        d="M12 8h16v4H12zM8 16h24v2H8zM16 22h8v2h-8zM20 28h4v4h-4z"
-      />
+      <path fill="url(#gradient1)" d="M12 8h16v4H12zM8 16h24v2H8zM16 22h8v2h-8zM20 28h4v4h-4z" />
 
       {/* Connecting lines */}
-      <path
-        stroke="url(#gradient1)"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        d="M20 12v4M20 24v4"
-      />
+      <path stroke="url(#gradient1)" strokeWidth="1.5" strokeLinecap="round" d="M20 12v4M20 24v4" />
     </svg>
   </div>
 );

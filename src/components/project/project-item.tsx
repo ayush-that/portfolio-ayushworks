@@ -9,8 +9,7 @@ import { TProject } from "./_project-mock";
 
 type ProjectItemProps = {} & TProject;
 
-const linkClass =
-  "!p-0 h-full hover:!text-[#25dde5] !flex items-center gap-2 !text-sm !text-ring";
+const linkClass = "!p-0 h-full hover:!text-[#25dde5] !flex items-center gap-2 !text-sm !text-ring";
 
 const ProjectItem: React.FC<ProjectItemProps> = ({
   title,
@@ -24,33 +23,28 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   return (
     <li role="listitem">
       <div className="grid gap-4 rounded-md">
-        <div className="aspect-video relative">
+        <div className="relative aspect-video">
           <Image
             alt={`${title} not found`}
             priority
             placeholder="blur"
             src={cover}
-            className="size-full object-cover rounded-md"
+            className="size-full rounded-md object-cover"
           />
         </div>
 
         <hgroup className="space-y-2 sm:space-y-1">
-          <h2 className="font-medium font-ubuntu text-base">{title}</h2>
+          <h2 className="font-ubuntu text-base font-medium">{title}</h2>
 
           <p className={"text-xs text-ring"} aria-label="project stacks">
             {stacks.join(" / ")}
           </p>
 
-          <p
-            className={cn(
-              typo({ variant: "paragraph", size: "sm" }),
-              "line-clamp-2 !mt-4"
-            )}
-          >
+          <p className={cn(typo({ variant: "paragraph", size: "sm" }), "!mt-4 line-clamp-2")}>
             {description}
           </p>
 
-          <div className="flex items-center gap-4 !mt-2">
+          <div className="!mt-2 flex items-center gap-4">
             {deployedURL && (
               <CustomLink
                 aria-label={`visit ${title} live URL}`}

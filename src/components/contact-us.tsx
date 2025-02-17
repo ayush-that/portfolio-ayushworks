@@ -1,13 +1,7 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "~/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "~/components/ui/form";
 import config from "~/config";
 import { ContactSchema, contactSchemaType } from "~/schema";
 import { CustomLink } from "./mdx";
@@ -62,16 +56,13 @@ const ContactUs = () => {
 
   return (
     <section aria-label="contact" className="!mt-5">
-      <div className="flex items-center flex-col md:flex-row w-full gap-4">
-        <div className="md:max-w-xs size-full space-y-4 ">
+      <div className="flex w-full flex-col items-center gap-4 md:flex-row">
+        <div className="size-full space-y-4 md:max-w-xs">
           <h2 className={typo({ variant: "h2" })}>Get in Touch</h2>
-          <p className="text-muted-foreground text-base">
-            If you have any inquiries, please feel free to reach out. You can
-            contact us via email at{" "}
-            <CustomLink
-              href={`mailto:${config.social.email}`}
-              aria-label={config.social.email}
-            >
+          <p className="text-base text-muted-foreground">
+            If you have any inquiries, please feel free to reach out. You can contact me via email
+            at{" "}
+            <CustomLink href={`mailto:${config.social.email}`} aria-label={config.social.email}>
               {config.social.email}
             </CustomLink>{" "}
           </p>
@@ -84,13 +75,11 @@ const ContactUs = () => {
 
         <Form {...form}>
           <form
-            className="bg-[#131313] p-3 rounded-md sm:rounded-none sm:p-0 sm:bg-transparent space-y-3 sm:space-y-4 w-full"
+            className="w-full space-y-3 rounded-md bg-[#131313] p-3 sm:space-y-4 sm:rounded-none sm:bg-transparent sm:p-0"
             onSubmit={form.handleSubmit(onSubmit)}
           >
-            <h2 className="text-center text-lg font-ubuntu block sm:hidden">
-              Fill this form
-            </h2>
-            <div className="grid md:grid-cols-2 gap-3 sm:gap-4">
+            <h2 className="block text-center font-ubuntu text-lg sm:hidden">Fill this form</h2>
+            <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
               <FormField
                 control={form.control}
                 name="fullName"
@@ -134,12 +123,7 @@ const ContactUs = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="Email"
-                      className="normal-case"
-                      {...field}
-                    />
+                    <Input type="email" placeholder="Email" className="normal-case" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -152,22 +136,14 @@ const ContactUs = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Textarea
-                      placeholder="Message"
-                      className="normal-case"
-                      {...field}
-                    />
+                    <Textarea placeholder="Message" className="normal-case" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={isSubmitting}
-            >
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
               {isSubmitting ? "Sending..." : "Submit"}
             </Button>
           </form>

@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import {useEffect} from 'react'
-import SupportButton from '~/components/support-btn'
+import { useEffect } from "react";
+import SupportButton from "~/components/support-btn";
 
 export default function Error({
   error,
   reset,
 }: {
-  error: Error & {digest?: string}
-  reset: () => void
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   useEffect(() => {
-    console.error('error::: ', error)
-  }, [error])
+    console.error("error::: ", error);
+  }, [error]);
 
   return (
     <section className="flex min-h-dvh items-center py-6" id="main-content">
@@ -102,12 +102,12 @@ export default function Error({
         </div>
         <p className="text-4xl font-black md:text-4xl">Internal Server Error</p>
 
-        <p className="mx-auto -mt-2 max-w-3xl text-center text-base  sm:text-base">
+        <p className="mx-auto -mt-2 max-w-3xl text-center text-base sm:text-base">
           {error?.message}
         </p>
 
         <SupportButton onReset={reset} />
       </main>
     </section>
-  )
+  );
 }

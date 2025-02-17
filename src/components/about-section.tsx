@@ -1,10 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { annotate, annotationGroup } from "rough-notation";
-import {
-  RoughAnnotationConfig,
-  RoughAnnotationGroup,
-} from "rough-notation/lib/model";
+import { RoughAnnotationConfig, RoughAnnotationGroup } from "rough-notation/lib/model";
 
 import config from "~/config";
 import { useMediaQuery } from "~/hooks";
@@ -23,14 +20,10 @@ const AboutSection = () => {
   useEffect(() => {
     const annotations = annotationsConfig.map((config, index) => {
       const { ref, ...options } = config;
-      return annotate(
-        annotationRefs[index]!.current!,
-        options as RoughAnnotationConfig
-      );
+      return annotate(annotationRefs[index]!.current!, options as RoughAnnotationConfig);
     });
 
-    const annotationGroupInstance: RoughAnnotationGroup =
-      annotationGroup(annotations);
+    const annotationGroupInstance: RoughAnnotationGroup = annotationGroup(annotations);
 
     if (!isSmallDevice) {
       annotationGroupInstance.show();
@@ -40,19 +33,18 @@ const AboutSection = () => {
   }, [annotationRefs, isSmallDevice]);
 
   return (
-    <section className=" grid md:grid-cols-3 gap-8 sm:gap-4" aria-label="About">
-      <div className="space-y-3 md:col-span-2 order-2 sm:order-1">
-        <h1 className="font-semibold text-lg sm:text-xl font-ubuntu">
-          Ayush Singh{" "}
-          <span className="font-normal text-white text-italic">aka shydev</span>
+    <section className="grid gap-8 sm:gap-4 md:grid-cols-3" aria-label="About">
+      <div className="order-2 space-y-3 sm:order-1 md:col-span-2">
+        <h1 className="font-ubuntu text-lg font-semibold sm:text-xl">
+          Ayush Singh <span className="text-italic font-normal text-white">aka shydev</span>
         </h1>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
           <span className="text-white">
             About Me <br />
           </span>
-          Hello! I'm a developer from Delhi, India. I enjoy programming and
-          exploring technology. I've participated in{" "}
+          Hello! I'm a developer from Delhi, India. I enjoy programming and exploring technology.
+          I've participated in{" "}
           <span className="text-white" ref={annotationRefs[0]}>
             <a href="https://docs.google.com/spreadsheets/d/12_9qHndKpcrtrfCzGFSlu9Cb07TkeHIRHsQtRZdIeJ8/edit?usp=sharing">
               15+ hackathons
@@ -65,8 +57,8 @@ const AboutSection = () => {
           <span className="text-white">
             What I do? <br />
           </span>{" "}
-          I've delivered 10+ freelance projects, interned at two startups and
-          failed to build my own startup twice.{" "}
+          I've delivered 10+ freelance projects, interned at two startups and failed to build my own
+          startup twice.{" "}
           <span ref={annotationRefs[1]} className="text-white">
             #LifeGoesOn
           </span>
@@ -82,18 +74,13 @@ const AboutSection = () => {
           <span ref={annotationRefs[3]} className="text-white">
             AWS Cloud Club Captain
           </span>
-          , a maintainer and contributor of open-source projects. When not
-          coding, I read books, go out for a run or binge YouTube.
+          , a maintainer and contributor of open-source projects. When not coding, I read books, go
+          out for a run or binge YouTube.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}></p>
 
-        <p
-          className={cn(
-            typo({ variant: "paragraph", font: "sans" }),
-            "sm:!mt-4"
-          )}
-        >
+        <p className={cn(typo({ variant: "paragraph", font: "sans" }), "sm:!mt-4")}>
           I'm{" "}
           <span ref={annotationRefs[4]} className="text-white">
             open to work
@@ -103,20 +90,20 @@ const AboutSection = () => {
             ref={annotationRefs[5] as React.RefObject<HTMLAnchorElement>}
             href={`mailto:${config.social.email}`}
             aria-label="Hire Me"
-            className="text-ring el-focus-styles"
+            className="el-focus-styles text-ring"
           >
             Contact Me.
           </a>
         </p>
       </div>
 
-      <div className="relative block sm:hidden md:block aspect-square order-1 sm:order-2">
-        <div className="bg-[#00adb5] absolute inset-0 size-full rounded-md -z-10"></div>
+      <div className="relative order-1 block aspect-square sm:order-2 sm:hidden md:block">
+        <div className="absolute inset-0 -z-10 size-full rounded-md bg-[#00adb5]"></div>
         <Image
           alt="Speaking on stage at for a hackathon presentation"
           src={livethecode}
           placeholder="blur"
-          className="rounded-md shadow-md size-full  transform -rotate-3"
+          className="size-full -rotate-3 transform rounded-md shadow-md"
           priority
         />
       </div>

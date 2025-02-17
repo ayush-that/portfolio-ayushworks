@@ -7,10 +7,7 @@ interface Options {
   };
 }
 
-export async function GET(
-  _: Request,
-  { params }: { params: { slug: string } }
-) {
+export async function GET(_: Request, { params }: { params: { slug: string } }) {
   try {
     const slug = z.string().parse(params.slug);
     const views = await db.views.findUnique({
@@ -21,10 +18,7 @@ export async function GET(
     return Response.json({ views: views ?? { slug, count: 0 } });
   } catch (error) {
     console.error("Database error:", error);
-    return Response.json(
-      { message: "Failed to fetch view count" },
-      { status: 500 }
-    );
+    return Response.json({ message: "Failed to fetch view count" }, { status: 500 });
   }
 }
 
@@ -48,12 +42,9 @@ export async function POST(_: Request, { params }: Options): Promise<Response> {
       });
     }
 
-    return new Response(
-      JSON.stringify({ message: "Count incremented successfully" }),
-      {
-        status: 200,
-      }
-    );
+    return new Response(JSON.stringify({ message: "Count incremented successfully" }), {
+      status: 200,
+    });
   } catch (error) {
     console.error("An error occurred while incrementing count:", error);
 

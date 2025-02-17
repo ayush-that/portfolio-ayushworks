@@ -1,11 +1,11 @@
-'use client'
-import { ReactNode } from 'react'
+"use client";
+import { ReactNode } from "react";
 
-import ScrollProgress from '~/components/scroll-progress'
-import { TooltipProvider } from '~/components/ui/tooltip'
-import TopLoader from '~/components/ui/top-loader'
-import ReactQueryProvider from './react-query'
-import { Toaster } from '~/components/ui/sonner'
+import ScrollProgress from "~/components/scroll-progress";
+import { TooltipProvider } from "~/components/ui/tooltip";
+import TopLoader from "~/components/ui/top-loader";
+import ReactQueryProvider from "./react-query";
+import { Toaster } from "~/components/ui/sonner";
 
 const RootProviders = ({ children }: { children: ReactNode }) => {
   return (
@@ -17,7 +17,7 @@ const RootProviders = ({ children }: { children: ReactNode }) => {
         <Toaster />
       </TooltipProvider>
     </ReactQueryProvider>
-  )
-}
+  );
+};
 
-export default RootProviders
+export default RootProviders;

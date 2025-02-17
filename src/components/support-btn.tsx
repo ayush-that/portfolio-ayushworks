@@ -1,22 +1,17 @@
-import React from 'react'
-import config from '~/config'
-import {Button} from './ui/button'
-import {MdOutlineSupportAgent} from 'react-icons/md'
-import Link from 'next/link'
-import {AiFillHome} from 'react-icons/ai'
-import {GrPowerReset} from 'react-icons/gr'
+import React from "react";
+import config from "~/config";
+import { Button } from "./ui/button";
+import { MdOutlineSupportAgent } from "react-icons/md";
+import Link from "next/link";
+import { AiFillHome } from "react-icons/ai";
+import { GrPowerReset } from "react-icons/gr";
 
-const SupportButton = ({onReset}: {onReset?: () => void}) => {
+const SupportButton = ({ onReset }: { onReset?: () => void }) => {
   return (
     <div className="flex flex-wrap justify-center gap-4">
-      {typeof onReset === 'undefined' && (
+      {typeof onReset === "undefined" && (
         <Button asChild variant="outline">
-          <Link
-            href="/"
-            className="flex items-center gap-2"
-            replace
-            aria-label="Home"
-          >
+          <Link href="/" className="flex items-center gap-2" replace aria-label="Home">
             <span className="text-base">
               <AiFillHome />
             </span>
@@ -25,7 +20,7 @@ const SupportButton = ({onReset}: {onReset?: () => void}) => {
         </Button>
       )}
 
-      {typeof onReset === 'function' && (
+      {typeof onReset === "function" && (
         <Button
           variant="outline"
           onClick={onReset}
@@ -52,7 +47,7 @@ const SupportButton = ({onReset}: {onReset?: () => void}) => {
         </a>
       </Button>
     </div>
-  )
-}
+  );
+};
 
-export default SupportButton
+export default SupportButton;

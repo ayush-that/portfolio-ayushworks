@@ -24,14 +24,7 @@ const projects = [
       "Web scraping application enhanced with AI that helps users to find the best product for their skin type and concerns.",
     deployedURL: "https://nykaa-product-advisor.onrender.com/",
     cover: nykaaCover,
-    stacks: [
-      "Python",
-      "Selenium",
-      "Beautiful Soup",
-      "Tailwind CSS",
-      "Flask",
-      "Gemini",
-    ],
+    stacks: ["Python", "Selenium", "Beautiful Soup", "Tailwind CSS", "Flask", "Gemini"],
     isRepo: true,
     repoUrl: "https://github.com/ayush-that/Nykaa-Product-Advisor",
   },
@@ -133,8 +126,7 @@ const projects = [
     description:
       "Apple calculator inspired math-solver that uses Computer Vision and AI to solve mathematical problems.",
     isRepo: true,
-    repoUrl:
-      "https://github.com/ayush-that/Apple-Calculator-Using-Computer-Vision",
+    repoUrl: "https://github.com/ayush-that/Apple-Calculator-Using-Computer-Vision",
     cover: mathcamCover,
     stacks: ["Python", "Flask", "OpenCV", "Gemini"],
   },

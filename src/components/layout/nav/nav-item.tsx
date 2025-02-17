@@ -6,9 +6,11 @@ import { usePathname } from "next/navigation";
 import { cn } from "~/lib/utils";
 import { motion } from "framer-motion";
 
-const NavItem: React.FC<
-  NavType[0] & { setOpen?: Dispatch<SetStateAction<boolean>> }
-> = ({ label, path, setOpen }) => {
+const NavItem: React.FC<NavType[0] & { setOpen?: Dispatch<SetStateAction<boolean>> }> = ({
+  label,
+  path,
+  setOpen,
+}) => {
   const pathname = usePathname();
 
   const onClickHandler = () => {
@@ -21,9 +23,9 @@ const NavItem: React.FC<
     <li
       role="listitem"
       className={cn(
-        "relative h-7 px-2 flex items-center  sm:px-0 font-medium rounded-md transition-colors duration-300 ",
+        "relative flex h-7 items-center rounded-md px-2 font-medium transition-colors duration-300 sm:px-0",
         {
-          "bg-ring sm:text-ring sm:bg-transparent": pathname === path,
+          "bg-ring sm:bg-transparent sm:text-ring": pathname === path,
         }
       )}
       onClick={onClickHandler}
@@ -32,7 +34,7 @@ const NavItem: React.FC<
         href={path}
         role="link"
         aria-label={label}
-        className="relative z-10 el-focus-styles rounded-sm"
+        className="el-focus-styles relative z-10 rounded-sm"
       >
         {label}
       </Link>
@@ -41,7 +43,7 @@ const NavItem: React.FC<
         <motion.span
           layoutId="pill-tab"
           transition={{ type: "spring", duration: 0.4, bounce: 0, delay: 0.1 }}
-          className="hidden sm:flex absolute left-0 top-1  size-full h-full w-full items-end justify-center"
+          className="absolute left-0 top-1 hidden size-full h-full w-full items-end justify-center sm:flex"
         >
           <span className="z-0 h-[3px] w-full rounded-t-full bg-ring"></span>
         </motion.span>

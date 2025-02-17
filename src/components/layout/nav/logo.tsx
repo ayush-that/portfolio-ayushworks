@@ -8,14 +8,14 @@ const Logo = () => {
       href="/"
       role="link"
       aria-label="Home"
-      className="el-focus-styles font-bold italic text-2xl rounded-md"
+      className="el-focus-styles rounded-md text-2xl font-bold italic"
     >
       <Image
         src="/images/logo.png"
         alt="personal avatar"
         height={40}
         width={40}
-        className=" shadow-sm border rounded-md"
+        className="rounded-md border shadow-sm"
       />
     </Link>
   );

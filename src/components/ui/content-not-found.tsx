@@ -1,18 +1,15 @@
-import {Frown} from 'lucide-react'
-import React from 'react'
+import { Frown } from "lucide-react";
+import React from "react";
 
-const ContentNotFound = ({text}: {text: string}) => {
+const ContentNotFound = ({ text }: { text: string }) => {
   return (
-    <li
-      role="listitem"
-      className="h-60  w-full flex items-center justify-center"
-    >
-      <div className="space-y-3  flex flex-col items-center">
+    <li role="listitem" className="flex h-60 w-full items-center justify-center">
+      <div className="flex flex-col items-center space-y-3">
         <Frown />
         <h2 className="text-lg">{text}</h2>
       </div>
     </li>
-  )
-}
+  );
+};
 
-export default ContentNotFound
+export default ContentNotFound;

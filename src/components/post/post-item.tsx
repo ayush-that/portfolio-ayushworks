@@ -1,34 +1,23 @@
-import {Post} from '#site/content'
-import React from 'react'
+import { Post } from "#site/content";
+import React from "react";
 
-import Link from 'next/link'
-import {Card, CardContent} from '~/components/ui/card'
-import PostMetadata from './post-metadata'
-import Tags from '../tags'
+import Link from "next/link";
+import { Card, CardContent } from "~/components/ui/card";
+import PostMetadata from "./post-metadata";
+import Tags from "../tags";
 
-const PostItem: React.FC<Post> = ({
-  date,
-  title,
-  description,
-  metadata,
-  slugAsParams,
-  tags,
-}) => {
+const PostItem: React.FC<Post> = ({ date, title, description, metadata, slugAsParams, tags }) => {
   return (
-    <li role="listitem" className="last:!border-b-0 border-b pb-4 ">
-      <Card className="p-0 border-0  shadow-none rounded-none">
+    <li role="listitem" className="border-b pb-4 last:!border-b-0">
+      <Card className="rounded-none border-0 p-0 shadow-none">
         <Link
           href={`/blog/${slugAsParams}`}
-          className="rounded-md el-focus-styles inline-block group w-full"
+          className="el-focus-styles group inline-block w-full rounded-md"
         >
           <PostMetadata title={title} metadata={metadata} date={date} />
         </Link>
 
-        <p
-          className={
-            'text-muted-foreground text-sm line-clamp-2 mt-1 mb-2 font-ubuntu'
-          }
-        >
+        <p className={"mb-2 mt-1 line-clamp-2 font-ubuntu text-sm text-muted-foreground"}>
           {description}
         </p>
 
@@ -37,7 +26,7 @@ const PostItem: React.FC<Post> = ({
         </CardContent>
       </Card>
     </li>
-  )
-}
+  );
+};
 
-export default PostItem
+export default PostItem;

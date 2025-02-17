@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
 const LumaIcon = () => {
   return (
-    <div className="size-16 flex justify-center items-center bg-white rounded-md">
+    <div className="flex size-16 items-center justify-center rounded-md bg-white">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="black"
@@ -16,7 +16,7 @@ const LumaIcon = () => {
         ></path>
       </svg>
     </div>
-  )
-}
+  );
+};
 
-export default LumaIcon
+export default LumaIcon;

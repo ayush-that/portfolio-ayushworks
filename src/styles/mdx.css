@@ -1,16 +1,16 @@
 [data-rehype-pretty-code-figure] pre {
-  @apply px-0 bg-[#1b1b1b] rounded-lg;
+  @apply rounded-lg bg-[#1b1b1b] px-0;
 }
 
 [data-rehype-pretty-code-figure] code {
-  @apply text-sm !leading-loose md:text-base border-0 p-0 font-mono text-gray-200;
+  @apply border-0 p-0 font-mono text-sm !leading-loose text-gray-200 md:text-base;
 }
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
   counter-reset: line;
 }
 
-[data-rehype-pretty-code-figure] code[data-line-numbers]>[data-line]::before {
+[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
   @apply mr-4 inline-block w-4 text-right text-gray-600;
@@ -58,11 +58,11 @@
 }
 
 .mdx-content code {
-  @apply bg-[#1b1b1b] px-1.5 py-0.5 rounded text-sm font-mono text-[#00adb5];
+  @apply rounded bg-[#1b1b1b] px-1.5 py-0.5 font-mono text-sm text-[#00adb5];
 }
 
 .mdx-content pre {
-  @apply bg-[#1b1b1b] p-4 rounded-lg mb-3 overflow-x-auto border border-neutral-800;
+  @apply mb-3 overflow-x-auto rounded-lg border border-neutral-800 bg-[#1b1b1b] p-4;
 }
 
 .mdx-content pre code {
@@ -74,48 +74,48 @@
 }
 
 .mdx-content h1 {
-  @apply text-3xl font-bold mb-3 mt-6;
+  @apply mb-3 mt-6 text-3xl font-bold;
 }
 
 .mdx-content h2 {
-  @apply text-2xl font-bold mb-3 mt-6;
+  @apply mb-3 mt-6 text-2xl font-bold;
 }
 
 .mdx-content h3 {
-  @apply text-xl font-bold mb-2 mt-4;
+  @apply mb-2 mt-4 text-xl font-bold;
 }
 
 .mdx-content h4 {
-  @apply text-lg font-bold mb-2 mt-4;
+  @apply mb-2 mt-4 text-lg font-bold;
 }
 
 .mdx-content a {
-  @apply text-[#00adb5] hover:underline focus:outline-none focus:ring-2 focus:ring-[#00adb5] focus:ring-offset-2 rounded;
+  @apply rounded text-[#00adb5] hover:underline focus:outline-none focus:ring-2 focus:ring-[#00adb5] focus:ring-offset-2;
 }
 
 .mdx-content ul {
-  @apply list-disc list-outside mb-3 space-y-1 ml-6;
+  @apply mb-3 ml-6 list-outside list-disc space-y-1;
 }
 
 .mdx-content ol {
-  @apply list-decimal list-outside mb-3 space-y-1 ml-6;
+  @apply mb-3 ml-6 list-outside list-decimal space-y-1;
 }
 
 .mdx-content li {
   @apply mb-1 text-muted-foreground;
 }
 
-.mdx-content li>ul,
-.mdx-content li>ol {
+.mdx-content li > ul,
+.mdx-content li > ol {
   @apply ml-6 mt-1;
 }
 
 .mdx-content blockquote {
-  @apply border-l-4 border-[#00adb5] pl-4 italic my-3 text-muted-foreground;
+  @apply my-3 border-l-4 border-[#00adb5] pl-4 italic text-muted-foreground;
 }
 
 .mdx-content img {
-  @apply rounded-lg my-4;
+  @apply my-4 rounded-lg;
 }
 
 .mdx-content hr {
@@ -123,7 +123,7 @@
 }
 
 .mdx-content table {
-  @apply w-full border-collapse mb-4;
+  @apply mb-4 w-full border-collapse;
 }
 
 .mdx-content th,
@@ -136,7 +136,7 @@
 }
 
 .mdx-content mark {
-  @apply bg-[#00adb5] bg-opacity-20 px-1 rounded;
+  @apply rounded bg-[#00adb5] bg-opacity-20 px-1;
 }
 
 .mdx-content p:first-child {
@@ -144,7 +144,7 @@
 }
 
 .mdx-content h5 {
-  @apply mt-3 mb-0;
+  @apply mb-0 mt-3;
 }
 
 .mdx-content figure {
@@ -153,7 +153,7 @@
 
 .mdx-content ol a,
 .mdx-content ul a {
-  @apply focus:outline-none focus:ring-2 focus:ring-[#00adb5] focus:ring-offset-2 hover:text-[#00adb5] hover:underline rounded;
+  @apply rounded hover:text-[#00adb5] hover:underline focus:outline-none focus:ring-2 focus:ring-[#00adb5] focus:ring-offset-2;
 }
 
 .mdx-content ol li,
@@ -177,8 +177,8 @@
   scroll-behavior: smooth;
 }
 
-.mdx-content div[data-ntpc='YouTubeEmbed'] {
-  @apply mt-3 relative;
+.mdx-content div[data-ntpc="YouTubeEmbed"] {
+  @apply relative mt-3;
   aspect-ratio: 16/9;
 }
 
@@ -187,12 +187,12 @@
   @apply text-[#00adb5] transition-colors duration-200;
 }
 
-.mdx-content div[data-ntpc='YouTubeEmbed'] lite-youtube {
-  @apply rounded-lg absolute inset-0 h-full w-full;
+.mdx-content div[data-ntpc="YouTubeEmbed"] lite-youtube {
+  @apply absolute inset-0 h-full w-full rounded-lg;
 }
 
-.mdx-content span[data-line] span[style*='color:#6C7086'],
-.mdx-content span[data-line] span[style*='color: rgb(108, 112, 134)'] {
+.mdx-content span[data-line] span[style*="color:#6C7086"],
+.mdx-content span[data-line] span[style*="color: rgb(108, 112, 134)"] {
   @apply !text-[#9599b3];
 }
 

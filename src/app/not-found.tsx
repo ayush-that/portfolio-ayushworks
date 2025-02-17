@@ -1,4 +1,4 @@
-import SupportButton from '~/components/support-btn'
+import SupportButton from "~/components/support-btn";
 
 export default function Custom404() {
   return (
@@ -93,18 +93,16 @@ export default function Custom404() {
             />
           </svg>
         </div>
-        <p className="text-xl font-semibold md:text-xl">
-          This page doesn&apos;t exist
-        </p>
+        <p className="text-xl font-semibold md:text-xl">This page doesn&apos;t exist</p>
 
         <p className="mx-auto -mt-2 max-w-3xl text-center text-xs sm:text-base">
-          Oops! It seems like you&apos;ve stumbled upon a page that doesn&apos;t
-          exist Don&apos;t worry, even the best of us get lost sometimes. Feel
-          free to navigate back to Home or contact us if you need help
+          Oops! It seems like you&apos;ve stumbled upon a page that doesn&apos;t exist Don&apos;t
+          worry, even the best of us get lost sometimes. Feel free to navigate back to Home or
+          contact us if you need help
         </p>
 
         <SupportButton />
       </main>
     </section>
-  )
+  );
 }

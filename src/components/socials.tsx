@@ -28,8 +28,7 @@ const socialsIcons = [
     label: "Instagram",
     icon: <FaInstagram className="size-[1.2rem]" />,
     href: config.social.instagram,
-    className:
-      " hover:bg-gradient-to-r from-rose-400 to-red-500 hover:text-white" as ClassValue,
+    className: " hover:bg-gradient-to-r from-rose-400 to-red-500 hover:text-white" as ClassValue,
   },
   {
     id: 4,
@@ -71,7 +70,7 @@ const Socials = () => {
               <a
                 href={social.href}
                 className={cn(
-                  "border border-input bg-background  hover:text-accent-foreground size-9  flex items-center justify-center rounded-md  ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2  focus-visible:ring-ring focus-visible:ring-offset-2",
+                  "flex size-9 items-center justify-center rounded-md border border-input bg-background ring-offset-background transition-colors hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                   social.className
                 )}
                 aria-label={social.label}

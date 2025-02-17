@@ -1,31 +1,31 @@
-'use client'
-import {usePathname} from 'next/navigation'
-import {useEffect, useRef} from 'react'
+"use client";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 const SkipContent = () => {
-  const pathname = usePathname()
-  const isTagsPage = pathname.includes('tag')
-  const skipLinkRef = useRef<HTMLSpanElement>(null)
+  const pathname = usePathname();
+  const isTagsPage = pathname.includes("tag");
+  const skipLinkRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     if (skipLinkRef.current) {
-      skipLinkRef.current.focus()
+      skipLinkRef.current.focus();
     }
-  }, [pathname])
+  }, [pathname]);
 
   return (
     <>
       <span className="sr-only" ref={skipLinkRef} tabIndex={0}></span>
       <a
-        aria-label={`Skip to ${isTagsPage ? 'navigation' : 'main content'}`}
+        aria-label={`Skip to ${isTagsPage ? "navigation" : "main content"}`}
         role="link"
-        href={isTagsPage ? '#main-nav' : '#main-content'}
-        className="bg-background p-3 border inset-x-0 fixed top-1 text-center z-50 el-focus-styles opacity-0 pointer-events-none focus-visible:opacity-100 focus-visible:pointer-events-auto focus-visible:underline container rounded-sm text-ring transition-opacity duration-500 ease-in-out"
+        href={isTagsPage ? "#main-nav" : "#main-content"}
+        className="el-focus-styles container pointer-events-none fixed inset-x-0 top-1 z-50 rounded-sm border bg-background p-3 text-center text-ring opacity-0 transition-opacity duration-500 ease-in-out focus-visible:pointer-events-auto focus-visible:underline focus-visible:opacity-100"
       >
-        Skip to {isTagsPage ? 'navigation' : 'main content'}
+        Skip to {isTagsPage ? "navigation" : "main content"}
       </a>
     </>
-  )
-}
+  );
+};
 
-export default SkipContent
+export default SkipContent;

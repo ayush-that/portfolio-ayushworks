@@ -3,11 +3,9 @@ import { z } from "zod";
 
 export const env = createEnv({
   skipValidation: true,
-  
+
   server: {
-    NODE_ENV: z
-      .enum(["development", "test", "production"])
-      .default("development"),
+    NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
     NOCODE_API_KEY: z.string().min(1),
     NOCODE_TAB_ID: z.string().min(1),
     POSTGRES_PRISMA_URL: z.string().min(1),

@@ -4,10 +4,7 @@ import NavList from "./nav-list";
 
 const Navbar = () => {
   return (
-    <nav
-      className="mt-2 mb-4 gap-4 flex items-center justify-between"
-      role="navigation"
-    >
+    <nav className="mb-4 mt-2 flex items-center justify-between gap-4" role="navigation">
       <Logo />
 
       <div className="hidden sm:block">
