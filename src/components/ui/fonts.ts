@@ -1,7 +1,7 @@
-import { League_Spartan } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 
-export const fontSans = League_Spartan({
+export const fontSans = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
 });
