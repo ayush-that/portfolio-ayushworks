@@ -10,7 +10,7 @@
   counter-reset: line;
 }
 
-[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
+[data-rehype-pretty-code-figure] code[data-line-numbers]>[data-line]::before {
   counter-increment: line;
   content: counter(line);
   @apply mr-4 inline-block w-4 text-right text-gray-600;
@@ -105,8 +105,8 @@
   @apply mb-1 text-muted-foreground;
 }
 
-.mdx-content li > ul,
-.mdx-content li > ol {
+.mdx-content li>ul,
+.mdx-content li>ol {
   @apply ml-6 mt-1;
 }
 
@@ -177,18 +177,35 @@
   scroll-behavior: smooth;
 }
 
+.mdx-content {
+  @apply relative text-base leading-6 w-full overflow-hidden;
+}
+
 .mdx-content div[data-ntpc="YouTubeEmbed"] {
-  @apply relative mt-3;
+  @apply relative mt-3 mx-auto w-full;
+  max-width: calc(100vw - 2rem);
+}
+
+.mdx-content div[data-ntpc="YouTubeEmbed"]>div {
+  @apply relative w-full;
   aspect-ratio: 16/9;
+}
+
+.mdx-content div[data-ntpc="YouTubeEmbed"] iframe {
+  @apply absolute top-0 left-0 h-full w-full rounded-lg;
+  max-width: 100%;
+  frameBorder: 0;
+  referrerPolicy: "strict-origin-when-cross-origin";
+  allowFullScreen: true;
+}
+
+.mdx-content div[data-ntpc="YouTubeEmbed"] lite-youtube {
+  @apply absolute inset-0 h-full w-full rounded-lg;
 }
 
 .mdx-content a:hover {
   border-bottom: 2px dashed currentColor;
   @apply text-[#00adb5] transition-colors duration-200;
-}
-
-.mdx-content div[data-ntpc="YouTubeEmbed"] lite-youtube {
-  @apply absolute inset-0 h-full w-full rounded-lg;
 }
 
 .mdx-content span[data-line] span[style*="color:#6C7086"],
@@ -200,8 +217,4 @@
 .mdx-content ol a,
 .mdx-content ul a {
   @apply transition-colors duration-200;
-}
-
-.mdx-content {
-  @apply text-base leading-6;
 }
