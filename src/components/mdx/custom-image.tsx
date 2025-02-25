@@ -7,6 +7,7 @@ const CustomImage: React.FC<ImageProps> = ({ ...props }) => {
         priority
         fetchPriority="auto"
         fill
+        quality={95}
         className="!m-0 size-full rounded-sm object-cover"
         {...props}
         alt={props.alt}

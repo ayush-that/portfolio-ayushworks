@@ -83,6 +83,7 @@ export default async function BlogDetail({ params }: BlogPostParams) {
               placeholder="blur"
               priority
               fill
+              quality={95}
               className="size-full rounded-md object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
