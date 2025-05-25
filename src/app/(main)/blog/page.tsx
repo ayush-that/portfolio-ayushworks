@@ -1,8 +1,7 @@
 import { posts } from "#site/content";
-import { PostList } from "~/components/post";
-import SearchInput from "~/components/search-input";
 import config from "~/config";
 import { getSEOTags } from "~/lib/seo";
+import BlogPageClient from "./blog-page-client";
 
 export const metadata: ReturnType<typeof getSEOTags> = getSEOTags({
   title: `All Blogs - ${config.appName}`,
@@ -21,20 +20,7 @@ export const metadata: ReturnType<typeof getSEOTags> = getSEOTags({
 });
 
 const BlogPage = async ({ searchParams }: { searchParams: { search: string | undefined } }) => {
-  const filteredPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(decodeURIComponent(searchParams.search || ""))
-  );
-
-  return (
-    <div className="!mt-8">
-      <div className="flex flex-col flex-wrap justify-between gap-4 sm:flex-row sm:items-center">
-        <h1 className="text-left text-xl font-medium"> All Publications </h1>
-        <SearchInput />
-      </div>
-
-      <PostList posts={filteredPosts} />
-    </div>
-  );
+  return <BlogPageClient posts={posts} searchTerm={searchParams.search} />;
 };
 
 export default BlogPage;

@@ -1,42 +1,33 @@
+"use client";
+
 import { posts } from "#site/content";
 import { slug } from "github-slugger";
-import React, { Fragment } from "react";
+import React, { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { CustomLink } from "~/components/mdx";
 import { PostList } from "~/components/post";
-import SkipContent from "~/components/ui/skip-content";
-import config from "~/config";
-import { getSEOTags } from "~/lib/seo";
-import { getAllTags, getPostsByTagSlug } from "~/lib/utils";
+import { getPostsByTagSlug } from "~/lib/utils";
 
-interface TagPageProps {
+interface TagDetailPageProps {
   params: {
     tag: string;
   };
 }
 
-export async function generateMetadata({
-  params,
-}: TagPageProps): Promise<ReturnType<typeof getSEOTags>> {
+const TagDetailPage: React.FC<TagDetailPageProps> = ({ params }) => {
   const { tag } = params;
-
-  return getSEOTags({
-    title: `Tagged “${tag}” - ${config.appName}`,
-    description: `Posts on the topic of ${tag}`,
-    canonicalUrlRelative: `/tags/${slug(tag)}`,
-  });
-}
-
-export const generateStaticParams = () => {
-  const tags = getAllTags(posts);
-  const paths = Object.keys(tags).map((tag) => ({ tag: slug(tag) }));
-  return paths;
-};
-
-const TagDetailPage: React.FC<TagPageProps> = ({ params }) => {
-  const { tag } = params;
+  const { i18n } = useTranslation();
   const title = tag.split("-").join(" ");
 
-  const displayPosts = getPostsByTagSlug(posts, tag);
+  // Filter posts by current language first, then by tag
+  const displayPosts = useMemo(() => {
+    const languageFilteredPosts = posts.filter((post) => {
+      const postLanguage = post.slug.split("/")[1];
+      return postLanguage === i18n.language;
+    });
+
+    return getPostsByTagSlug(languageFilteredPosts, tag);
+  }, [posts, i18n.language, tag]);
 
   return (
     <div className="!mt-8">

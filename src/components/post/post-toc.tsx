@@ -9,8 +9,7 @@ import {
   AccordionTrigger,
 } from "~/components/ui/accordion";
 
-const TOC_STYLES: ClassValue =
-  "el-focus-styles rounded-sm hover:underline text-muted-foreground hover:text-ring";
+const TOC_STYLES: ClassValue = "el-focus-styles rounded-sm text-muted-foreground hover:text-ring";
 
 const PostTableOfContent = ({ toc }: { toc: Post["toc"] }) => {
   const [tocValue, setTocValue] = useState("");

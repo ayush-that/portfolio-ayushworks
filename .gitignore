@@ -47,3 +47,4 @@ next-env.d.ts
 # velite files
 .velite
 .env
+i18n.cache

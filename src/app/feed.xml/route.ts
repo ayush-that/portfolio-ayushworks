@@ -17,7 +17,12 @@ export async function GET() {
     ttl: 60,
   });
 
-  posts.forEach((post) => {
+  const englishPosts = posts.filter((post) => {
+    const postLanguage = post.slug.split("/")[1];
+    return postLanguage === "en";
+  });
+
+  englishPosts.forEach((post) => {
     feed.item({
       title: post.title,
       url: BasePath(`/blog/${post.slugAsParams.split("/")}`),
