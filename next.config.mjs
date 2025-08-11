@@ -71,6 +71,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/hi",
+        destination: "https://sticky-alder-474.notion.site/shydev",
+        permanent: true,
+      },
+      {
         source: "/discord",
         destination: "https://discord.com/users/fitlesshot",
         permanent: true,
