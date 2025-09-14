@@ -27,7 +27,7 @@ const nextConfig = {
       {
         source: "/resume",
         destination:
-          "https://drive.google.com/file/d/1WRDanuhbaiOnniTKr0Ac0IT9oGhX-pYT/view?usp=sharing",
+          "https://drive.google.com/file/d/1Y9sBMG1nyikIjtdtxahUOtWfVrNDiMux/view?usp=sharing",
         permanent: true,
       },
       {
@@ -41,7 +41,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/support",
+        source: "/donate",
         destination: "https://buymeacoffee.com/shydev69",
         permanent: true,
       },
@@ -57,7 +57,7 @@ const nextConfig = {
       },
       {
         source: "/youtube",
-        destination: "https://www.youtube.com/@ayush-that",
+        destination: "https://www.youtube.com/@shydev69",
         permanent: true,
       },
       {
