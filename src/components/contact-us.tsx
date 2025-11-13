@@ -49,6 +49,7 @@ const ContactUs = () => {
       }
     } catch (error) {
       toast.error("Failed to send message. Please try again.");
+      console.error(error);
     } finally {
       setIsSubmitting(false);
     }

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 import { shadcnPreset } from "./src/lib/shadcn-ui";
 
 const config = {
@@ -38,7 +39,7 @@ const config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 } satisfies Config;
 
 export default config;

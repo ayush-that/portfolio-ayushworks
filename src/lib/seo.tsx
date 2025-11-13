@@ -11,7 +11,7 @@ export const getSEOTags = ({
   extraTags,
 }: Metadata & {
   canonicalUrlRelative?: string;
-  extraTags?: Record<string, any>;
+  extraTags?: Record<string, unknown>;
 } = {}) => {
   return {
     title: title || config.appName,

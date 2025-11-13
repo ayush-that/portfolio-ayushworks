@@ -4,15 +4,13 @@
 // import { RoughAnnotationConfig, RoughAnnotationGroup } from "rough-notation/lib/model";
 
 import config from "~/config";
-import { useMediaQuery } from "~/hooks";
 import { cn } from "~/lib/utils";
 import { typo } from "./ui/typograpghy";
 import Image from "next/image";
-import livethecode from "~/assets/images/live-the-code.webp";
+import codingImage from "~/assets/images/coding.jpeg";
 // import { annotationsConfig } from "~/constants/anime";
 
 const AboutSection = () => {
-  const isSmallDevice = useMediaQuery("(max-width: 500px)");
   // const annotationRefs = annotationsConfig.map(() =>
   //   useRef<HTMLSpanElement | HTMLAnchorElement>(null)
   // );
@@ -42,43 +40,43 @@ const AboutSection = () => {
   return (
     <section className="grid gap-8 sm:gap-4 md:grid-cols-3" aria-label="About">
       <div className="order-2 space-y-3 sm:order-1 md:col-span-2">
-        <h1 className="font-ubuntu text-lg font-semibold sm:text-xl">
-          Ayush Singh <span className="text-italic font-normal text-white">aka shydev</span>
-        </h1>
+        <h1 className="font-ubuntu text-lg font-semibold sm:text-xl">Shydev</h1>
+
+        <div className="space-y-1">
+          <p className={cn(typo({ variant: "paragraph", font: "sans" }), "text-white")}>
+            Last Updated: 1 February 2025
+          </p>
+          <p className={typo({ variant: "paragraph", font: "sans" })}>
+            Hello! I&apos;m a product-focused engineer from Delhi, India. I love turning ideas into
+            polished experiences and exploring whatever new technology ships next.
+          </p>
+        </div>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          <span className="text-white">
-            About Me <br />
-          </span>
-          Hello! I'm a developer from Delhi, India. I enjoy programming and exploring technology.
-          I've participated in{" "}
+          I&apos;ve participated in{" "}
           <span className="text-white">
             <a href="https://docs.google.com/spreadsheets/d/12_9qHndKpcrtrfCzGFSlu9Cb07TkeHIRHsQtRZdIeJ8/edit?usp=sharing">
               15+ hackathons
             </a>
           </span>{" "}
-          & ideathons and won 6 of them.
+          and ideathons, and I&apos;m proud to have won six of them. These sprints keep me sharp,
+          collaborative, and hungry to ship fast.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          <span className="text-white">
-            What I do? <br />
-          </span>{" "}
-          I've delivered 10+ freelance projects, interned at two startups and failed to build my own
-          startup twice. <span className="text-white">#LifeGoesOn</span>. I'm super active on X
-          where I share funnies and <span className="text-white">#BuildInPublic</span>.{" "}
+          Beyond events, I&apos;ve delivered 10+ freelance products end-to-end, interned at two
+          startups, and even failed twice while building my own—each one taught me something worth
+          sharing on <span className="text-white">#BuildInPublic</span>.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          I'm an <span className="text-white">AWS Cloud Club Captain</span>, a maintainer and
-          contributor of open-source projects. When not coding, I read books, go out for a run or
-          binge YouTube.
+          I&apos;m an <span className="text-white">AWS Cloud Club Captain</span>, maintain
+          open-source projects, and mentor builders whenever I can. When I&apos;m not coding,
+          you&apos;ll catch me reading, running, or deep in a YouTube rabbit hole.
         </p>
-
-        <p className={typo({ variant: "paragraph", font: "sans" })}></p>
 
         <p className={cn(typo({ variant: "paragraph", font: "sans" }), "sm:!mt-4")}>
-          I'm <span className="text-white">open to work</span>, freelance, or collaborate.{" "}
+          I&apos;m <span className="text-white">open to work</span>, freelance, or collaborate.{" "}
           <a
             href={`mailto:${config.social.email}`}
             aria-label="Hire Me"
@@ -89,11 +87,11 @@ const AboutSection = () => {
         </p>
       </div>
 
-      <div className="relative order-1 block aspect-square sm:order-2 sm:hidden md:block">
+      <div className="relative order-1 block aspect-square sm:order-2 sm:hidden md:block md:h-[360px] md:w-[360px] md:self-center">
         <div className="absolute inset-0 -z-10 size-full rounded-md bg-[#00adb5]"></div>
         <Image
-          alt="Speaking on stage at for a hackathon presentation"
-          src={livethecode}
+          alt="Locked In"
+          src={codingImage}
           placeholder="blur"
           className="size-full -rotate-3 transform rounded-md shadow-md"
           priority

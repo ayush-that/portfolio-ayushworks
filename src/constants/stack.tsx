@@ -6,16 +6,12 @@ import {
   SiExpress,
   SiFirebase,
   SiJavascript,
-  SiMui,
   SiNextdotjs,
   SiNginx,
   SiNodedotjs,
-  SiPrisma,
   SiReact,
-  SiStyledcomponents,
   SiTailwindcss,
   SiTypescript,
-  // new icons
   SiKeras,
   SiTensorflow,
   SiCplusplus,
@@ -54,7 +50,6 @@ export const FRONTEND_STACKS: stacksProps = {
 
 export const BACKEND_STACKS = {
   postgreSql: { Icon: BiLogoPostgresql, className: "text-blue-500" },
-  Prisma: { Icon: SiPrisma, className: "text-emerald-500" },
   "Node.js": { Icon: SiNodedotjs, className: "text-green-600" },
   Firebase: { Icon: SiFirebase, className: "text-yellow-500" },
   "Artificial Intelligence": { Icon: BsRobot, className: "text-rose-500" },

@@ -1,7 +1,8 @@
-import { League_Spartan } from "next/font/google";
+import { Coming_Soon } from "next/font/google";
 
-export const fontSans = League_Spartan({
+export const fontSans = Coming_Soon({
   subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-sans",
+  variable: "--font-macondo",
+  display: "swap",
+  weight: "400",
 });

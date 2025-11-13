@@ -15,7 +15,11 @@ const SearchInput = () => {
     const term = e.target.value;
     const params = new URLSearchParams(searchParams);
 
-    term ? params.set("search", term) : params.delete("search");
+    if (term) {
+      params.set("search", term);
+    } else {
+      params.delete("search");
+    }
 
     replace(`${pathname}?${params.toString()}`);
   };

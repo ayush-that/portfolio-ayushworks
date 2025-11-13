@@ -24,13 +24,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
         <LanguageSwitcher />
       </div>
       <div className="mb-6 mt-2 space-y-6">
-        <PostMetadata
-          isDetailPage
-          title={post.title}
-          metadata={post.metadata}
-          date={post.date}
-          slug={post.slugAsParams}
-        />
+        <PostMetadata isDetailPage title={post.title} metadata={post.metadata} date={post.date} />
 
         <TableOfContent toc={post.toc} />
 

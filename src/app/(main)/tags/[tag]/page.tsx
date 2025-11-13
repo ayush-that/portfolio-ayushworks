@@ -1,7 +1,6 @@
 "use client";
 
 import { posts } from "#site/content";
-import { slug } from "github-slugger";
 import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { CustomLink } from "~/components/mdx";
@@ -27,7 +26,7 @@ const TagDetailPage: React.FC<TagDetailPageProps> = ({ params }) => {
     });
 
     return getPostsByTagSlug(languageFilteredPosts, tag);
-  }, [posts, i18n.language, tag]);
+  }, [i18n.language, tag]);
 
   return (
     <div className="!mt-8">

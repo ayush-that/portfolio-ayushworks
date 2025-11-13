@@ -1,12 +1,19 @@
 "use client";
 
 import GitHubCalendar from "react-github-calendar";
+import useIsClient from "~/hooks/use-client";
 
 const GitHubContributions = () => {
+  const isClient = useIsClient();
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
-    <div className="w-full">
+    <div className="w-full" suppressHydrationWarning>
       <GitHubCalendar
-        username="ayush-that"
+        username="shydev69"
         colorScheme="dark"
         fontSize={12}
         blockSize={12}

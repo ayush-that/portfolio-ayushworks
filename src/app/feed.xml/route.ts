@@ -28,7 +28,7 @@ export async function GET() {
       url: BasePath(`/blog/${post.slugAsParams.split("/")}`),
       date: post.date,
       description: post.description,
-      author: "Ayush Singh",
+      author: "Shydev",
     });
   });
 

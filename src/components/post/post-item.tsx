@@ -6,7 +6,6 @@ import Link from "next/link";
 import { Card, CardContent } from "~/components/ui/card";
 import PostMetadata from "./post-metadata";
 import Tags from "../tags";
-import { cn } from "~/lib/utils";
 
 interface PostItemProps extends Post {
   layout?: "vertical" | "horizontal";

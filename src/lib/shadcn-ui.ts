@@ -28,15 +28,15 @@ const shadcnPlugin = plugin(
         "--ring": "182.7 100.0% 35.5%",
         "--radius": "0.5rem",
       },
-    }),
-      addBase({
-        "*": {
-          "@apply border-border": {},
-        },
-        body: {
-          "@apply bg-background text-foreground": {},
-        },
-      });
+    });
+    addBase({
+      "*": {
+        "@apply border-border": {},
+      },
+      body: {
+        "@apply bg-background text-foreground": {},
+      },
+    });
   },
 
   {
@@ -57,7 +57,7 @@ const shadcnPlugin = plugin(
           },
         },
         fontFamily: {
-          sans: ["var(--font-sans)", ...fontFamily.sans],
+          sans: ["var(--font-macondo)", ...fontFamily.sans],
           ubuntu: "var(--font-ubuntu)",
           dank: "var(--font-dank)",
         },
