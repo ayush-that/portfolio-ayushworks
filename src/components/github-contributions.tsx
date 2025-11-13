@@ -1,17 +1,14 @@
 "use client";
 
-import GitHubCalendar from "react-github-calendar";
-import useIsClient from "~/hooks/use-client";
+import dynamic from "next/dynamic";
+
+const GitHubCalendar = dynamic(() => import("react-github-calendar"), {
+  ssr: false,
+});
 
 const GitHubContributions = () => {
-  const isClient = useIsClient();
-
-  if (!isClient) {
-    return null;
-  }
-
   return (
-    <div className="w-full" suppressHydrationWarning>
+    <div className="w-full">
       <GitHubCalendar
         username="shydev69"
         colorScheme="dark"

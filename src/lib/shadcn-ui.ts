@@ -29,14 +29,14 @@ const shadcnPlugin = plugin(
         "--radius": "0.5rem",
       },
     });
-    addBase({
-      "*": {
-        "@apply border-border": {},
-      },
-      body: {
-        "@apply bg-background text-foreground": {},
-      },
-    });
+      addBase({
+        "*": {
+          "@apply border-border": {},
+        },
+        body: {
+          "@apply bg-background text-foreground": {},
+        },
+      });
   },
 
   {
