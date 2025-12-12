@@ -26,7 +26,7 @@ const projects = [
     cover: nykaaCover,
     stacks: ["Python", "Selenium", "Beautiful Soup", "Tailwind CSS", "Flask", "Gemini"],
     isRepo: true,
-    repoUrl: "https://github.com/shydev69/Nykaa-Product-Advisor",
+    repoUrl: "https://github.com/ayush-that/Nykaa-Product-Advisor",
   },
 
   {
@@ -38,7 +38,7 @@ const projects = [
     stacks: ["Next.js", "Tailwind CSS", "Polygon", "Solidity", "Chai.js"],
     cover: desinftCover,
     isRepo: true,
-    repoUrl: "https://github.com/shydev69/HackOn-Blocks-2024",
+    repoUrl: "https://github.com/ayush-that/HackOn-Blocks-2024",
     deployedURL: "https://desinft.vercel.app/",
   },
 
@@ -51,7 +51,7 @@ const projects = [
       "Dark-themed modern animated agency landing page with integrated content management system.",
     stacks: ["Next.js", "GSAP", "Framer", "Tailwind CSS", "Sanity.io"],
     isRepo: true,
-    repoUrl: "https://github.com/shydev69/Cryptonic-Labs",
+    repoUrl: "https://github.com/ayush-that/Cryptonic-Labs",
     deployedURL: "https://cryptoniclabs.com/",
   },
 
@@ -64,7 +64,7 @@ const projects = [
     stacks: ["Next.js", "Framer", "Tailwind CSS", "Clerk"],
     cover: wattxCover,
     isRepo: true,
-    repoUrl: "https://github.com/shydev69/WattX",
+    repoUrl: "https://github.com/ayush-that/WattX",
     deployedURL: "https://watt-x.vercel.app/",
   },
 
@@ -77,7 +77,7 @@ const projects = [
     stacks: ["Next.js", "PostgreSQL", "Tailwind CSS", "TypeScript", "Gemini"],
     cover: kooberCover,
     isRepo: true,
-    repoUrl: "https://github.com/shydev69/Live-The-Code-3.0",
+    repoUrl: "https://github.com/ayush-that/Live-The-Code-3.0",
     deployedURL: "https://koober.vercel.app/",
   },
 
@@ -90,7 +90,7 @@ const projects = [
     stacks: ["Next.js", "Tailwind CSS", "TypeScript"],
     cover: webstCover,
     isRepo: true,
-    repoUrl: "https://github.com/shydev69/msc-project",
+    repoUrl: "https://github.com/ayush-that/msc-project",
     deployedURL: "https://mscproject-drab.vercel.app/",
   },
 
@@ -104,7 +104,7 @@ const projects = [
     cover: finvedaCover,
     stacks: ["HTML", "CSS", "JavaScript", "BootStrap", "ChatGPT"],
     isRepo: true,
-    repoUrl: "https://github.com/shydev69/FinVeda",
+    repoUrl: "https://github.com/ayush-that/FinVeda",
   },
 
   {
@@ -116,7 +116,7 @@ const projects = [
     stacks: ["Python", "Flask", "TensorFlow", "Keras", "BootStrap"],
     cover: whatsmytrashCover,
     isRepo: true,
-    repoUrl: "https://github.com/shydev69/IOSC_whatsmytrash",
+    repoUrl: "https://github.com/ayush-that/IOSC_whatsmytrash",
   },
 
   {
@@ -126,7 +126,7 @@ const projects = [
     description:
       "Apple calculator inspired math-solver that uses Computer Vision and AI to solve mathematical problems.",
     isRepo: true,
-    repoUrl: "https://github.com/shydev69/Apple-Calculator-Using-Computer-Vision",
+    repoUrl: "https://github.com/ayush-that/Apple-Calculator-Using-Computer-Vision",
     cover: mathcamCover,
     stacks: ["Python", "Flask", "OpenCV", "Gemini"],
   },
@@ -140,7 +140,7 @@ const projects = [
     stacks: ["HTML", "CSS", "JavaScript"],
     cover: typingCover,
     isRepo: true,
-    repoUrl: "https://github.com/shydev69/100xTyping",
+    repoUrl: "https://github.com/ayush-that/100xTyping",
     deployedURL: "https://100xtyping.ayush.top/",
   },
 
@@ -153,7 +153,7 @@ const projects = [
       "Classic pong game with a twist of Computer Vision. Play against yourself and see how long you can last.",
     isRepo: true,
     stacks: ["Python", "Flask", "OpenCV"],
-    repoUrl: "https://github.com/shydev69/SoloPong",
+    repoUrl: "https://github.com/ayush-that/SoloPong",
   },
 
   {
@@ -165,7 +165,7 @@ const projects = [
     stacks: ["HTML", "CSS", "JavaScript"],
     cover: cookinghubCover,
     isRepo: true,
-    repoUrl: "https://github.com/shydev69/CookingHub",
+    repoUrl: "https://github.com/ayush-that/CookingHub",
     deployedURL: "https://cooking-hub.vercel.app/",
   },
 ];
