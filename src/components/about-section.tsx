@@ -88,12 +88,12 @@ const AboutSection = () => {
       </div>
 
       <div className="relative order-1 block aspect-square sm:order-2 sm:hidden md:block md:h-[360px] md:w-[360px] md:self-center">
-        <div className="absolute inset-0 -z-10 size-full rounded-md bg-[#00adb5]"></div>
+        <div className="absolute inset-0 -z-10 size-full rounded-md bg-gradient-to-br from-neutral-800 via-neutral-700 to-neutral-950 opacity-80"></div>
         <Image
           alt="Locked In"
           src={codingImage}
           placeholder="blur"
-          className="size-full -rotate-3 transform rounded-md shadow-md"
+          className="size-full -rotate-3 transform rounded-md shadow-md brightness-90 contrast-125 grayscale saturate-0"
           priority
         />
       </div>
