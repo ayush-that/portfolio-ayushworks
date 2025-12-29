@@ -7,7 +7,7 @@ function ReactQueryProvider({ children }: React.PropsWithChildren) {
       defaultOptions: {
         queries: { staleTime: 5000, refetchOnWindowFocus: false },
       },
-    })
+    }),
   );
 
   return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
