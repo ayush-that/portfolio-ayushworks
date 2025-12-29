@@ -7,8 +7,8 @@ i18n
   .use(LanguageDetector)
   .use(
     resourcesToBackend(
-      (language: string, namespace: string) => import(`../locales/${language}/${namespace}.json`)
-    )
+      (language: string, namespace: string) => import(`../locales/${language}/${namespace}.json`),
+    ),
   )
   .use(initReactI18next)
   .init({

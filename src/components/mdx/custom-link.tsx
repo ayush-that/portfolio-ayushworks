@@ -9,7 +9,7 @@ const CustomLink = (
     href: string;
     children: ReactNode;
     className?: ClassValue;
-  } & AnchorHTMLAttributes<HTMLAnchorElement>
+  } & AnchorHTMLAttributes<HTMLAnchorElement>,
 ) => {
   const href = props.href;
   const isInternalLink = href && href.startsWith("/");
@@ -18,7 +18,7 @@ const CustomLink = (
     variant: "link",
     className: cn(
       "!p-0 h-full !inline-block !whitespace-normal !text-base !text-ring",
-      props.className
+      props.className,
     ),
   });
 

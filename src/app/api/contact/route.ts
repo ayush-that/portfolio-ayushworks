@@ -12,7 +12,7 @@ async function sendDataToGoogleSheets(data: contactSchemaType): Promise<void> {
 
   const response = await fetch(
     `https://v1.nocodeapi.com/faisal_dev/google_sheets/${env.NOCODE_API_KEY}?tabId=${env.NOCODE_TAB_ID}`,
-    requestOptions
+    requestOptions,
   );
 
   if (!response.ok) {

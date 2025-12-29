@@ -26,7 +26,7 @@ const NavItem: React.FC<NavType[0] & { setOpen?: Dispatch<SetStateAction<boolean
         "relative flex h-7 items-center rounded-md px-2 font-medium transition-colors duration-300 sm:px-0",
         {
           "bg-ring sm:bg-transparent sm:text-ring": pathname === path,
-        }
+        },
       )}
       onClick={onClickHandler}
     >
