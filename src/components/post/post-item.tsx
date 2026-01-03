@@ -37,7 +37,7 @@ const PostItem: React.FC<PostItemProps> = ({
                   fill
                   priority
                   quality={95}
-                  className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="size-full object-cover"
                   sizes="128px"
                 />
               </div>
@@ -47,9 +47,9 @@ const PostItem: React.FC<PostItemProps> = ({
               <p className="mb-2 mt-1 line-clamp-2 font-ubuntu text-sm text-muted-foreground">
                 {description}
               </p>
-              <Tags tags={tags} />
             </div>
           </Link>
+          <Tags tags={tags} />
         </Card>
       </li>
     );
@@ -70,7 +70,7 @@ const PostItem: React.FC<PostItemProps> = ({
                 fill
                 priority
                 quality={95}
-                className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="size-full object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>

@@ -6,12 +6,12 @@ import "~/styles/mdx.css";
 import BlogDetailClient from "./blog-detail-client";
 
 interface BlogPostParams {
-  params: {
+  params: Promise<{
     slug: string[];
-  };
+  }>;
 }
 
-async function getPostFromParams(params: BlogPostParams["params"]) {
+async function getPostFromParams(params: { slug: string[] }) {
   const slug = params?.slug?.join("/");
   const post = posts.find((post) => post.slugAsParams === slug);
 
@@ -22,12 +22,13 @@ async function getPostFromParams(params: BlogPostParams["params"]) {
   return post;
 }
 
-export async function generateStaticParams(): Promise<BlogPostParams["params"][]> {
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
 }
 
 export async function generateMetadata({ params }: BlogPostParams) {
-  const post = await getPostFromParams(params);
+  const resolvedParams = await params;
+  const post = await getPostFromParams(resolvedParams);
 
   return getSEOTags({
     title: post.title,
@@ -53,7 +54,8 @@ export async function generateMetadata({ params }: BlogPostParams) {
 }
 
 export default async function BlogDetail({ params }: BlogPostParams) {
-  const post = await getPostFromParams(params);
+  const resolvedParams = await params;
+  const post = await getPostFromParams(resolvedParams);
 
   return (
     <>
