@@ -14,8 +14,48 @@ import typingCover from "~/assets/images/cover/100xtyping.png";
 import cookinghubCover from "~/assets/images/cover/cookinghub.png";
 import kooberCover from "~/assets/images/cover/koober.png";
 import webstCover from "~/assets/images/cover/webst.png";
+import trendscreenerCover from "~/assets/images/cover/trendscreener-ai.png";
+import codejeetCover from "~/assets/images/cover/codejeet.png";
+import subagentsCover from "~/assets/images/cover/sub-agents.png";
 
 const projects = [
+  {
+    id: createId(),
+    Icon: ChainGpt,
+    title: `Sub-Agents Directory`,
+    description:
+      "Curated collection of Claude Code sub-agent prompts and MCP servers. Discover sub-agents, prompts and more.",
+    deployedURL: "https://www.sub-agents.directory/",
+    cover: subagentsCover,
+    stacks: ["Next.js", "Tailwind CSS"],
+    isRepo: true,
+    repoUrl: "https://github.com/ayush-that/sub-agents.directory",
+  },
+
+  {
+    id: createId(),
+    Icon: ChainGpt,
+    title: `Codejeet`,
+    description:
+      "Website to solve 8k+ company wise, topic wise DSA questions. 7.5k users. Supported by Cloudflare.",
+    deployedURL: "https://codejeet.com/",
+    cover: codejeetCover,
+    stacks: ["Next.js", "PostgreSQL", "Tailwind CSS", "Selenium"],
+    isRepo: true,
+    repoUrl: "https://github.com/shydevcorp/codejeet",
+  },
+
+  {
+    id: createId(),
+    Icon: ChainGpt,
+    title: `Trendscreener`,
+    description: "Unified platform to track, list, and trade all social media trends. (Sold)",
+    deployedURL: "https://trendscreener.ai/",
+    cover: trendscreenerCover,
+    stacks: ["Next.js", "PostgreSQL"],
+    isRepo: false,
+  },
+
   {
     id: createId(),
     Icon: ChainGpt,

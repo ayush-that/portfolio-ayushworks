@@ -11,6 +11,5 @@
     "markdown": {
       "include": ["src/content/posts/[locale]/*.mdx"]
     }
-  },
-  "$schema": "https://lingo.dev/schema/i18n.json"
+  }
 }

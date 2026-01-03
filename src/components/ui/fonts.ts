@@ -1,8 +1,3 @@
-import { Coming_Soon } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 
-export const fontSans = Coming_Soon({
-  subsets: ["latin"],
-  variable: "--font-macondo",
-  display: "swap",
-  weight: "400",
-});
+export const fontSans = GeistSans;

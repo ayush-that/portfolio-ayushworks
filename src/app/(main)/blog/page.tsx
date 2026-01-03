@@ -19,8 +19,13 @@ export const metadata: ReturnType<typeof getSEOTags> = getSEOTags({
   ],
 });
 
-const BlogPage = async ({ searchParams }: { searchParams: { search: string | undefined } }) => {
-  return <BlogPageClient posts={posts} searchTerm={searchParams.search} />;
+const BlogPage = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ search: string | undefined }>;
+}) => {
+  const resolvedSearchParams = await searchParams;
+  return <BlogPageClient posts={posts} searchTerm={resolvedSearchParams.search} />;
 };
 
 export default BlogPage;

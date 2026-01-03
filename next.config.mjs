@@ -1,9 +1,3 @@
-import { fileURLToPath } from "node:url";
-import createJiti from "jiti";
-const jiti = createJiti(fileURLToPath(import.meta.url));
-
-jiti("./src/constants/env");
-
 const isDev = process.argv.indexOf("dev") !== -1;
 const isBuild = process.argv.indexOf("build") !== -1;
 
