@@ -11,14 +11,21 @@ import { cn } from "~/lib/utils";
 
 interface BlogDetailClientProps {
   post: Post;
+  views: number;
 }
 
-export default function BlogDetailClient({ post }: BlogDetailClientProps) {
+export default function BlogDetailClient({ post, views }: BlogDetailClientProps) {
   return (
     <article className="w-full">
       <BackButton>Back to posts</BackButton>
       <div className="mb-6 mt-2 space-y-6">
-        <PostMetadata isDetailPage title={post.title} metadata={post.metadata} date={post.date} />
+        <PostMetadata
+          isDetailPage
+          title={post.title}
+          metadata={post.metadata}
+          date={post.date}
+          views={views}
+        />
 
         <TableOfContent toc={post.toc} />
 

@@ -2,14 +2,16 @@ import { Post } from "#site/content";
 import { Calendar, Timer } from "lucide-react";
 import React from "react";
 import { cn, formatDate } from "~/lib/utils";
+import PostViews from "./post-views";
 
 interface PostMetaProps {
   title: string;
   date: string;
   metadata: Post["metadata"];
   isDetailPage?: boolean;
+  views?: number;
 }
-const PostMetadata: React.FC<PostMetaProps> = ({ title, date, metadata, isDetailPage }) => {
+const PostMetadata: React.FC<PostMetaProps> = ({ title, date, metadata, isDetailPage, views }) => {
   return (
     <hgroup className={cn("space-y-2 p-0", { "p-0": isDetailPage })}>
       <h3
@@ -55,6 +57,7 @@ const PostMetadata: React.FC<PostMetaProps> = ({ title, date, metadata, isDetail
               <span>{metadata.readingTime} min read</span>
             </dd>
           </dl>
+          {isDetailPage && views !== undefined && <PostViews views={views} />}
         </div>
       </div>
     </hgroup>
