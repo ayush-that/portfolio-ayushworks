@@ -2,6 +2,7 @@ import { posts } from "#site/content";
 import { notFound } from "next/navigation";
 import { JsonSchemaLD } from "~/components/post";
 import { getSEOTags } from "~/lib/seo";
+import config from "~/config";
 import "~/styles/mdx.css";
 import BlogDetailClient from "./blog-detail-client";
 
@@ -41,9 +42,9 @@ export async function generateMetadata({ params }: BlogPostParams) {
         url: `/blog/${post.slug.split("/")}`,
         images: [
           {
-            url: post.cover.src,
+            url: `https://${config.domainName}${post.cover}`,
             width: 1200,
-            height: 660,
+            height: 630,
           },
         ],
         locale: "en_US",

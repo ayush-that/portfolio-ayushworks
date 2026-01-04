@@ -1,9 +1,9 @@
 [data-rehype-pretty-code-figure] pre {
-  @apply rounded-lg bg-[#1b1b1b] px-0;
+  @apply rounded-lg bg-[#121212] px-0;
 }
 
 [data-rehype-pretty-code-figure] code {
-  @apply border-0 p-0 font-mono text-sm !leading-loose text-gray-200 md:text-base;
+  @apply border-0 p-0 font-mono text-sm !leading-snug text-gray-300 md:text-base;
 }
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
@@ -30,35 +30,34 @@
   box-shadow: 0 0 0 4px rgba(0, 173, 181, 0.15);
 }
 
-/* Syntax highlighting colors */
-[data-rehype-pretty-code-figure] span[style*="color: #79B8FF"],
-[data-rehype-pretty-code-figure] span[style*="color: #4EC9B0"] {
+/* Syntax highlighting - align with site accent #00adb5 */
+[data-rehype-pretty-code-figure] span[style*="color:#4D9375"],
+[data-rehype-pretty-code-figure] span[style*="color: #4D9375"] {
   @apply !text-[#00adb5];
-  /* keywords, types */
 }
 
-[data-rehype-pretty-code-figure] span[style*="color: #B392F0"] {
-  @apply !text-[#c792ea];
-  /* functions */
+[data-rehype-pretty-code-figure] span[style*="color:#80A665"],
+[data-rehype-pretty-code-figure] span[style*="color: #80A665"] {
+  @apply !text-[#7ec699];
 }
 
-[data-rehype-pretty-code-figure] span[style*="color: #9ECBFF"] {
-  @apply !text-[#89ddff];
-  /* strings */
+[data-rehype-pretty-code-figure] span[style*="color:#C98A7D"],
+[data-rehype-pretty-code-figure] span[style*="color: #C98A7D"] {
+  @apply !text-[#e0a98d];
 }
 
-[data-rehype-pretty-code-figure] span[style*="color: #B392F0"] {
-  @apply !text-[#c792ea];
-  /* functions */
-}
-
-[data-rehype-pretty-code-figure] span[style*="color: #E1E4E8"] {
-  @apply !text-gray-300;
-  /* plain text */
+[data-rehype-pretty-code-figure] span[style*="color:#5DA994"],
+[data-rehype-pretty-code-figure] span[style*="color: #5DA994"] {
+  @apply !text-[#00adb5];
 }
 
 .mdx-content code {
   @apply rounded bg-[#1b1b1b] px-1.5 py-0.5 font-mono text-sm text-[#00adb5];
+}
+
+.mdx-content code::before,
+.mdx-content code::after {
+  content: none;
 }
 
 .mdx-content pre {
@@ -165,7 +164,13 @@
 .mdx-content code,
 .mdx-content pre,
 [data-rehype-pretty-code-figure] [data-line] {
-  @apply !font-mono focus:outline-none focus:ring-2 focus:ring-[#00adb5] focus:ring-offset-2;
+  @apply !font-mono;
+}
+
+.mdx-content pre:focus,
+.mdx-content figure:focus,
+[data-rehype-pretty-code-figure]:focus {
+  @apply outline-none;
 }
 
 .mdx-content figure,

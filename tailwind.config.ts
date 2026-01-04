@@ -59,6 +59,7 @@ const shadcnPlugin = plugin(
         },
         fontFamily: {
           sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+          mono: ["var(--font-geist-mono)", ...fontFamily.mono],
           ubuntu: "var(--font-ubuntu)",
           dank: "var(--font-dank)",
         },

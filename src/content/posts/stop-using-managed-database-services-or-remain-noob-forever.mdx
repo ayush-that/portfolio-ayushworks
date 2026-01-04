@@ -1,0 +1,91 @@
+---
+title: "stop using managed services or remain noob forever"
+description: the goal is to deploy this flask jinja2 web app on the cheapest possible vps and sleep.
+tags: ["docker", "python", "postgresql", "devops", "coolify"]
+date: 2025-09-08
+published: true
+cover: "/cover/stop-using-managed-database-services-or-remain-noob-forever.png"
+---
+
+last week i ditched managed hosting and moved to a vps.
+
+now the next thing i will tackle is managed database hosting — render, neon, supabase are EVIL and a psyop to keep you a noob forever.
+
+so we will
+
+- host our own postgresql db
+- migrate all the data from the neondb
+
+let me first finish my basil pesto pasta first.
+
+---
+
+yeah i’m done. let’s start. ssh into my vps. update from last time, i am done with setting up dns records, certbot, caddy on vps.
+
+the servers will be down for some time but who cares. i’ll first stop all my running docker containers with a `docker stop` & docker rm.
+
+let’s configure the db now.
+
+i’ll edit the `.env` in the project root first. currently it only has a `DATABASE_URL` & `SECRET_KEY`. i’ll add these too:
+
+```text
+SECRET_KEY=BD266259487560467C42A68A8305490C
+APP_PORT=8000
+APP_HOST=example
+DATABASE_URL=postgresql+psycopg2://appuser:strong-app-pass@postgres:5432/appdb
+POSTGRES_SUPER_PASS=super-strong-root-pass
+APP_DB_NAME=appdb
+APP_DB_USER=appuser
+APP_DB_PASS=strong-app-pass
+PGADMIN_EMAIL=you@example.com
+PGADMIN_PASS=super-strong-pgadmin-pass
+APP_DOMAIN=example.com
+EMAIL_FOR_TLS=you@example.com
+```
+
+---
+
+update — i did some things and the VPS crashed. so i will upgrade the vps specs and remove pgadmin. we don’t need it. i need a gf, not pgadmin.
+
+![](https://miro.medium.com/v2/format:webp/1*GlUxQ3KX8KukE_Br9UqiOw.png)
+
+the vps crashed because i tried to run pgadmin which is not possible on a machine with this low specs. i’m proceeding with the implementation now. till now i’ve only set the `.env` for the project.
+
+we are now on a $5 plan.
+
+---
+
+listen.
+
+i have a job and bunch of things to do so let’s do a pivot. let’s not make our lives easier. we have a dockerized app. let’s just use coolify.
+
+but for coolify i will have to upgrade my vps again. i’m upping it to **1 vCPU, 2048 MB RAM, 55 GB SSD, 2.00 TB Transfer, $10.00/mo** plan.
+
+```bash
+# this is for a cleanup, i want a fresh start
+rm -rf /Users/shydev/.ssh/known_hosts
+
+# this is for installing coolify 🐐
+sudo apt upgrade && sudo apt update
+url -fsSL https://cdn.coollabs.io/coolify/install.sh | bash
+```
+
+with one command i have coolify up and running on my vps now.
+
+what to write after it? there’s literally nothing. i had 0 issues deploying it with coolify because my app is dockerized. start a project, add an application deploy my app.
+
+then i added a postgresql db to my project. and did the data migration.
+
+```bash
+export NEON_URL='postgres://<neon_user>:<neon_pass>@<neon_host>/<neon_db>?sslmode=require'
+export LOCAL_URL='postgres://shydev:<local_pass>@localhost:5432/examplehdb'
+
+pg_dump --format=custom --no-owner --no-privileges --clean "$NEON_URL" \
+| pg_restore --no-owner --no-privileges --clean --if-exists --dbname="$LOCAL_URL"
+```
+
+and migration complete.
+
+![](https://miro.medium.com/v2/format:webp/1*S7VG2gMkv3MaBcDDWGORmQ.png)
+
+that’s it.

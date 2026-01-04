@@ -1,24 +1,12 @@
-"use client";
-
 import { Post, posts } from "#site/content";
-import { useTranslation } from "react-i18next";
 import { CustomLink } from "~/components/mdx";
 import { Tag } from "~/components/tags";
 import { getAllTags, sortedTagsCount } from "~/lib/utils";
-import { useMemo } from "react";
 
 type OrganizedPost = Record<string, Post[]>;
 
 const TagsPage = () => {
-  const { i18n } = useTranslation();
-  const languageFilteredPosts = useMemo(() => {
-    return posts.filter((post) => {
-      const postLanguage = post.slug.split("/")[1];
-      return postLanguage === i18n.language;
-    });
-  }, [i18n.language]);
-
-  const tags = getAllTags(languageFilteredPosts);
+  const tags = getAllTags(posts);
   const sortedTags = sortedTagsCount(tags);
 
   function organizePostsByTag(posts: Post[]): OrganizedPost {
@@ -43,7 +31,7 @@ const TagsPage = () => {
     return result;
   }
 
-  const result: OrganizedPost = organizePostsByTag(languageFilteredPosts);
+  const result: OrganizedPost = organizePostsByTag(posts);
 
   return (
     <div className="!mt-8 grid items-start gap-4 md:grid-cols-3">

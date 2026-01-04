@@ -17,15 +17,12 @@ export async function GET() {
     ttl: 60,
   });
 
-  const englishPosts = posts.filter((post) => {
-    const postLanguage = post.slug.split("/")[1];
-    return postLanguage === "en";
-  });
+  const publishedPosts = posts.filter((post) => post.published);
 
-  englishPosts.forEach((post) => {
+  publishedPosts.forEach((post) => {
     feed.item({
       title: post.title,
-      url: BasePath(`/blog/${post.slugAsParams.split("/")}`),
+      url: BasePath(`/blog/${post.slugAsParams}`),
       date: post.date,
       description: post.description,
       author: "Shydev",

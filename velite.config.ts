@@ -7,18 +7,18 @@ import rehypeExternalLink from "rehype-external-links";
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
-  slugAsParams: data.slug.split("/").slice(1).join("/"),
+  slugAsParams: data.slug.split("/").pop() ?? data.slug,
 });
 
 const posts = defineCollection({
   name: "Post",
-  pattern: "posts/**/*.mdx",
+  pattern: "posts/*.mdx",
   schema: s
     .object({
       title: s.string().max(99),
       slug: s.path(),
       description: s.string().max(999),
-      cover: s.image(),
+      cover: s.string(),
       date: s.isodate(),
       published: s.boolean().default(true),
       body: s.mdx(),
@@ -43,7 +43,7 @@ export default defineConfig({
     rehypePlugins: [
       rehypeSlug,
       rehypeCodeTitles,
-      [rehypePrettyCode, { theme: "catppuccin-mocha" }],
+      [rehypePrettyCode, { theme: "vitesse-dark" }],
       [
         rehypeAutolinkHeadings,
         {
