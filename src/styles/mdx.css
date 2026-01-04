@@ -113,7 +113,8 @@
   @apply my-3 border-l-4 border-[#00adb5] pl-4 italic text-muted-foreground;
 }
 
-.mdx-content img {
+.mdx-content > img,
+.mdx-content > p > img {
   @apply my-4 rounded-lg;
 }
 
@@ -217,4 +218,22 @@
 .mdx-content ol a,
 .mdx-content ul a {
   @apply transition-colors duration-200;
+}
+
+/* Reset MDX styles inside tweet card */
+.mdx-content [class*="max-w-lg"] {
+  @apply my-4;
+}
+
+.mdx-content [class*="max-w-lg"] * {
+  margin: revert;
+  padding: revert;
+}
+
+.mdx-content [class*="max-w-lg"] a {
+  @apply !text-foreground !no-underline !ring-0 !ring-offset-0 focus:!ring-0;
+}
+
+.mdx-content [class*="max-w-lg"] a[class*="muted"] {
+  @apply !text-muted-foreground;
 }

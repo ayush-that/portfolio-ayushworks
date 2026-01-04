@@ -3,6 +3,7 @@
 import { Post } from "#site/content";
 import Image from "next/image";
 import BackButton from "~/components/back-btn";
+import Comments from "~/components/comments";
 import { MDXContent } from "~/components/mdx";
 import { PostMetadata, TableOfContent } from "~/components/post";
 import Tags from "~/components/tags";
@@ -43,6 +44,12 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
         <h3 className="font-bold">Tags</h3>
         <Tags tags={post.tags} />
       </div>
+
+      <section className="mt-8">
+        <hr className="mb-6" />
+        <h2 className="mb-4 text-xl font-bold">Comments</h2>
+        <Comments />
+      </section>
     </article>
   );
 }

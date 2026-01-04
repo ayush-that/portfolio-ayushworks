@@ -1,0 +1,55 @@
+---
+title: "$2.5 VPS"
+description: last week the chinese company z.ai released their flagship coding model glm-4.6.
+tags: ["ai", "vibe-coding", "javascript", "nextjs"]
+date: 2025-10-10
+published: true
+cover: "/cover/get-unlimited-claude-code-for-3.png"
+---
+
+last week the chinese company z.ai released their flagship coding model glm-4.6. it has a context window of 200k and it’s currently on discount.
+
+we can abuse that.
+
+1. go to z.ai’s [website](https://z.ai/subscribe?utm_source=zai&utm_medium=index&utm_term=glm-coding-plan&utm_campaign=Platform_Ops&_channel_track_key=6lShUDnv) and subscribe to a monthly coding plan. it’s currently on discount for $3.
+
+2. obtain your z.ai api keys from [here](https://z.ai/manage-apikey/apikey-list) and download claude code — `npm install -g @anthropic-ai/claude-code`.
+
+3. after installing claude code, set up environment variables using one of the following two methods:
+
+a. using script, run a chmod +x (i prefer this)
+
+```bash
+curl -O "http://bigmodel-us3-prod-marketplace.cn-wlcb.ufileos.com/1753683755292-30b3431f487b4cc1863e57a81d78e289.sh?ufileattname=claude_code_prod_zai.sh"
+```
+
+b. manual configuration
+
+```bash
+export ANTHROPIC_BASE_URL=https://api.z.ai/api/anthropic
+export ANTHROPIC_AUTH_TOKEN=YOUR_API_KEY
+```
+
+lowkey feels like their entire cli tool and website is vibe coded with their own coding model.
+
+![z.ai coding plan image](https://miro.medium.com/v2/format:webp/1*fHpD0NKbyTv1oleQeuS8vg.png)
+
+![z.ai code UI screenshot](https://miro.medium.com/v2/format:webp/1*EkX_QtMSbQev9mS0l0yP7w.png)
+
+you’re done.
+
+tips —
+
+to get up to date document i use [context7](https://context7.com/), login to context7 get your api key and add it to claude with `claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: $CONTEXT_API_KEY"`.
+
+demo —
+
+first i generated a `CLAUDE.md` then i gave it two simple tasks.
+
+a. we have a hero section [component](https://kombai-demo.vercel.app/hero-section) generated with [kombai](https://kombai.com/). i will use claude code to create a shadcn [registry](https://ui.shadcn.com/docs/registry/registry-json) for this component.
+
+b. setup prettier and husky in this repository.
+
+![image here](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*LmF4YOS1n_Na8sm0qM55YQ.png)
+
+it created a mess with task 1 so i reverted it. it did install prettier though but that isn’t a big thing so prolly the model bad, or i’m bad with claude code. see the result [here](https://github.com/ayush-that/kombai-demo/commit/07d411633e0dca10e8b791fa6a0be29dedca9f2c).

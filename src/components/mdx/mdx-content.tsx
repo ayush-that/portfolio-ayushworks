@@ -1,6 +1,7 @@
 import { useMemo, createElement } from "react";
 import * as runtime from "react/jsx-runtime";
 import Callout from "~/components/ui/callout";
+import { ClientTweetCard } from "~/components/ui/client-tweet-card";
 import { YouTubeEmbed } from "@next/third-parties/google";
 import CustomImage from "./custom-image";
 import CustomLink from "./custom-link";
@@ -10,6 +11,7 @@ const sharedComponents = {
   CustomLink,
   YouTubeEmbed,
   Callout,
+  Tweet: ClientTweetCard,
 };
 
 interface MDXProps {

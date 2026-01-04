@@ -12,7 +12,7 @@ const computedFields = <T extends { slug: string }>(data: T) => ({
 
 const posts = defineCollection({
   name: "Post",
-  pattern: "posts/*.mdx",
+  pattern: "*.mdx",
   schema: s
     .object({
       title: s.string().max(99),
