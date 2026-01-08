@@ -24,7 +24,11 @@ const BlogPage = async ({
   searchParams: Promise<{ search: string | undefined }>;
 }) => {
   const resolvedSearchParams = await searchParams;
-  return <BlogPageClient posts={posts} searchTerm={resolvedSearchParams.search} />;
+  const sortedPosts = [...posts].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
+
+  return <BlogPageClient posts={sortedPosts} searchTerm={resolvedSearchParams.search} />;
 };
 
 export default BlogPage;
