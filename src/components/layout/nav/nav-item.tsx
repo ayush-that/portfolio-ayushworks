@@ -23,9 +23,9 @@ const NavItem: React.FC<NavType[0] & { setOpen?: Dispatch<SetStateAction<boolean
     <li
       role="listitem"
       className={cn(
-        "relative flex h-7 items-center rounded-md px-2 font-medium transition-colors duration-300 sm:px-0",
+        "relative flex h-10 items-center rounded-md px-3 font-medium transition-colors duration-300 sm:h-7 sm:px-0",
         {
-          "bg-ring sm:bg-transparent sm:text-ring": pathname === path,
+          "bg-muted sm:bg-transparent sm:text-ring": pathname === path,
         },
       )}
       onClick={onClickHandler}
@@ -34,7 +34,7 @@ const NavItem: React.FC<NavType[0] & { setOpen?: Dispatch<SetStateAction<boolean
         href={path}
         role="link"
         aria-label={label}
-        className="el-focus-styles relative z-10 rounded-sm"
+        className="el-focus-styles relative z-10 rounded-sm text-base sm:text-sm"
       >
         {label}
       </Link>
