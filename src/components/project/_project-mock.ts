@@ -17,6 +17,9 @@ import webstCover from "~/assets/images/cover/webst.png";
 import trendscreenerCover from "~/assets/images/cover/trendscreener-ai.png";
 import codejeetCover from "~/assets/images/cover/codejeet.png";
 import subagentsCover from "~/assets/images/cover/sub-agents.png";
+import vnxcoinCover from "~/assets/images/cover/vnxcoin.png";
+import vndaCover from "~/assets/images/cover/vnda.png";
+import lvyougroupCover from "~/assets/images/cover/lvyougroup.png";
 
 const projects = [
   {
@@ -53,6 +56,42 @@ const projects = [
     deployedURL: "https://trendscreener.ai/",
     cover: trendscreenerCover,
     stacks: ["Next.js", "PostgreSQL"],
+    isRepo: false,
+  },
+
+  {
+    id: createId(),
+    Icon: ChainGpt,
+    title: `LVyou Group`,
+    description:
+      "Landing page for a strategic consulting firm specializing in payments, blockchain, and commodities advisory.",
+    deployedURL: "https://lvyougroup.vercel.app/",
+    cover: lvyougroupCover,
+    stacks: ["Next.js", "Tailwind CSS", "Framer"],
+    isRepo: false,
+  },
+
+  {
+    id: createId(),
+    Icon: ChainGpt,
+    title: `VNDX`,
+    description:
+      "Government-endorsed digital token platform promoting financial inclusion and reducing transaction costs in underserved regions.",
+    deployedURL: "https://www.vnxcoin.cc/",
+    cover: vnxcoinCover,
+    stacks: ["Next.js", "Tailwind CSS", "Framer"],
+    isRepo: false,
+  },
+
+  {
+    id: createId(),
+    Icon: ChainGpt,
+    title: `VNDA`,
+    description:
+      "Stablecoin platform for Vietnam powered by Tron blockchain, enabling stable digital transactions and payments.",
+    deployedURL: "https://www.vnda.cc/",
+    cover: vndaCover,
+    stacks: ["Next.js", "Tailwind CSS"],
     isRepo: false,
   },
 

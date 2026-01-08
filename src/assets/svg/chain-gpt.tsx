@@ -7,7 +7,7 @@ interface SVGRProps {
 }
 
 const ChainGpt = ({ title, titleId, ...props }: SVGProps<SVGSVGElement> & SVGRProps) => (
-  <div className="grid size-16 place-content-center rounded-md border bg-neutral-900 transition-colors hover:border-cyan-500">
+  <div className="grid size-16 place-content-center rounded-md border border-border bg-muted transition-colors hover:border-foreground/50">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={40}
@@ -20,8 +20,8 @@ const ChainGpt = ({ title, titleId, ...props }: SVGProps<SVGSVGElement> & SVGRPr
       {title ? <title id={titleId}>{title}</title> : null}
       <defs>
         <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#06b6d4" />
-          <stop offset="100%" stopColor="#1DA3AA" />
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="100%" stopColor="#999999" />
         </linearGradient>
       </defs>
 

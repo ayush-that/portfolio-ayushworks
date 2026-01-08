@@ -15,8 +15,8 @@ const PostMetadata: React.FC<PostMetaProps> = ({ title, date, metadata, isDetail
   return (
     <hgroup className={cn("space-y-2 p-0", { "p-0": isDetailPage })}>
       <h3
-        className={cn(`font-ubuntu text-lg transition-colors group-hover:text-ring`, {
-          "text-xl font-semibold": isDetailPage,
+        className={cn(`font-serif text-xl transition-colors group-hover:text-ring`, {
+          "text-2xl": isDetailPage,
         })}
       >
         {title}

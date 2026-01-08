@@ -48,13 +48,13 @@ export default function BlogDetailClient({ post, views }: BlogDetailClientProps)
 
       <div className="my-4 space-y-1">
         <hr className="!mb-4" />
-        <h3 className="font-bold">Tags</h3>
+        <h3 className="font-serif text-xl">Tags</h3>
         <Tags tags={post.tags} />
       </div>
 
       <section className="mt-8">
         <hr className="mb-6" />
-        <h2 className="mb-4 text-xl font-bold">Comments</h2>
+        <h2 className="mb-4 font-serif text-2xl">Comments</h2>
         <Comments />
       </section>
     </article>

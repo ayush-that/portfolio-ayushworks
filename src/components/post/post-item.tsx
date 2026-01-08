@@ -44,7 +44,7 @@ const PostItem: React.FC<PostItemProps> = ({
             </div>
             <div className="min-w-0 flex-1">
               <PostMetadata title={title} metadata={metadata} date={date} />
-              <p className="mb-2 mt-1 line-clamp-2 font-ubuntu text-sm text-muted-foreground">
+              <p className="mb-2 mt-1 line-clamp-2 font-sans text-sm text-muted-foreground">
                 {description}
               </p>
             </div>
@@ -78,7 +78,7 @@ const PostItem: React.FC<PostItemProps> = ({
           <PostMetadata title={title} metadata={metadata} date={date} />
         </Link>
 
-        <p className={"mb-2 mt-1 line-clamp-2 font-ubuntu text-sm text-muted-foreground"}>
+        <p className={"mb-2 mt-1 line-clamp-2 font-sans text-sm text-muted-foreground"}>
           {description}
         </p>
 

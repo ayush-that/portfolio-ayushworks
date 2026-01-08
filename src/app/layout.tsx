@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
-import { fontSans, fontMono } from "~/components/ui/fonts";
+import { fontMono, fontSans, fontSerif } from "~/components/ui/fonts";
 import { getSEOTags, renderSchemaTags } from "~/lib/seo";
 import { cn } from "~/lib/utils";
 import RootProviders from "~/providers";
@@ -13,7 +13,7 @@ export const viewport = {
   maximumScale: 3,
   userScalable: true,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: light)", color: "black" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
@@ -32,6 +32,7 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased",
           fontSans.className,
           fontSans.variable,
+          fontSerif.variable,
           fontMono.variable,
         )}
       >

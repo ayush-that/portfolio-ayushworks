@@ -1,7 +1,7 @@
 import { ConfigProps } from "./types/config";
 
 export const config = {
-  appName: "Hi I'm Shydev",
+  appName: "$whoami",
   appDesignation: "Software Engineer",
   appDescription: `Hi, I'm Shydev. I'm funny.`,
 
