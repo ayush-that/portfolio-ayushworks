@@ -68,7 +68,8 @@ const projects = [
     deployedURL: "https://lvyougroup.vercel.app/",
     cover: lvyougroupCover,
     stacks: ["Next.js", "Tailwind CSS", "Framer"],
-    isRepo: false,
+    isRepo: true,
+    repoUrl: "https://github.com/ayush-that/lvyougroup",
   },
 
   {
