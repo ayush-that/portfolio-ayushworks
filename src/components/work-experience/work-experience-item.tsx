@@ -1,5 +1,4 @@
 import React from "react";
-import { FaExternalLinkAlt, FaGithub, FaPlay } from "react-icons/fa";
 import { cn } from "~/lib/utils";
 import { CustomLink } from "../mdx";
 import { typo } from "../ui/typograpghy";
@@ -9,26 +8,12 @@ type WorkExperienceItemProps = TWorkExperience & {
   isLast?: boolean;
 };
 
-const linkClass =
-  "!p-0 h-full hover:!text-foreground !flex items-center gap-2 !text-sm !text-ring";
-
-const getLinkIcon = (type: string) => {
-  switch (type) {
-    case "github":
-      return <FaGithub size={12} />;
-    case "demo":
-      return <FaPlay size={10} />;
-    default:
-      return <FaExternalLinkAlt size={12} />;
-  }
-};
-
 const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
   company,
+  website,
   role,
   description,
   stacks,
-  links,
   isLast = false,
 }) => {
   return (
@@ -43,7 +28,15 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
 
       <div className="space-y-2">
         <hgroup className="space-y-1">
-          <h3 className="font-serif text-lg">{company}</h3>
+          <h3 className="font-serif text-lg">
+            <CustomLink
+              href={website}
+              aria-label={`visit ${company} website`}
+              className="!p-0 hover:!text-ring"
+            >
+              {company}
+            </CustomLink>
+          </h3>
           <p className="text-sm text-ring">{role}</p>
         </hgroup>
 
@@ -59,20 +52,6 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
         <p className="text-xs text-ring" aria-label="tech stack">
           {stacks.join(" / ")}
         </p>
-
-        <div className="!mt-3 flex flex-wrap items-center gap-4">
-          {links.map((link) => (
-            <CustomLink
-              key={link.url}
-              aria-label={`visit ${link.label}`}
-              href={link.url}
-              className={linkClass}
-            >
-              {getLinkIcon(link.type)}
-              <span>{link.label}</span>
-            </CustomLink>
-          ))}
-        </div>
       </div>
     </li>
   );
