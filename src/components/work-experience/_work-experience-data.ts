@@ -14,7 +14,7 @@ const workExperiences: TWorkExperience[] = [
     id: createId(),
     company: "Bez",
     website: "https://usebez.ai/",
-    role: "Cursor for Jewellery Designing",
+    role: "Software Engineer",
     description:
       "Helps you to create original jewel designs, visuals, and marketing materials in minutes using AI agents.",
     stacks: [
@@ -36,7 +36,7 @@ const workExperiences: TWorkExperience[] = [
     id: createId(),
     company: "CallPrep",
     website: "https://www.callprep.io/",
-    role: "Software Engineer",
+    role: "Software Engineer (Intern)",
     description:
       "Built a scraper that scraped 60k PDFs (financial docs of banks) / hour, implemented RAG, & built a chatbot.",
     stacks: ["Django", "Celery", "Redis", "React", "Selenium"],
@@ -45,7 +45,7 @@ const workExperiences: TWorkExperience[] = [
     id: createId(),
     company: "EOD Adventure Park",
     website: "https://student.eodparks.com/",
-    role: "Software & Infrastructure Lead",
+    role: "Full Stack Developer",
     description:
       "I solo handle the entire software and infra of EOD Adventure Park, Delhi. I built CRM, dashboards, chatbots, landing pages.",
     stacks: ["AWS", "MERN"],
