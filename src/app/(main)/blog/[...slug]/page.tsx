@@ -2,8 +2,10 @@ import { posts } from "#site/content";
 import { notFound } from "next/navigation";
 import { JsonSchemaLD } from "~/components/post";
 import { getSEOTags } from "~/lib/seo";
+import config from "~/config";
 import "~/styles/mdx.css";
 import BlogDetailClient from "./blog-detail-client";
+import { getPostViews } from "~/actions/queries";
 
 interface BlogPostParams {
   params: Promise<{
@@ -27,7 +29,8 @@ export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
 }
 
 export async function generateMetadata({ params }: BlogPostParams) {
-  const post = await getPostFromParams(await params);
+  const resolvedParams = await params;
+  const post = await getPostFromParams(resolvedParams);
 
   return getSEOTags({
     title: post.title,
@@ -40,9 +43,9 @@ export async function generateMetadata({ params }: BlogPostParams) {
         url: `/blog/${post.slug.split("/")}`,
         images: [
           {
-            url: post.cover.src,
+            url: `https://${config.domainName}${post.cover}`,
             width: 1200,
-            height: 660,
+            height: 630,
           },
         ],
         locale: "en_US",
@@ -53,12 +56,14 @@ export async function generateMetadata({ params }: BlogPostParams) {
 }
 
 export default async function BlogDetail({ params }: BlogPostParams) {
-  const post = await getPostFromParams(await params);
+  const resolvedParams = await params;
+  const post = await getPostFromParams(resolvedParams);
+  const views = await getPostViews(post.slugAsParams);
 
   return (
     <>
       <JsonSchemaLD post={post} />
-      <BlogDetailClient post={post} />
+      <BlogDetailClient post={post} views={views} />
     </>
   );
 }

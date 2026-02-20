@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDown } from "lucide-react";
 
 import { cn } from "~/lib/utils";
 import { FaCircleChevronDown } from "react-icons/fa6";
@@ -26,7 +25,7 @@ const AccordionTrigger = React.forwardRef<
       ref={ref}
       className={cn(
         "flex flex-1 items-center gap-2 py-4 font-medium transition-all [&[data-state=open]>svg]:rotate-180",
-        className
+        className,
       )}
       {...props}
     >

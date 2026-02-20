@@ -1,5 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
-import { fontSans } from "~/components/ui/fonts";
+import Script from "next/script";
+import { fontMono, fontSans, fontSerif } from "~/components/ui/fonts";
 import { getSEOTags, renderSchemaTags } from "~/lib/seo";
 import { cn } from "~/lib/utils";
 import RootProviders from "~/providers";
@@ -12,7 +13,7 @@ export const viewport = {
   maximumScale: 3,
   userScalable: true,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: light)", color: "black" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
@@ -26,13 +27,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.className,
+          fontSans.variable,
+          fontSerif.variable,
+          fontMono.variable,
+        )}
+      >
         {renderSchemaTags()}
 
         <RootProviders>{children}</RootProviders>
 
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
     </html>
   );
 }

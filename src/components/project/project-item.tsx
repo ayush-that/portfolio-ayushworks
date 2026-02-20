@@ -9,7 +9,7 @@ import { TProject } from "./_project-mock";
 
 type ProjectItemProps = {} & TProject;
 
-const linkClass = "!p-0 h-full hover:!text-[#25dde5] !flex items-center gap-2 !text-sm !text-ring";
+const linkClass = "!p-0 h-full hover:!text-foreground !flex items-center gap-2 !text-sm !text-ring";
 
 const ProjectItem: React.FC<ProjectItemProps> = ({
   title,
@@ -34,7 +34,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         </div>
 
         <hgroup className="space-y-2 sm:space-y-1">
-          <h2 className="font-ubuntu text-base font-medium">{title}</h2>
+          <h2 className="font-serif text-lg">{title}</h2>
 
           <p className={"text-xs text-ring"} aria-label="project stacks">
             {stacks.join(" / ")}

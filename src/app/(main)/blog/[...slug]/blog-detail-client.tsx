@@ -2,27 +2,22 @@
 
 import { Post } from "#site/content";
 import Image from "next/image";
-import { useTranslation } from "react-i18next";
 import BackButton from "~/components/back-btn";
+import Comments from "~/components/comments";
 import { MDXContent } from "~/components/mdx";
 import { PostMetadata, TableOfContent } from "~/components/post";
 import Tags from "~/components/tags";
-import LanguageSwitcher from "~/components/language-switcher";
 import { cn } from "~/lib/utils";
 
 interface BlogDetailClientProps {
   post: Post;
+  views: number;
 }
 
-export default function BlogDetailClient({ post }: BlogDetailClientProps) {
-  const { t } = useTranslation(["common", "blog"]);
-
+export default function BlogDetailClient({ post, views }: BlogDetailClientProps) {
   return (
     <article className="w-full">
-      <div className="flex items-center justify-between">
-        <BackButton>{t("common:blog.backToPosts")}</BackButton>
-        <LanguageSwitcher />
-      </div>
+      <BackButton>Back to posts</BackButton>
       <div className="mb-6 mt-2 space-y-6">
         <div style={{ color: "red", fontSize: "30px", background: "yellow", padding: "20px" }}>
           DEBUG: VIEWS SHOULD BE HERE - {post.slugAsParams}
@@ -32,7 +27,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
           title={post.title}
           metadata={post.metadata}
           date={post.date}
-          slug={post.slugAsParams}
+          views={views}
         />
 
         <TableOfContent toc={post.toc} />
@@ -41,7 +36,6 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
           <Image
             src={post.cover}
             alt={post.title}
-            placeholder="blur"
             priority
             fill
             quality={95}
@@ -57,9 +51,15 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
 
       <div className="my-4 space-y-1">
         <hr className="!mb-4" />
-        <h3 className="font-bold">{t("common:blog.tags")}</h3>
+        <h3 className="font-serif text-xl">Tags</h3>
         <Tags tags={post.tags} />
       </div>
+
+      <section className="mt-8">
+        <hr className="mb-6" />
+        <h2 className="mb-4 font-serif text-2xl">Comments</h2>
+        <Comments />
+      </section>
     </article>
   );
 }

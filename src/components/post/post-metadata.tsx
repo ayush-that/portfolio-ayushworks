@@ -9,14 +9,14 @@ interface PostMetaProps {
   date: string;
   metadata: Post["metadata"];
   isDetailPage?: boolean;
-  slug?: string;
+  views?: number;
 }
-const PostMetadata: React.FC<PostMetaProps> = ({ title, date, metadata, isDetailPage, slug }) => {
+const PostMetadata: React.FC<PostMetaProps> = ({ title, date, metadata, isDetailPage, views }) => {
   return (
     <hgroup className={cn("space-y-2 p-0", { "p-0": isDetailPage })}>
       <h3
-        className={cn(`font-ubuntu text-lg transition-colors group-hover:text-ring`, {
-          "text-xl font-semibold": isDetailPage,
+        className={cn(`font-serif text-xl transition-colors group-hover:text-ring`, {
+          "text-2xl": isDetailPage,
         })}
       >
         {title}
@@ -46,7 +46,6 @@ const PostMetadata: React.FC<PostMetaProps> = ({ title, date, metadata, isDetail
         </dl>
 
         <div className="flex items-center gap-3">
-          <span style={{ color: "red", fontSize: "24px", background: "yellow" }}>DEBUG VIEWS</span>
           <dl>
             <dt className="sr-only">Reading time</dt>
             <dd
@@ -58,6 +57,7 @@ const PostMetadata: React.FC<PostMetaProps> = ({ title, date, metadata, isDetail
               <span>{metadata.readingTime} min read</span>
             </dd>
           </dl>
+          {isDetailPage && views !== undefined && <PostViews views={views} />}
         </div>
       </div>
     </hgroup>

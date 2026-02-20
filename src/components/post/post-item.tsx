@@ -6,7 +6,6 @@ import Link from "next/link";
 import { Card, CardContent } from "~/components/ui/card";
 import PostMetadata from "./post-metadata";
 import Tags from "../tags";
-import { cn } from "~/lib/utils";
 
 interface PostItemProps extends Post {
   layout?: "vertical" | "horizontal";
@@ -38,19 +37,19 @@ const PostItem: React.FC<PostItemProps> = ({
                   fill
                   priority
                   quality={95}
-                  className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="size-full object-cover"
                   sizes="128px"
                 />
               </div>
             </div>
             <div className="min-w-0 flex-1">
               <PostMetadata title={title} metadata={metadata} date={date} />
-              <p className="mb-2 mt-1 line-clamp-2 font-ubuntu text-sm text-muted-foreground">
+              <p className="mb-2 mt-1 line-clamp-2 font-sans text-sm text-muted-foreground">
                 {description}
               </p>
-              <Tags tags={tags} />
             </div>
           </Link>
+          <Tags tags={tags} />
         </Card>
       </li>
     );
@@ -71,7 +70,7 @@ const PostItem: React.FC<PostItemProps> = ({
                 fill
                 priority
                 quality={95}
-                className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="size-full object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
@@ -79,7 +78,7 @@ const PostItem: React.FC<PostItemProps> = ({
           <PostMetadata title={title} metadata={metadata} date={date} />
         </Link>
 
-        <p className={"mb-2 mt-1 line-clamp-2 font-ubuntu text-sm text-muted-foreground"}>
+        <p className={"mb-2 mt-1 line-clamp-2 font-sans text-sm text-muted-foreground"}>
           {description}
         </p>
 

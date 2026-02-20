@@ -2,11 +2,9 @@
 import { Search } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { Input } from "~/components/ui/input";
 
-const SearchInput = () => {
-  const { t } = useTranslation("common");
+const SearchInput = ({ placeholder = "Search..." }: { placeholder?: string }) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -15,7 +13,11 @@ const SearchInput = () => {
     const term = e.target.value;
     const params = new URLSearchParams(searchParams);
 
-    term ? params.set("search", term) : params.delete("search");
+    if (term) {
+      params.set("search", term);
+    } else {
+      params.delete("search");
+    }
 
     replace(`${pathname}?${params.toString()}`);
   };
@@ -25,7 +27,7 @@ const SearchInput = () => {
       <Search className="absolute left-2 top-2/4 size-4 -translate-y-2/4 text-muted-foreground" />
       <Input
         type="search"
-        placeholder={t("blog.searchPlaceholder")}
+        placeholder={placeholder}
         className="w-full rounded-lg bg-background pl-8"
         defaultValue={searchParams.get("search")?.toString()}
         onChange={onChangeHandle}

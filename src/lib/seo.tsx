@@ -11,7 +11,7 @@ export const getSEOTags = ({
   extraTags,
 }: Metadata & {
   canonicalUrlRelative?: string;
-  extraTags?: Record<string, any>;
+  extraTags?: Record<string, unknown>;
 } = {}) => {
   return {
     title: title || config.appName,
@@ -30,10 +30,15 @@ export const getSEOTags = ({
     ],
     applicationName: config.appName,
 
+    icons: {
+      icon: "/logo.png",
+      apple: "/logo.png",
+    },
+
     metadataBase: new URL(
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000/"
-        : `https://${config.domainName}/`
+        : `https://${config.domainName}/`,
     ),
 
     openGraph: {
@@ -72,7 +77,7 @@ export const renderSchemaTags = () => {
           "@type": "ProfilePage",
           name: config.appName,
           description: config.appDescription,
-          image: `https://${config.domainName}/icon.png`,
+          image: `https://${config.domainName}/logo.png`,
           url: `https://${config.domainName}/`,
 
           dateCreated: "2022-12-23T12:34:00-05:00",

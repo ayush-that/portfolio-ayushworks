@@ -3,7 +3,7 @@ import { createId } from "@paralleldrive/cuid2";
 export const navData = [
   {
     id: createId(),
-    label: "Home",
+    label: "$whoami",
     path: "/",
   },
   {

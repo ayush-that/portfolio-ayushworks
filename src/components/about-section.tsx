@@ -1,102 +1,88 @@
 "use client";
-// import { useEffect, useRef } from "react";
-// import { annotate, annotationGroup } from "rough-notation";
-// import { RoughAnnotationConfig, RoughAnnotationGroup } from "rough-notation/lib/model";
 
+import Image from "next/image";
 import config from "~/config";
-import { useMediaQuery } from "~/hooks";
 import { cn } from "~/lib/utils";
 import { typo } from "./ui/typograpghy";
-import Image from "next/image";
-import livethecode from "~/assets/images/live-the-code.webp";
-// import { annotationsConfig } from "~/constants/anime";
+import codingImage from "~/assets/images/coding.png";
 
 const AboutSection = () => {
-  const isSmallDevice = useMediaQuery("(max-width: 500px)");
-  // const annotationRefs = annotationsConfig.map(() =>
-  //   useRef<HTMLSpanElement | HTMLAnchorElement>(null)
-  // );
-
-  // useEffect(() => {
-  //   const annotations = annotationsConfig
-  //     .map((config, index) => {
-  //       const element = annotationRefs[index]?.current;
-  //       if (!element) return null;
-
-  //       const { ref, ...options } = config;
-  //       return annotate(element, options as RoughAnnotationConfig);
-  //     })
-  //     .filter((annotation): annotation is NonNullable<typeof annotation> => annotation !== null);
-
-  //   if (annotations.length === 0) return;
-
-  //   const annotationGroupInstance: RoughAnnotationGroup = annotationGroup(annotations);
-
-  //   if (!isSmallDevice) {
-  //     annotationGroupInstance.show();
-  //   }
-
-  //   return () => annotationGroupInstance.hide();
-  // }, [annotationRefs, isSmallDevice]);
-
   return (
     <section className="grid gap-8 sm:gap-4 md:grid-cols-3" aria-label="About">
       <div className="order-2 space-y-3 sm:order-1 md:col-span-2">
-        <h1 className="font-ubuntu text-lg font-semibold sm:text-xl">
-          Ayush Singh <span className="text-italic font-normal text-white">aka shydev</span>
-        </h1>
+        <h1 className="font-serif text-2xl sm:text-3xl">Shydev, 20</h1>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          <span className="text-white">
-            About Me <br />
-          </span>
-          Hello! I&apos;m a developer from Delhi, India. I enjoy programming and exploring
-          technology. I&apos;ve participated in{" "}
-          <span className="text-white">
-            <a href="https://docs.google.com/spreadsheets/d/12_9qHndKpcrtrfCzGFSlu9Cb07TkeHIRHsQtRZdIeJ8/edit?usp=sharing">
-              15+ hackathons
-            </a>
-          </span>{" "}
-          & ideathons and won 6 of them.
+          Product-focused Engineer who ships fast. I turn ideas into polished products and obsess
+          over the details that make software feel right.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          <span className="text-white">
-            What I do? <br />
-          </span>{" "}
-          I&apos;ve delivered 10+ freelance projects, interned at two startups and failed to build
-          my own startup twice. <span className="text-white">#LifeGoesOn</span>. I&apos;m super
-          active on X where I share funnies and <span className="text-white">#BuildInPublic</span>
-          .{" "}
+          Currently building{" "}
+          <a
+            href="https://usebez.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:underline"
+          >
+            Bez
+          </a>
+          , Cursor for Jewellery Designing. AI Agents that generate original designs, visuals, and
+          marketing materials in minutes.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          I&apos;m an <span className="text-white">AWS Cloud Club Captain</span>, a maintainer and
-          contributor of open-source projects. When not coding, I read books, go out for a run or
-          binge YouTube.
+          Before that: built a scraper at{" "}
+          <a
+            href="https://callprep.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:underline"
+          >
+            CallPrep
+          </a>{" "}
+          that processed 60k bank PDFs/hour with RAG-powered search. Solo-built the entire software
+          stack for{" "}
+          <a
+            href="https://eodparks.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:underline"
+          >
+            EOD Adventure Park
+          </a>
+          : CRM, Dashboards, Chatbots, Landing Pages.
         </p>
 
-        <p className={typo({ variant: "paragraph", font: "sans" })}></p>
+        <p className={typo({ variant: "paragraph", font: "sans" })}>
+          15+ Hackathons. <span className="text-white">30+ Freelance Products</span> shipped. 2
+          Startup Internships. 2 failed Startups of my own, each one worth the lessons.
+        </p>
+
+        <p className={typo({ variant: "paragraph", font: "sans" })}>
+          <span className="text-white">40K+ Followers</span> across socials. When I&apos;m not
+          shipping, I&apos;m reading, running, or lost in YouTube rabbit holes.
+        </p>
 
         <p className={cn(typo({ variant: "paragraph", font: "sans" }), "sm:!mt-4")}>
-          I&apos;m <span className="text-white">open to work</span>, freelance, or collaborate.{" "}
+          <span className="text-white">Open to Work</span>: Full-Time, Freelance, or Collabs.{" "}
           <a
             href={`mailto:${config.social.email}`}
             aria-label="Hire Me"
             className="el-focus-styles text-ring"
           >
-            Contact Me.
+            Let&apos;s talk.
           </a>
         </p>
       </div>
 
-      <div className="relative order-1 block aspect-square sm:order-2 sm:hidden md:block">
-        <div className="absolute inset-0 -z-10 size-full rounded-md bg-[#00adb5]"></div>
+      <div className="relative order-1 block aspect-square sm:order-2 sm:hidden md:block md:h-[360px] md:w-[360px] md:self-center">
+        <div className="absolute inset-0 -z-10 size-full rounded-md bg-gradient-to-br from-muted via-secondary to-background opacity-80" />
         <Image
-          alt="Speaking on stage at for a hackathon presentation"
-          src={livethecode}
+          alt="Locked In"
+          src={codingImage}
           placeholder="blur"
-          className="size-full -rotate-3 transform rounded-md shadow-md"
+          className="size-full -rotate-3 transform rounded-md object-cover shadow-md brightness-90 contrast-125 grayscale saturate-0"
           priority
         />
       </div>
