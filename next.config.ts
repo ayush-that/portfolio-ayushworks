@@ -7,10 +7,6 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,
   },
-  webpack: (config) => {
-    config.plugins.push(new VeliteWebpackPlugin());
-    return config;
-  },
   redirects: async () => {
     return [
       {
@@ -72,20 +68,5 @@ const nextConfig: NextConfig = {
     ];
   },
 };
-
-class VeliteWebpackPlugin {
-  static started = false;
-  apply(compiler: {
-    hooks: { beforeCompile: { tapPromise: (name: string, fn: () => Promise<void>) => void } };
-  }) {
-    compiler.hooks.beforeCompile.tapPromise("VeliteWebpackPlugin", async () => {
-      if (VeliteWebpackPlugin.started) return;
-      VeliteWebpackPlugin.started = true;
-      const dev = compiler.hooks ? process.argv.includes("dev") : false;
-      const { build } = await import("velite");
-      await build({ watch: dev, clean: !dev });
-    });
-  }
-}
 
 export default nextConfig;
