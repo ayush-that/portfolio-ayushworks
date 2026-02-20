@@ -3,9 +3,10 @@ import { NextResponse } from "next/server";
 
 const SA_API_BASE = "https://simpleanalytics.com/ayushworks.com.json";
 
-export async function GET(_: Request, { params }: { params: { slug: string } }) {
+export async function GET(_: Request, { params }: { params: Promise<{ slug: string }> }) {
   try {
-    const slug = z.string().parse(params.slug);
+    const { slug: rawSlug } = await params;
+    const slug = z.string().parse(rawSlug);
     const pagePath = `/blog/${slug}`;
 
     const url = new URL(SA_API_BASE);
@@ -29,6 +30,6 @@ export async function GET(_: Request, { params }: { params: { slug: string } }) 
     return NextResponse.json({ views: { slug, count } });
   } catch (error) {
     console.error("Error fetching views:", error);
-    return NextResponse.json({ views: { slug: params.slug, count: 0 } });
+    return NextResponse.json({ views: { slug: "unknown", count: 0 } });
   }
 }
