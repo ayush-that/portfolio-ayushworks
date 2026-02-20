@@ -1,0 +1,9 @@
+ignoredBuiltDependencies:
+  - '@prisma/client'
+  - '@prisma/engines'
+  - '@vercel/speed-insights'
+  - esbuild
+  - prisma
+  - rehype-code-titles
+  - sharp
+  - unrs-resolver

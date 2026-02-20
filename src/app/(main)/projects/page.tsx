@@ -11,9 +11,10 @@ export const metadata: ReturnType<typeof getSEOTags> = getSEOTags({
   keywords: ["JavaScript", "TypeScript", "React", "Testing", "Career", "Software Development"],
 });
 
-const ProjectsPage = ({ searchParams }: { searchParams: { search: string | undefined } }) => {
+const ProjectsPage = async ({ searchParams }: { searchParams: Promise<{ search: string | undefined }> }) => {
+  const { search } = await searchParams;
   const filteredProjects = projects.filter((project) =>
-    project.title.toLowerCase().includes(decodeURIComponent(searchParams.search || ""))
+    project.title.toLowerCase().includes(decodeURIComponent(search || ""))
   );
 
   return (

@@ -1,26 +1,15 @@
-import { fileURLToPath } from "node:url";
-import createJiti from "jiti";
-const jiti = createJiti(fileURLToPath(import.meta.url));
+import type { NextConfig } from "next";
 
-jiti("./src/constants/env");
-
-const isDev = process.argv.indexOf("dev") !== -1;
-const isBuild = process.argv.indexOf("build") !== -1;
-
-if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
-  process.env.VELITE_STARTED = "1";
-  const { build } = await import("velite");
-  await build({ watch: isDev, clean: !isDev });
-}
-
-/** @type {import('next').NextConfig} */
-
-const nextConfig = {
+const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,
+  },
+  webpack: (config) => {
+    config.plugins.push(new VeliteWebpackPlugin());
+    return config;
   },
   redirects: async () => {
     return [
@@ -83,5 +72,18 @@ const nextConfig = {
     ];
   },
 };
+
+class VeliteWebpackPlugin {
+  static started = false;
+  apply(compiler: { hooks: { beforeCompile: { tapPromise: (name: string, fn: () => Promise<void>) => void } } }) {
+    compiler.hooks.beforeCompile.tapPromise("VeliteWebpackPlugin", async () => {
+      if (VeliteWebpackPlugin.started) return;
+      VeliteWebpackPlugin.started = true;
+      const dev = compiler.hooks ? process.argv.includes("dev") : false;
+      const { build } = await import("velite");
+      await build({ watch: dev, clean: !dev });
+    });
+  }
+}
 
 export default nextConfig;

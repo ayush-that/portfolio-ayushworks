@@ -1,21 +1,20 @@
 "use client";
 
 import { posts } from "#site/content";
-import { slug } from "github-slugger";
-import React, { useMemo } from "react";
+import React, { use, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { CustomLink } from "~/components/mdx";
 import { PostList } from "~/components/post";
 import { getPostsByTagSlug } from "~/lib/utils";
 
 interface TagDetailPageProps {
-  params: {
+  params: Promise<{
     tag: string;
-  };
+  }>;
 }
 
 const TagDetailPage: React.FC<TagDetailPageProps> = ({ params }) => {
-  const { tag } = params;
+  const { tag } = use(params);
   const { i18n } = useTranslation();
   const title = tag.split("-").join(" ");
 
