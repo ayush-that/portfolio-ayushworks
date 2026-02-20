@@ -48,3 +48,4 @@ next-env.d.ts
 .velite
 .env
 i18n.cache
+firebase-debug.log

@@ -27,7 +27,7 @@ const TagDetailPage: React.FC<TagDetailPageProps> = ({ params }) => {
     });
 
     return getPostsByTagSlug(languageFilteredPosts, tag);
-  }, [posts, i18n.language, tag]);
+  }, [i18n.language, tag]);
 
   return (
     <div className="!mt-8">

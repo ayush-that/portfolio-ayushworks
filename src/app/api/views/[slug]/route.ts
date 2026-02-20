@@ -1,55 +1,34 @@
 import { z } from "zod";
-import { db } from "~/server/db";
+import { NextResponse } from "next/server";
 
-interface Options {
-  params: {
-    slug: string;
-  };
-}
+const SA_API_BASE = "https://simpleanalytics.com/ayushworks.com.json";
 
 export async function GET(_: Request, { params }: { params: { slug: string } }) {
   try {
     const slug = z.string().parse(params.slug);
-    const views = await db.views.findUnique({
-      where: { slug },
-      select: { count: true },
+    const pagePath = `/blog/${slug}`;
+
+    const url = new URL(SA_API_BASE);
+    url.searchParams.set("version", "6");
+    url.searchParams.set("fields", "pageviews");
+    url.searchParams.set("pages", pagePath);
+    url.searchParams.set("start", "2020-01-01"); // All-time views
+
+    const response = await fetch(url.toString(), {
+      next: { revalidate: 60 }, // Cache for 60 seconds
     });
 
-    return Response.json({ views: views ?? { slug, count: 0 } });
-  } catch (error) {
-    console.error("Database error:", error);
-    return Response.json({ message: "Failed to fetch view count" }, { status: 500 });
-  }
-}
-
-export async function POST(_: Request, { params }: Options): Promise<Response> {
-  try {
-    const slug = z.string().parse(params.slug);
-
-    // Check if the view already exists
-    const existingView = await db.views.findUnique({ where: { slug } });
-
-    if (existingView) {
-      // If the view exists, update the count by incrementing it by 1
-      await db.views.update({
-        where: { slug },
-        data: { count: existingView.count + 1 },
-      });
-    } else {
-      // If the view doesn't exist, create a new one with count 1
-      await db.views.create({
-        data: { slug, count: 1 },
-      });
+    if (!response.ok) {
+      console.error("Simple Analytics API error:", response.status);
+      return NextResponse.json({ views: { slug, count: 0 } });
     }
 
-    return new Response(JSON.stringify({ message: "Count incremented successfully" }), {
-      status: 200,
-    });
-  } catch (error) {
-    console.error("An error occurred while incrementing count:", error);
+    const data = await response.json();
+    const count = data.pageviews ?? 0;
 
-    return new Response(JSON.stringify({ message: "Internal server error" }), {
-      status: 500,
-    });
+    return NextResponse.json({ views: { slug, count } });
+  } catch (error) {
+    console.error("Error fetching views:", error);
+    return NextResponse.json({ views: { slug: params.slug, count: 0 } });
   }
 }
