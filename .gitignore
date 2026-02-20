@@ -49,3 +49,7 @@ next-env.d.ts
 .env
 i18n.cache
 firebase-debug.log
+
+# opennext cloudflare
+.open-next
+.dev.vars
