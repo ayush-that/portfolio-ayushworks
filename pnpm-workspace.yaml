@@ -1,7 +1,7 @@
 ignoredBuiltDependencies:
-  - '@prisma/client'
-  - '@prisma/engines'
-  - '@vercel/speed-insights'
+  - "@prisma/client"
+  - "@prisma/engines"
+  - "@vercel/speed-insights"
   - esbuild
   - prisma
   - rehype-code-titles
