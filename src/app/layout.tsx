@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import { fontMono, fontSans, fontSerif } from "~/components/ui/fonts";
 import { getSEOTags, renderSchemaTags } from "~/lib/seo";
@@ -39,8 +38,6 @@ export default function RootLayout({
         {renderSchemaTags()}
 
         <RootProviders>{children}</RootProviders>
-
-        {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
       <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
     </html>
