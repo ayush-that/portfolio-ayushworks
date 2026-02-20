@@ -40,12 +40,4 @@ export const annotationsConfig: AnnotateConfig[] = [
     multiline: true,
     iterations: 1,
   },
-  {
-    ref: "a6Ref",
-    type: "underline",
-    color: "#00adb5",
-    strokeWidth: 2,
-    padding: 4,
-    iterations: 8,
-  },
 ];

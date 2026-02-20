@@ -1,14 +1,16 @@
-"use client";
 import { Eye } from "lucide-react";
 
-const PostViews = ({ slug }: { slug: string }) => {
-  // Temporarily hardcoded to debug
+interface PostViewsProps {
+  views: number;
+}
+
+const PostViews = ({ views }: PostViewsProps) => {
   return (
     <dl>
-      <dt className="sr-only">Blog Post views</dt>
+      <dt className="sr-only">Blog post views</dt>
       <dd className="flex items-center gap-1 text-sm text-muted-foreground">
         <Eye className="size-4" aria-hidden="true" />
-        <span>42 Views</span>
+        <span>{views} Views</span>
       </dd>
     </dl>
   );

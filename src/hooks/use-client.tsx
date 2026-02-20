@@ -1,11 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function useIsClient() {
-  const [isClient, setClient] = useState(false);
-
-  useEffect(() => {
-    setClient(true);
-  }, []);
-
+  const [isClient] = useState(() => typeof window !== "undefined");
   return isClient;
 }

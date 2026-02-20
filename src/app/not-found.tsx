@@ -93,7 +93,7 @@ export default function Custom404() {
             />
           </svg>
         </div>
-        <p className="text-xl font-semibold md:text-xl">This page doesn&apos;t exist</p>
+        <p className="font-serif text-3xl md:text-4xl">This page doesn&apos;t exist</p>
 
         <p className="mx-auto -mt-2 max-w-3xl text-center text-xs sm:text-base">
           Oops! It seems like you&apos;ve stumbled upon a page that doesn&apos;t exist Don&apos;t

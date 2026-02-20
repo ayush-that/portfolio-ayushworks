@@ -6,11 +6,12 @@ import NftConnectLogo from "~/assets/images/nft-connect.jpg";
 import worldRankLogo from "~/assets/images/world-rank.png";
 import { cn } from "~/lib/utils";
 
-const DEFAULT_CLASS = "size-16 border bg-[#11117c] grid place-content-center rounded-md p-3";
+const DEFAULT_CLASS =
+  "size-16 border border-border bg-muted grid place-content-center rounded-md p-3";
 
 export const PowerUp = () => {
   return (
-    <div className={cn(DEFAULT_CLASS, "bg-[#11117c]")}>
+    <div className={cn(DEFAULT_CLASS, "bg-muted")}>
       <Image alt="Power up brain battles" src={powerUpLogo} placeholder="blur" />
     </div>
   );
@@ -40,8 +41,8 @@ export const NftConnect = () => {
 
 export const PodPortal = () => {
   return (
-    <div className={cn(DEFAULT_CLASS, "bg-neutral-900 bg-transparent p-2")}>
-      <h3 className="font-ubuntu text-5xl font-semibold">P</h3>
+    <div className={cn(DEFAULT_CLASS, "bg-muted bg-transparent p-2")}>
+      <h3 className="font-serif text-5xl">P</h3>
     </div>
   );
 };

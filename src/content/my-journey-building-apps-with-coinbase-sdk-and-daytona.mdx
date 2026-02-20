@@ -1,0 +1,117 @@
+---
+title: "My Journey Building Apps with Coinbase SDK and Daytona"
+description: "I decided to attempt the 023: Take Daytona for a spin challenge and in this blog, I will be sharing my experience with Daytona."
+tags: ["webdev", "coinbase", "daytona"]
+date: 2024-12-27
+published: true
+cover: "/cover/my-journey-building-apps-with-coinbase-sdk-and-daytona.png"
+---
+
+As 10x developers, the biggest productivity killer we face is the hassle of setting up our developer environment. It is a process where things can go wrong without any notice which leads to frustration.
+
+I was searching for a solution to this problem when one day I came across Daytona at their Developers Club Tour meetup in New Delhi. Excited, I saw their Creator Quest on [Quira](https://quira.sh/quests/creator/details?questId=23).
+
+I decided to attempt the **023: Take Daytona for a spin** challenge and in this blog, I will be sharing my experience with Daytona.
+
+## What is Daytona?
+
+[Daytona](https://www.daytona.io/) is a self-hosted and secure **open-source** development environment manager.
+
+![Daytona GitHub](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6x6q69ztvir2vwo7yyux.png)
+
+It is a simple, no-hassle, **CLI tool** that cuts the extra steps like downloading libraries, building, updation, compiling, and testing from the development process and lets you start coding with a **single command**.
+
+## Learning Daytona
+
+To get a basic idea about Daytona, I first opened their [GitHub](https://github.com/daytonaio/daytona) repository and read the `README.md`. I was impressed by the active development and 13.5k stars. After that, I went through their [documentation](https://www.daytona.io/docs/) and [blog](https://www.daytona.io/dotfiles).
+
+I then chose a theme to build on for the quest from the ones provided by the Daytona themes.
+
+## Building the App
+
+For the quest, I built a template for connecting to a React app with Coinbase Wallet, using Coinbase Wallet SDK.
+
+![Coinbase Connect](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/shm1uaimxgzjj6dwwejo.png)
+
+I set up a React + Vite project, utilized TypeScript, speed read the Coinbase SDK documentation. Within one night, I had an MVP ready. I styled it with shadcn/ui and TailwindCSS and deployed it on Vercel.
+
+Though it's focused on Web3 projects involving connecting Coinbase, this can be used as a shadcn/ui boilerplate too lol.
+
+## Joining The Community
+
+After my project (Coinbase Connect) was submitted on the Quira platform I received a mail with a slack invitation and instructions to progress further.
+
+![Mail](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/50s68gh2wcz88zivdoct.png)
+
+I was thrilled and joined their Slack community. I introduced myself and my project and waited for further instructions.
+
+![Slack](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fsraml8eor9xj2n6xm2c.png)
+
+One day later, Ivan created an empty [repository](https://github.com/daytonaio/sample-react-coinbase-connect) for me on the Daytona organization. I migrated my codebase there and raised a PR.
+
+Now here's the first hurdle, I forgot to `--signoff` my commit so it had an error. With some revision, [my first PR](https://github.com/daytonaio/sample-react-coinbase-connect/pull/1) was accepted. In the next two days, I did [my second PR](https://github.com/daytonaio/sample-react-coinbase-connect/pull/2) where I removed all the hardcoded constants and [my third PR](https://github.com/daytonaio/sample-react-coinbase-connect/pull/3) with some `README.md` changes.
+
+Overall the experience with the community was great with Ivan and Jafa guiding me wherever necessary.
+
+## Using React with Coinbase SDK with Daytona
+
+This should be the most comprehensive section of the blog but because of the ridiculously simple nature of Daytona, there isn't much you have to do.
+
+FIrst of all, Installing Daytona is a breeze, even on Windows. It's a single command installation and you're done.
+
+```powershell
+$architecture = if ($env:PROCESSOR_ARCHITECTURE -eq "AMD64") { "amd64" } else { "arm64" }
+md -Force "$Env:APPDATA\bin\daytona"; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Tls,Tls11,Tls12';
+Invoke-WebRequest -URI "https://download.daytona.io/daytona/v0.50/daytona-windows-$architecture.exe" -OutFile "$Env:APPDATA\bin\daytona\daytona.exe";
+$env:Path += ";" + $Env:APPDATA + "\bin\daytona"; [Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::User);
+daytona serve;
+```
+
+If you happen to be on Linux or MacOS, then you can install Daytona with this command:
+
+```bash
+(curl -sf -L https://download.daytona.io/daytona/install.sh | sudo bash) && daytona server -y && daytona
+```
+
+To run it locally, make sure you have Docker installed and running on your machine. Then run the following command to create your workspace:
+
+```bash
+daytona create https://github.com/daytonaio/sample-react-coinbase-connect
+```
+
+![Terminal](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q2e9nwy9dcvjxa36qi58.png)
+
+Start the Application:
+
+```bash
+npm install
+npm run dev
+
+# Building for Production
+npm run build
+npm run preview
+```
+
+![Daytona in action](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/0shgrgsu2upwbx7tckvy.png)
+
+[GitHub](https://github.com/daytonaio/sample-react-coinbase-connect) (Do give it a ⭐)
+[Live](https://coinbase-connect.vercel.app/)
+
+## Conclusion
+
+That sums up my experience of taking part in the Daytona Quest. I had fun building with and for Daytona and will be using it in my future projects.
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/8u7uansAA6g?si=T6Z6M19K3Z2H3SJ9"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+The Daytona Quest still has two weeks left for submissions. It is a good opportunity to get started with Open Source. Don't miss it.
+
+Thanks for reading!

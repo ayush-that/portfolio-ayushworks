@@ -1,8 +1,5 @@
-"use client";
-
 import { posts } from "#site/content";
-import React, { use, useMemo } from "react";
-import { useTranslation } from "react-i18next";
+import React from "react";
 import { CustomLink } from "~/components/mdx";
 import { PostList } from "~/components/post";
 import { getPostsByTagSlug } from "~/lib/utils";
@@ -13,20 +10,10 @@ interface TagDetailPageProps {
   }>;
 }
 
-const TagDetailPage: React.FC<TagDetailPageProps> = ({ params }) => {
-  const { tag } = use(params);
-  const { i18n } = useTranslation();
+const TagDetailPage = async ({ params }: TagDetailPageProps) => {
+  const { tag } = await params;
   const title = tag.split("-").join(" ");
-
-  // Filter posts by current language first, then by tag
-  const displayPosts = useMemo(() => {
-    const languageFilteredPosts = posts.filter((post) => {
-      const postLanguage = post.slug.split("/")[1];
-      return postLanguage === i18n.language;
-    });
-
-    return getPostsByTagSlug(languageFilteredPosts, tag);
-  }, [i18n.language, tag]);
+  const displayPosts = getPostsByTagSlug(posts, tag);
 
   return (
     <div className="!mt-8">

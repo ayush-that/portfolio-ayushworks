@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       {
         source: "/resume",
         destination:
-          "https://drive.google.com/file/d/1Y9sBMG1nyikIjtdtxahUOtWfVrNDiMux/view?usp=sharing",
+          "https://drive.google.com/file/d/1H0mKGg6zKlIv4JX1op4lCwsDkWdYutu4/view?usp=sharing",
         permanent: true,
       },
       {
@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/github",
-        destination: "https://github.com/shydev69",
+        destination: "https://github.com/ayush-that",
         permanent: true,
       },
       {
