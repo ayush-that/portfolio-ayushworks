@@ -8,10 +8,7 @@ interface NavProps {
 
 const NavList: React.FC<NavProps> = ({ setOpen }) => {
   return (
-    <ul
-      role="list"
-      className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6"
-    >
+    <ul role="list" className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
       {navData.map((nav) => (
         <NavItem key={nav.id} setOpen={setOpen} {...nav} />
       ))}

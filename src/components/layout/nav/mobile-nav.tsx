@@ -1,12 +1,6 @@
 "use client";
 import { Menu } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "~/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "~/components/ui/sheet";
 import NavList from "./nav-list";
 import { useState } from "react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";

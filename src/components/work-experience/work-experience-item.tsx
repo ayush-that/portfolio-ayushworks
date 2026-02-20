@@ -40,12 +40,7 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
           <p className="text-sm text-ring">{role}</p>
         </hgroup>
 
-        <p
-          className={cn(
-            typo({ variant: "paragraph", size: "sm" }),
-            "line-clamp-3"
-          )}
-        >
+        <p className={cn(typo({ variant: "paragraph", size: "sm" }), "line-clamp-3")}>
           {description}
         </p>
 
