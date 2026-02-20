@@ -5,7 +5,7 @@ type TPostView = { views: { slug: string; count: number } };
 
 export const usePostViews = (slug: string) =>
   useQuery({
-    queryKey: ["POST_VIEWS"],
+    queryKey: ["POST_VIEWS", slug],
     queryFn: () => fetchFunc<TPostView>(`/views/${slug}`, { method: "GET" }),
     refetchOnWindowFocus: true,
   });

@@ -50,8 +50,8 @@ const AboutSection = () => {
           <span className="text-white">
             About Me <br />
           </span>
-          Hello! I'm a developer from Delhi, India. I enjoy programming and exploring technology.
-          I've participated in{" "}
+          Hello! I&apos;m a developer from Delhi, India. I enjoy programming and exploring
+          technology. I&apos;ve participated in{" "}
           <span className="text-white">
             <a href="https://docs.google.com/spreadsheets/d/12_9qHndKpcrtrfCzGFSlu9Cb07TkeHIRHsQtRZdIeJ8/edit?usp=sharing">
               15+ hackathons
@@ -64,13 +64,14 @@ const AboutSection = () => {
           <span className="text-white">
             What I do? <br />
           </span>{" "}
-          I've delivered 10+ freelance projects, interned at two startups and failed to build my own
-          startup twice. <span className="text-white">#LifeGoesOn</span>. I'm super active on X
-          where I share funnies and <span className="text-white">#BuildInPublic</span>.{" "}
+          I&apos;ve delivered 10+ freelance projects, interned at two startups and failed to build
+          my own startup twice. <span className="text-white">#LifeGoesOn</span>. I&apos;m super
+          active on X where I share funnies and <span className="text-white">#BuildInPublic</span>
+          .{" "}
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          I'm an <span className="text-white">AWS Cloud Club Captain</span>, a maintainer and
+          I&apos;m an <span className="text-white">AWS Cloud Club Captain</span>, a maintainer and
           contributor of open-source projects. When not coding, I read books, go out for a run or
           binge YouTube.
         </p>
@@ -78,7 +79,7 @@ const AboutSection = () => {
         <p className={typo({ variant: "paragraph", font: "sans" })}></p>
 
         <p className={cn(typo({ variant: "paragraph", font: "sans" }), "sm:!mt-4")}>
-          I'm <span className="text-white">open to work</span>, freelance, or collaborate.{" "}
+          I&apos;m <span className="text-white">open to work</span>, freelance, or collaborate.{" "}
           <a
             href={`mailto:${config.social.email}`}
             aria-label="Hire Me"

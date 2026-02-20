@@ -19,7 +19,7 @@ const TagsPage = () => {
       const postLanguage = post.slug.split("/")[1];
       return postLanguage === i18n.language;
     });
-  }, [posts, i18n.language]);
+  }, [i18n.language]);
 
   const tags = getAllTags(languageFilteredPosts);
   const sortedTags = sortedTagsCount(tags);

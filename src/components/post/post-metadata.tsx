@@ -46,7 +46,7 @@ const PostMetadata: React.FC<PostMetaProps> = ({ title, date, metadata, isDetail
         </dl>
 
         <div className="flex items-center gap-3">
-          {isDetailPage && <PostViews slug={slug!} />}
+          <span style={{ color: "red", fontSize: "24px", background: "yellow" }}>DEBUG VIEWS</span>
           <dl>
             <dt className="sr-only">Reading time</dt>
             <dd

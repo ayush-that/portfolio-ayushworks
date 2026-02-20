@@ -24,6 +24,9 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
         <LanguageSwitcher />
       </div>
       <div className="mb-6 mt-2 space-y-6">
+        <div style={{ color: "red", fontSize: "30px", background: "yellow", padding: "20px" }}>
+          DEBUG: VIEWS SHOULD BE HERE - {post.slugAsParams}
+        </div>
         <PostMetadata
           isDetailPage
           title={post.title}

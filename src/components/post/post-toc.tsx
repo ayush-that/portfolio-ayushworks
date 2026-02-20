@@ -14,6 +14,8 @@ const TOC_STYLES: ClassValue = "el-focus-styles rounded-sm text-muted-foreground
 const PostTableOfContent = ({ toc }: { toc: Post["toc"] }) => {
   const [tocValue, setTocValue] = useState("");
 
+  if (toc.length === 0) return null;
+
   const renderTocItems = (items: Post["toc"]) => {
     return (
       <ol role="list" className="mt-2 list-disc space-y-2 ps-4">
