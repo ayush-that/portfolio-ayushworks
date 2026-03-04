@@ -2,6 +2,7 @@
 
 import { Post } from "#site/content";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import BackButton from "~/components/back-btn";
 import Comments from "~/components/comments";
 import { MDXContent } from "~/components/mdx";
@@ -11,10 +12,18 @@ import { cn } from "~/lib/utils";
 
 interface BlogDetailClientProps {
   post: Post;
-  views: number;
 }
 
-export default function BlogDetailClient({ post, views }: BlogDetailClientProps) {
+export default function BlogDetailClient({ post }: BlogDetailClientProps) {
+  const [views, setViews] = useState(0);
+
+  useEffect(() => {
+    fetch(`/api/views/${post.slugAsParams}`)
+      .then((res) => res.json())
+      .then((data) => setViews(data.views?.count ?? 0))
+      .catch(() => {});
+  }, [post.slugAsParams]);
+
   return (
     <article className="w-full">
       <BackButton>Back to posts</BackButton>
