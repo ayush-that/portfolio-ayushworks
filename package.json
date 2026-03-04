@@ -92,5 +92,12 @@
   },
   "resolutions": {
     "esbuild": "0.24.0"
-  }
+  },
+  "trustedDependencies": [
+    "esbuild",
+    "rehype-code-titles",
+    "sharp",
+    "unrs-resolver",
+    "workerd"
+  ]
 }

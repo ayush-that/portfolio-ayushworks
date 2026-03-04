@@ -1,5 +1,0 @@
-ignoredBuiltDependencies:
-  - esbuild
-  - rehype-code-titles
-  - sharp
-  - unrs-resolver

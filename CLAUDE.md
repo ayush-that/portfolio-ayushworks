@@ -5,18 +5,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build & Development Commands
 
 ```bash
-pnpm dev              # Runs Next.js dev server + Velite content watcher in parallel
-pnpm build            # Sequential: build:content (Velite) then build:next (Next.js)
-pnpm dev:next         # Next.js dev server only
-pnpm dev:content      # Velite content watcher only
-pnpm build:content    # velite --clean (regenerates .velite/)
-pnpm build:next       # next build
-pnpm format           # oxfmt --write .
-pnpm cf:build         # Build for Cloudflare via opennextjs-cloudflare
-pnpm cf:preview       # Preview Cloudflare build locally via Wrangler
-pnpm cf:deploy        # Deploy to Cloudflare Pages
-pnpm preview          # Full pipeline: build + cf:build + cf:preview
-pnpm deploy           # Full pipeline: build + cf:build + cf:deploy
+bun dev              # Runs Next.js dev server + Velite content watcher in parallel
+bun build            # Sequential: build:content (Velite) then build:next (Next.js)
+bun dev:next         # Next.js dev server only
+bun dev:content      # Velite content watcher only
+bun build:content    # velite --clean (regenerates .velite/)
+bun build:next       # next build
+bun format           # oxfmt --write .
+bun cf:build         # Build for Cloudflare via opennextjs-cloudflare
+bun cf:preview       # Preview Cloudflare build locally via Wrangler
+bun cf:deploy        # Deploy to Cloudflare Pages
+bun preview          # Full pipeline: build + cf:build + cf:preview
+bun deploy           # Full pipeline: build + cf:build + cf:deploy
 ```
 
 No test runner or linter is configured in this project.
@@ -65,7 +65,7 @@ Tailwind 3.4 with shadcn/ui preset (`src/lib/shadcn-ui.ts`). Dark mode via CSS s
 
 ## Deployment
 
-Cloudflare Pages via `@opennextjs/cloudflare`. Configuration in `wrangler.jsonc` and `open-next.config.ts`. Deploy with `pnpm deploy`. Preview locally with `pnpm preview`. The site is primarily static with a single dynamic API route for page view counts (via Simple Analytics).
+Cloudflare Pages via `@opennextjs/cloudflare`. Configuration in `wrangler.jsonc` and `open-next.config.ts`. Deploy with `bun deploy`. Preview locally with `bun preview`. The site is primarily static with a single dynamic API route for page view counts (via Simple Analytics).
 
 ## Notable Patterns
 
