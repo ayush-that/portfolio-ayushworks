@@ -5,7 +5,6 @@ import { getSEOTags } from "~/lib/seo";
 import config from "~/config";
 import "~/styles/mdx.css";
 import BlogDetailClient from "./blog-detail-client";
-import { getPostViews } from "~/actions/queries";
 
 interface BlogPostParams {
   params: Promise<{
@@ -58,12 +57,11 @@ export async function generateMetadata({ params }: BlogPostParams) {
 export default async function BlogDetail({ params }: BlogPostParams) {
   const resolvedParams = await params;
   const post = await getPostFromParams(resolvedParams);
-  const views = await getPostViews(post.slugAsParams);
 
   return (
     <>
       <JsonSchemaLD post={post} />
-      <BlogDetailClient post={post} views={views} />
+      <BlogDetailClient post={post} />
     </>
   );
 }
