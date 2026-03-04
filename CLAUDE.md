@@ -6,12 +6,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 pnpm dev              # Runs Next.js dev server + Velite content watcher in parallel
-pnpm build            # npm install --legacy-peer-deps && sequential build:content then build:next
+pnpm build            # Sequential: build:content (Velite) then build:next (Next.js)
 pnpm dev:next         # Next.js dev server only
 pnpm dev:content      # Velite content watcher only
 pnpm build:content    # velite --clean (regenerates .velite/)
 pnpm build:next       # next build
-pnpm format           # Prettier (ts, tsx, md, mdx, json, css)
+pnpm format           # oxfmt --write .
+pnpm cf:build         # Build for Cloudflare via opennextjs-cloudflare
+pnpm cf:preview       # Preview Cloudflare build locally via Wrangler
+pnpm cf:deploy        # Deploy to Cloudflare Pages
+pnpm preview          # Full pipeline: build + cf:build + cf:preview
+pnpm deploy           # Full pipeline: build + cf:build + cf:deploy
 ```
 
 No test runner or linter is configured in this project.
@@ -28,10 +33,9 @@ Uses i18next with browser language detection. UI translations are in `src/locale
 
 ### Data Layer
 
-- **Prisma** with PostgreSQL. Schema has a single `Views` model (slug + count). Client singleton in `src/server/db.ts`.
-- **Views tracking** actually uses the **Simple Analytics API** (not Prisma directly) — see `src/app/api/views/[slug]/route.ts`.
-- **Contact form** posts to Google Sheets via NoCode API.
-- Client-side data fetching uses **Axios** (`src/lib/axios.ts`) + **React Query** (`src/actions/queries.ts` for reads, `src/actions/mutations.ts` for writes).
+- **Views tracking** uses the **Simple Analytics API** — via API route at `src/app/api/views/[slug]/route.ts` and server action in `src/actions/queries.ts`. Both use `fetch` with `{ next: { revalidate: 60 } }`.
+- **Contact form** posts directly to **Web3Forms API** from the client (`src/components/contact-us.tsx`). No backend route involved.
+- Client-side data fetching uses **React Query** (`src/actions/queries.ts` for reads).
 
 ### Routing & Layout
 
@@ -39,12 +43,16 @@ Next.js App Router. Pages are grouped under `src/app/(main)/` route group with s
 
 ### API Routes
 
-- `GET /api/views/[slug]` — fetches pageviews from Simple Analytics, cached 60s
-- `POST /api/contact` — validates with Zod (`src/schema.ts`), sends to Google Sheets
+- `GET /api/views/[slug]` — fetches pageviews from Simple Analytics, cached 60s via ISR
+- `GET /feed.xml` — generates RSS feed from Velite-processed blog content
 
 ### Environment Variables
 
-Validated via `@t3-oss/env-nextjs` in `src/constants/env.ts` (validation skipped in dev). Server: `NOCODE_API_KEY`, `NOCODE_TAB_ID`, `POSTGRES_PRISMA_URL`, `POSTGRES_URL_NON_POOLING`. Client: `NEXT_PUBLIC_GISCUS_REPO_ID`, `NEXT_PUBLIC_GISCUS_CATEGORY_ID`.
+Client-side only (set as build-time env vars in Cloudflare Pages dashboard):
+- `NEXT_PUBLIC_GISCUS_REPO` / `NEXT_PUBLIC_GISCUS_REPO_ID` — Giscus GitHub repo
+- `NEXT_PUBLIC_GISCUS_CATEGORY` / `NEXT_PUBLIC_GISCUS_CATEGORY_ID` — Giscus category
+
+No server-side environment variables are required.
 
 ## Key Path Aliases
 
@@ -57,7 +65,7 @@ Tailwind 3.4 with shadcn/ui preset (`src/lib/shadcn-ui.ts`). Dark mode via CSS s
 
 ## Deployment
 
-Vercel. Build command (from `vercel.json`): `prisma generate && prisma migrate deploy && next build`. The `next.config.mjs` uses `jiti` to validate env vars at build time and triggers Velite builds via a custom webpack plugin.
+Cloudflare Pages via `@opennextjs/cloudflare`. Configuration in `wrangler.jsonc` and `open-next.config.ts`. Deploy with `pnpm deploy`. Preview locally with `pnpm preview`. The site is primarily static with a single dynamic API route for page view counts (via Simple Analytics).
 
 ## Notable Patterns
 
@@ -65,4 +73,4 @@ Vercel. Build command (from `vercel.json`): `prisma generate && prisma migrate d
 - Site config (name, domain, social links) lives in `src/config.ts` — domain is `ayushworks.com`.
 - Comments use Giscus (GitHub-backed).
 - `src/constants/stack.tsx` defines technology icons used across the site.
-- Redirects for social links (`/github`, `/linkedin`, `/resume`, etc.) are defined in `next.config.mjs`.
+- Redirects for social links (`/github`, `/linkedin`, `/resume`, etc.) are defined in `next.config.ts`.

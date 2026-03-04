@@ -19,9 +19,6 @@ export default function BlogDetailClient({ post, views }: BlogDetailClientProps)
     <article className="w-full">
       <BackButton>Back to posts</BackButton>
       <div className="mb-6 mt-2 space-y-6">
-        <div style={{ color: "red", fontSize: "30px", background: "yellow", padding: "20px" }}>
-          DEBUG: VIEWS SHOULD BE HERE - {post.slugAsParams}
-        </div>
         <PostMetadata
           isDetailPage
           title={post.title}
