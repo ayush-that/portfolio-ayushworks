@@ -36,41 +36,34 @@ const AboutSection = () => {
           >
             Bez
           </a>
-          , Cursor for Jewellery Designing. AI Agents that generate original designs, visuals, and
-          marketing materials in minutes.
+          , the AI Copilot for Jewellers. Multi-agent orchestrator routing Claude Sonnet to 6
+          specialized Gemini agents, multimodal search across 25,000+ images, and a custom memory
+          system that eliminated 40% duplicate designs.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          Before that: built a scraper at{" "}
-          <a
-            href="https://callprep.io/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:underline"
-          >
-            CallPrep
-          </a>{" "}
-          that processed 60k bank PDFs/hour with RAG-powered search. Solo-built the entire software
-          stack for{" "}
+          Before that: scaled{" "}
           <a
             href="https://eodparks.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:underline"
           >
-            EOD Adventure Park
-          </a>
-          : CRM, Dashboards, Chatbots, Landing Pages.
+            EOD Adventure Parks
+          </a>{" "}
+          to 163K+ pageviews/month and 800+ bookings/week. Built the booking engine, financial
+          reconciliation pipeline, EventCRM, ops dashboard, and a React Native QR scanner app.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          15+ Hackathons. <span className="text-white">30+ Freelance Products</span> shipped. 2
-          Startup Internships. 2 failed Startups of my own, each one worth the lessons.
+          15+ Hackathons. <span className="text-white">30+ Freelance Products</span> shipped. Grand
+          Finalist in Smart India Hackathon 2024 out of 492,960 participants.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          <span className="text-white">40K+ Followers</span> across socials. When I&apos;m not
-          shipping, I&apos;m reading, running, or lost in YouTube rabbit holes.
+          <span className="text-white">40K+ Followers</span> across socials. Key Opinion Leader at
+          Minimax. Created content for Firecrawl (694K+ views). When I&apos;m not shipping,
+          I&apos;m reading, running, or lost in YouTube rabbit holes.
         </p>
 
         <p className={cn(typo({ variant: "paragraph", font: "sans" }), "sm:!mt-4")}>

@@ -20,6 +20,7 @@ import subagentsCover from "~/assets/images/cover/sub-agents.png";
 import vnxcoinCover from "~/assets/images/cover/vnxcoin.png";
 import vndaCover from "~/assets/images/cover/vnda.png";
 import lvyougroupCover from "~/assets/images/cover/lvyougroup.png";
+import reelsFarmerCover from "~/assets/images/cover/reels-farmer.png";
 
 const projects = [
   {
@@ -40,12 +41,24 @@ const projects = [
     Icon: ChainGpt,
     title: `Codejeet`,
     description:
-      "Website to solve 8k+ company wise, topic wise DSA questions. 7.5k users. Supported by Cloudflare.",
+      "System Design and DSA learning platform with 17,000+ company-wise LeetCode questions scraped via Selenium and pSEO blogs. 345K+ monthly search impressions.",
     deployedURL: "https://codejeet.com/",
     cover: codejeetCover,
-    stacks: ["Next.js", "PostgreSQL", "Tailwind CSS", "Selenium"],
+    stacks: ["Next.js", "TypeScript", "Selenium", "Tailwind CSS"],
     isRepo: true,
     repoUrl: "https://github.com/shydevcorp/codejeet",
+  },
+
+  {
+    id: createId(),
+    Icon: ChainGpt,
+    title: `Reels Farmer`,
+    description:
+      "Cut manual video editing from hours to minutes with an automated clip pipeline. Whisper.cpp locally for transcription, Gemini for clip selection, FFmpeg + Remotion for rendering.",
+    cover: reelsFarmerCover,
+    stacks: ["TypeScript", "Bun", "Whisper.cpp", "Gemini", "FFmpeg", "Remotion"],
+    isRepo: true,
+    repoUrl: "https://github.com/ayush-that/jiang-clips",
   },
 
   {
