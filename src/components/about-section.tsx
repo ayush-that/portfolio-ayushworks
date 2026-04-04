@@ -27,40 +27,8 @@ const AboutSection = () => {
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          Currently building{" "}
-          <a
-            href="https://usebez.ai/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:underline"
-          >
-            Bez
-          </a>
-          , Cursor for Jewellery Designing. AI Agents that generate original designs, visuals, and
-          marketing materials in minutes.
-        </p>
-
-        <p className={typo({ variant: "paragraph", font: "sans" })}>
-          Before that: built a scraper at{" "}
-          <a
-            href="https://callprep.io/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:underline"
-          >
-            CallPrep
-          </a>{" "}
-          that processed 60k bank PDFs/hour with RAG-powered search. Solo-built the entire software
-          stack for{" "}
-          <a
-            href="https://eodparks.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:underline"
-          >
-            EOD Adventure Park
-          </a>
-          : CRM, Dashboards, Chatbots, Landing Pages.
+          I&apos;ve worked on multi-agent systems, vector search, full-stack web apps, and mobile
+          apps. Mostly with Next.js, TypeScript, and whatever gets the job done.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
