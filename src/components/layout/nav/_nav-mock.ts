@@ -16,6 +16,11 @@ export const navData = [
     label: "Blog",
     path: "/blog",
   },
+  {
+    id: createId(),
+    label: "Resume",
+    path: "/resume",
+  },
 ];
 
 export type NavType = typeof navData;
