@@ -1,9 +1,13 @@
 [data-rehype-pretty-code-figure] pre {
-  @apply rounded-lg bg-secondary px-0;
+  @apply overflow-x-hidden whitespace-pre-wrap break-words rounded-lg bg-secondary px-0;
 }
 
 [data-rehype-pretty-code-figure] code {
-  @apply border-0 p-0 font-mono text-sm !leading-snug text-muted-foreground md:text-base;
+  @apply whitespace-pre-wrap break-words border-0 p-0 font-mono text-sm !leading-snug text-muted-foreground md:text-base;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply whitespace-pre-wrap break-words;
 }
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
@@ -61,11 +65,11 @@
 }
 
 .mdx-content pre {
-  @apply mb-3 overflow-x-auto rounded-lg border border-border bg-muted p-4;
+  @apply mb-3 overflow-x-hidden whitespace-pre-wrap break-words rounded-lg border border-border bg-muted p-4;
 }
 
 .mdx-content pre code {
-  @apply bg-transparent p-0 text-foreground/80;
+  @apply whitespace-pre-wrap break-words bg-transparent p-0 text-foreground/80;
 }
 
 .mdx-content p {
@@ -183,7 +187,7 @@
 
 .mdx-content figure,
 .mdx-content pre {
-  @apply overflow-x-auto;
+  @apply overflow-x-hidden;
 }
 
 * {
