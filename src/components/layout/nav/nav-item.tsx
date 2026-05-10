@@ -34,7 +34,7 @@ const NavItem: React.FC<NavType[0] & { setOpen?: Dispatch<SetStateAction<boolean
         href={path}
         role="link"
         aria-label={label}
-        className="el-focus-styles relative z-10 rounded-sm text-base sm:text-sm"
+        className="el-focus-styles relative z-10 rounded-sm text-lg sm:text-base"
       >
         {label}
       </Link>
