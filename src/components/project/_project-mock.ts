@@ -2,25 +2,25 @@ import { createId } from "@paralleldrive/cuid2";
 import { ChainGpt } from "~/assets/svg";
 
 // Project cover images
-import nykaaCover from "~/assets/images/cover/nykaa-product-advisor.png";
-import finvedaCover from "~/assets/images/cover/finveda.png";
-import solopongCover from "~/assets/images/cover/solopong.png";
-import whatsmytrashCover from "~/assets/images/cover/whatsmytrash.png";
-import mathcamCover from "~/assets/images/cover/mathcam.png";
-import desinftCover from "~/assets/images/cover/desinft.png";
-import cryptoniclabsCover from "~/assets/images/cover/cryptonic-labs.png";
-import wattxCover from "~/assets/images/cover/wattx.png";
-import typingCover from "~/assets/images/cover/100xtyping.png";
-import cookinghubCover from "~/assets/images/cover/cookinghub.png";
-import kooberCover from "~/assets/images/cover/koober.png";
-import webstCover from "~/assets/images/cover/webst.png";
-import trendscreenerCover from "~/assets/images/cover/trendscreener-ai.png";
-import codejeetCover from "~/assets/images/cover/codejeet.png";
-import subagentsCover from "~/assets/images/cover/sub-agents.png";
-import vnxcoinCover from "~/assets/images/cover/vnxcoin.png";
-import vndaCover from "~/assets/images/cover/vnda.png";
-import lvyougroupCover from "~/assets/images/cover/lvyougroup.png";
-import reelsFarmerCover from "~/assets/images/cover/reels-farmer.png";
+import nykaaCover from "~/assets/images/cover/nykaa-product-advisor.webp";
+import finvedaCover from "~/assets/images/cover/finveda.webp";
+import solopongCover from "~/assets/images/cover/solopong.webp";
+import whatsmytrashCover from "~/assets/images/cover/whatsmytrash.webp";
+import mathcamCover from "~/assets/images/cover/mathcam.webp";
+import desinftCover from "~/assets/images/cover/desinft.webp";
+import cryptoniclabsCover from "~/assets/images/cover/cryptonic-labs.webp";
+import wattxCover from "~/assets/images/cover/wattx.webp";
+import typingCover from "~/assets/images/cover/100xtyping.webp";
+import cookinghubCover from "~/assets/images/cover/cookinghub.webp";
+import kooberCover from "~/assets/images/cover/koober.webp";
+import webstCover from "~/assets/images/cover/webst.webp";
+import trendscreenerCover from "~/assets/images/cover/trendscreener-ai.webp";
+import codejeetCover from "~/assets/images/cover/codejeet.webp";
+import subagentsCover from "~/assets/images/cover/sub-agents.webp";
+import vnxcoinCover from "~/assets/images/cover/vnxcoin.webp";
+import vndaCover from "~/assets/images/cover/vnda.webp";
+import lvyougroupCover from "~/assets/images/cover/lvyougroup.webp";
+import reelsFarmerCover from "~/assets/images/cover/reels-farmer.webp";
 
 const projects = [
   {

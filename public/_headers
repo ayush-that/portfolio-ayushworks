@@ -1,2 +1,18 @@
 /_next/static/*
   Cache-Control: public,max-age=31536000,immutable
+
+/cover/*
+  Cache-Control: public,max-age=2592000
+
+/static/*
+  Cache-Control: public,max-age=2592000
+
+/logo.png
+  Cache-Control: public,max-age=2592000
+
+/*.ico
+  Cache-Control: public,max-age=86400
+
+/*.js.map
+  X-Robots-Tag: noindex
+  Cache-Control: no-store

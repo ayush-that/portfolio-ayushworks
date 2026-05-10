@@ -20,11 +20,12 @@ const PostList: React.FC<PostListProps> = ({ posts, showRss, layout = "grid" }) 
         role="list"
       >
         {posts.length > 0 ? (
-          posts.map((post) => (
+          posts.map((post, index) => (
             <PostItem
               key={post.slug}
               {...post}
               layout={layout === "single" ? "horizontal" : "vertical"}
+              eager={index < 2}
             />
           ))
         ) : (

@@ -12,8 +12,8 @@ const ProjectList = ({ projects, metadata }: { projects: TProject[]; metadata?: 
       <div className="!mt-8">
         {projects.length > 0 ? (
           <ol className="grid gap-8 md:grid-cols-2" role="list">
-            {projects.map((project) => (
-              <ProjectItem key={project.id} {...project} />
+            {projects.map((project, index) => (
+              <ProjectItem key={project.id} {...project} eager={index < 2} />
             ))}
           </ol>
         ) : (
