@@ -7,7 +7,7 @@ import { CustomLink } from "../mdx";
 import { typo } from "../ui/typograpghy";
 import { TProject } from "./_project-mock";
 
-type ProjectItemProps = {} & TProject;
+type ProjectItemProps = { eager?: boolean } & TProject;
 
 const linkClass = "!p-0 h-full hover:!text-foreground !flex items-center gap-2 !text-sm !text-ring";
 
@@ -19,6 +19,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   stacks,
   isRepo,
   repoUrl,
+  eager = false,
 }) => {
   return (
     <li role="listitem">
@@ -26,9 +27,11 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         <div className="relative aspect-video">
           <Image
             alt={`${title} not found`}
-            priority
+            priority={eager}
+            loading={eager ? undefined : "lazy"}
             placeholder="blur"
             src={cover}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
             className="size-full rounded-md object-cover"
           />
         </div>

@@ -9,6 +9,7 @@ import Tags from "../tags";
 
 interface PostItemProps extends Post {
   layout?: "vertical" | "horizontal";
+  eager?: boolean;
 }
 
 const PostItem: React.FC<PostItemProps> = ({
@@ -20,6 +21,7 @@ const PostItem: React.FC<PostItemProps> = ({
   tags,
   cover,
   layout = "vertical",
+  eager = false,
 }) => {
   if (layout === "horizontal") {
     return (
@@ -35,8 +37,9 @@ const PostItem: React.FC<PostItemProps> = ({
                   src={cover}
                   alt={title}
                   fill
-                  priority
-                  quality={95}
+                  priority={eager}
+                  loading={eager ? undefined : "lazy"}
+                  quality={85}
                   className="size-full object-cover"
                   sizes="128px"
                 />
@@ -68,8 +71,9 @@ const PostItem: React.FC<PostItemProps> = ({
                 src={cover}
                 alt={title}
                 fill
-                priority
-                quality={95}
+                priority={eager}
+                loading={eager ? undefined : "lazy"}
+                quality={85}
                 className="size-full object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />

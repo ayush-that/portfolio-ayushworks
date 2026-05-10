@@ -4,7 +4,7 @@ import Image from "next/image";
 import config from "~/config";
 import { cn } from "~/lib/utils";
 import { typo } from "./ui/typograpghy";
-import codingImage from "~/assets/images/coding.png";
+import codingImage from "~/assets/images/coding.webp";
 
 function getAge() {
   const birth = new Date("2005-03-20T00:00:00+05:30");
@@ -27,8 +27,8 @@ const AboutSection = () => {
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          I&apos;ve worked on multi-agent systems, vector search, full-stack web apps, and mobile
-          apps. Mostly with Next.js, TypeScript, and whatever gets the job done.
+          I&apos;ve worked on applied AI, multimodal RAG, full-stack web apps, and mobile apps.
+          Mostly with Next.js, TypeScript, and whatever gets the job done.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
@@ -59,7 +59,7 @@ const AboutSection = () => {
           alt="Locked In"
           src={codingImage}
           placeholder="blur"
-          className="size-full -rotate-3 transform rounded-md object-cover shadow-md brightness-90 contrast-125 grayscale saturate-0"
+          className="size-full -rotate-3 transform rounded-md object-cover shadow-md"
           priority
         />
       </div>
