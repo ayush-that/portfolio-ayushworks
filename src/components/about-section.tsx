@@ -28,7 +28,7 @@ const AboutSection = () => {
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
           I&apos;ve worked on applied AI, multimodal RAG, full-stack web apps, and mobile apps.
-          Mostly with Next.js, TypeScript, and whatever gets the job done.
+          Mostly with TypeScript, Python, and whatever gets the job done.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
