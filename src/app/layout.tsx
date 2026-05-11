@@ -26,6 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="alternate" type="text/plain" title="LLM-friendly summary" href="/llms.txt" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",

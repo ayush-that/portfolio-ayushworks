@@ -13,6 +13,15 @@
 /*.ico
   Cache-Control: public,max-age=86400
 
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public,max-age=3600
+  X-Robots-Tag: all
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public,max-age=3600
+
 /*.js.map
   X-Robots-Tag: noindex
   Cache-Control: no-store

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ayushworks.com/sitemap.xml
+
+# AI crawlers — see llms.txt for a structured summary of this site
+# https://llmstxt.org
+LLM-Content: https://ayushworks.com/llms.txt
