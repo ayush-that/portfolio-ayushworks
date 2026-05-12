@@ -17,7 +17,7 @@ export const config = {
     linkedin: "https://www.linkedin.com/in/ayush-that/",
     instagram: "https://www.instagram.com/fitlesshot/",
     discord: "https://discordapp.com/users/shydev69",
-    email: "hi@ayushworks.com",
+    email: "ayush1337@hotmail.com",
     phone: "+918810289569",
     youtube: "https://www.youtube.com/@shydev69",
     twitter: "https://x.com/shydev69",
