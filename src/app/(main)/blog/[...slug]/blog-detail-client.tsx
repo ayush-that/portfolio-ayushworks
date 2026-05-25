@@ -3,7 +3,6 @@
 import { Post } from "#site/content";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import BackButton from "~/components/back-btn";
 import Comments from "~/components/comments";
 import { MDXContent } from "~/components/mdx";
 import { PostMetadata, TableOfContent } from "~/components/post";
@@ -26,7 +25,6 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
 
   return (
     <article className="w-full">
-      <BackButton>Back to posts</BackButton>
       <div className="mb-6 mt-2 space-y-6">
         <PostMetadata
           isDetailPage
