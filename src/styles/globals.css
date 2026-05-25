@@ -96,6 +96,13 @@
   }
 }
 
+/* Container utility — replaces v3 config: center:true, padding:"1rem", screens:{xl:"57rem"} */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 57rem;
+}
+
 /* Lenis smooth scroll styles */
 html.lenis,
 html.lenis body {
