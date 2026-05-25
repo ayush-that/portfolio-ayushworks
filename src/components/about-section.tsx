@@ -32,7 +32,15 @@ const AboutSection = () => {
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          15+ Hackathons. <span className="text-white">30+ Freelance Products</span> shipped. 2
+          <a
+            href="https://docs.google.com/spreadsheets/d/12_9qHndKpcrtrfCzGFSlu9Cb07TkeHIRHsQtRZdIeJ8/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-inherit no-underline"
+          >
+            15+ Hackathons
+          </a>
+          . <span className="text-white">30+ Freelance Products</span> shipped. 2
           Startup Internships. 2 failed Startups of my own, each one worth the lessons.
         </p>
 
