@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { fontGeist, fontMono, fontSans, fontSerif, fontSoehne } from "~/components/ui/fonts";
+import { fontMono, fontSans, fontSerif } from "~/components/ui/fonts";
 import { getSEOTags, renderSchemaTags } from "~/lib/seo";
 import { cn } from "~/lib/utils";
 import RootProviders from "~/providers";
@@ -35,8 +35,6 @@ export default function RootLayout({
           fontSans.className,
           fontSans.variable,
           fontSerif.variable,
-          fontSoehne.variable,
-          fontGeist.variable,
           fontMono.variable,
         )}
       >
