@@ -1,7 +1,6 @@
-import { Suspense } from "react";
 import Image from "next/image";
-import { enrichTweet, type EnrichedTweet, type TweetProps } from "react-tweet";
-import { getTweet, type Tweet } from "react-tweet/api";
+import { enrichTweet, type EnrichedTweet } from "react-tweet";
+import { type Tweet } from "react-tweet/api";
 
 import { cn } from "~/lib/utils";
 
@@ -36,7 +35,7 @@ const Verified = ({ className, ...props }: TwitterIconProps) => (
   </svg>
 );
 
-export const truncate = (str: string | null, length: number) => {
+const truncate = (str: string | null, length: number) => {
   if (!str || str.length <= length) return str;
   return `${str.slice(0, length - 3)}...`;
 };
@@ -85,7 +84,7 @@ export const TweetNotFound = ({
   </div>
 );
 
-export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
+const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
   <div className="flex flex-row items-start justify-between tracking-normal">
     <div className="flex items-center space-x-3">
       <a href={tweet.user.url} target="_blank" rel="noreferrer">
@@ -131,7 +130,7 @@ export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
   </div>
 );
 
-export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
+const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
   <div className="text-[15px] leading-relaxed tracking-normal wrap-break-word">
     {tweet.entities.map((entity, idx) => {
       switch (entity.type) {
@@ -163,7 +162,7 @@ export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
   </div>
 );
 
-export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => {
+const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => {
   if (!tweet.video && !tweet.photos) return null;
   return (
     <div className="flex flex-1 items-center justify-center">
@@ -256,36 +255,3 @@ export const MagicTweet = ({
   );
 };
 
-/**
- * TweetCard (Server Side Only)
- */
-export const TweetCard = async ({
-  id,
-  components,
-  fallback = <TweetSkeleton />,
-  onError,
-  ...props
-}: TweetProps & {
-  className?: string;
-}) => {
-  const tweet = id
-    ? await getTweet(id).catch((err) => {
-        if (onError) {
-          onError(err);
-        } else {
-          console.error(err);
-        }
-      })
-    : undefined;
-
-  if (!tweet) {
-    const NotFound = components?.TweetNotFound || TweetNotFound;
-    return <NotFound {...props} />;
-  }
-
-  return (
-    <Suspense fallback={fallback}>
-      <MagicTweet tweet={tweet} {...props} />
-    </Suspense>
-  );
-};
