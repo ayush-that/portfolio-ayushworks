@@ -89,10 +89,11 @@
 /* Base layer — replaces the addBase calls from the shadcn plugin in v3 */
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }
 
@@ -122,12 +123,14 @@ html.lenis body {
 }
 
 @layer components {
-  .el-focus-styles {
-    @apply ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  .el-focus-styles:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
   }
 
   ::selection {
-    @apply bg-white/20 text-white;
+    background-color: rgb(255 255 255 / 0.2);
+    color: #fff;
   }
 }
 
