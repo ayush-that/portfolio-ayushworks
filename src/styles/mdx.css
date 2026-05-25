@@ -1,9 +1,13 @@
+@reference "tailwindcss";
+
 [data-rehype-pretty-code-figure] pre {
-  @apply overflow-x-hidden whitespace-pre-wrap break-words rounded-lg bg-secondary px-0;
+  @apply overflow-x-hidden whitespace-pre-wrap break-words rounded-lg px-0;
+  background-color: hsl(var(--secondary));
 }
 
 [data-rehype-pretty-code-figure] code {
-  @apply whitespace-pre-wrap break-words border-0 p-0 font-mono text-sm !leading-snug text-muted-foreground md:text-base;
+  @apply whitespace-pre-wrap break-words border-0 p-0 font-mono text-sm !leading-snug md:text-base;
+  color: hsl(var(--muted-foreground));
 }
 
 [data-rehype-pretty-code-figure] [data-line] {
@@ -17,7 +21,8 @@
 [data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
-  @apply mr-4 inline-block w-4 text-right text-muted-foreground/50;
+  @apply mr-4 inline-block w-4 text-right;
+  color: hsl(var(--muted-foreground) / 0.5);
 }
 
 [data-rehype-pretty-code-figure] [data-line] {
@@ -26,37 +31,40 @@
 
 [data-rehype-pretty-code-figure] [data-highlighted-line] {
   background: rgba(255, 255, 255, 0.05);
-  @apply border-l-foreground;
+  border-left-color: hsl(var(--foreground));
 }
 
 [data-rehype-pretty-code-figure] [data-highlighted-chars] {
-  @apply rounded bg-foreground/20;
+  @apply rounded;
+  background-color: hsl(var(--foreground) / 0.2);
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
 }
 
 /* Syntax highlighting - align with monochrome theme */
 [data-rehype-pretty-code-figure] span[style*="color:#4D9375"],
 [data-rehype-pretty-code-figure] span[style*="color: #4D9375"] {
-  @apply !text-foreground;
+  color: hsl(var(--foreground)) !important;
 }
 
 [data-rehype-pretty-code-figure] span[style*="color:#80A665"],
 [data-rehype-pretty-code-figure] span[style*="color: #80A665"] {
-  @apply !text-muted-foreground;
+  color: hsl(var(--muted-foreground)) !important;
 }
 
 [data-rehype-pretty-code-figure] span[style*="color:#C98A7D"],
 [data-rehype-pretty-code-figure] span[style*="color: #C98A7D"] {
-  @apply !text-muted-foreground;
+  color: hsl(var(--muted-foreground)) !important;
 }
 
 [data-rehype-pretty-code-figure] span[style*="color:#5DA994"],
 [data-rehype-pretty-code-figure] span[style*="color: #5DA994"] {
-  @apply !text-foreground;
+  color: hsl(var(--foreground)) !important;
 }
 
 .mdx-content code {
-  @apply rounded bg-muted px-1.5 py-0.5 font-mono text-sm text-foreground;
+  @apply rounded px-1.5 py-0.5 font-mono text-sm;
+  background-color: hsl(var(--muted));
+  color: hsl(var(--foreground));
 }
 
 .mdx-content code::before,
@@ -65,15 +73,19 @@
 }
 
 .mdx-content pre {
-  @apply mb-3 overflow-x-hidden whitespace-pre-wrap break-words rounded-lg border border-border bg-muted p-4;
+  @apply mb-3 overflow-x-hidden whitespace-pre-wrap break-words rounded-lg border p-4;
+  border-color: hsl(var(--border));
+  background-color: hsl(var(--muted));
 }
 
 .mdx-content pre code {
-  @apply whitespace-pre-wrap break-words bg-transparent p-0 text-foreground/80;
+  @apply whitespace-pre-wrap break-words bg-transparent p-0;
+  color: hsl(var(--foreground) / 0.8);
 }
 
 .mdx-content p {
-  @apply mb-3 leading-6 text-muted-foreground;
+  @apply mb-3 leading-6;
+  color: hsl(var(--muted-foreground));
 }
 
 .mdx-content h1 {
@@ -93,14 +105,21 @@
 }
 
 .mdx-content a {
-  @apply rounded text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  @apply rounded;
+  color: hsl(var(--foreground));
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
 
+.mdx-content a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+}
+
 .mdx-content a:hover {
-  @apply text-white decoration-2;
+  @apply decoration-2;
+  color: #fff;
 }
 
 .mdx-content ul {
@@ -112,7 +131,8 @@
 }
 
 .mdx-content li {
-  @apply mb-1 text-muted-foreground;
+  @apply mb-1;
+  color: hsl(var(--muted-foreground));
 }
 
 .mdx-content li > ul,
@@ -121,7 +141,9 @@
 }
 
 .mdx-content blockquote {
-  @apply my-3 border-l-4 border-foreground pl-4 italic text-muted-foreground;
+  @apply my-3 border-l-4 pl-4 italic;
+  border-color: hsl(var(--foreground));
+  color: hsl(var(--muted-foreground));
 }
 
 .mdx-content > img,
@@ -130,7 +152,8 @@
 }
 
 .mdx-content hr {
-  @apply my-6 border-border;
+  @apply my-6;
+  border-color: hsl(var(--border));
 }
 
 .mdx-content table {
@@ -139,15 +162,18 @@
 
 .mdx-content th,
 .mdx-content td {
-  @apply border border-border px-4 py-2;
+  @apply border px-4 py-2;
+  border-color: hsl(var(--border));
 }
 
 .mdx-content th {
-  @apply bg-muted font-medium;
+  @apply font-medium;
+  background-color: hsl(var(--muted));
 }
 
 .mdx-content mark {
-  @apply rounded bg-foreground bg-opacity-20 px-1;
+  @apply rounded px-1;
+  background-color: hsl(var(--foreground) / 0.2);
 }
 
 .mdx-content p:first-child {
@@ -164,7 +190,14 @@
 
 .mdx-content ol a,
 .mdx-content ul a {
-  @apply rounded text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  @apply rounded;
+  color: hsl(var(--foreground));
+}
+
+.mdx-content ol a:focus,
+.mdx-content ul a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
 }
 
 .mdx-content ol li,
@@ -222,7 +255,7 @@
 
 .mdx-content span[data-line] span[style*="color:#6C7086"],
 .mdx-content span[data-line] span[style*="color: rgb(108, 112, 134)"] {
-  @apply !text-muted-foreground/50;
+  color: hsl(var(--muted-foreground) / 0.5) !important;
 }
 
 .mdx-content p a,
@@ -242,9 +275,15 @@
 }
 
 .mdx-content [class*="max-w-lg"] a {
-  @apply !text-foreground !no-underline !ring-0 !ring-offset-0 focus:!ring-0;
+  color: hsl(var(--foreground)) !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+.mdx-content [class*="max-w-lg"] a:focus {
+  box-shadow: none !important;
 }
 
 .mdx-content [class*="max-w-lg"] a[class*="muted"] {
-  @apply !text-muted-foreground;
+  color: hsl(var(--muted-foreground)) !important;
 }
