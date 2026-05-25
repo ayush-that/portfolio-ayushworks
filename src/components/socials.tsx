@@ -1,6 +1,5 @@
 import { ClassValue } from "clsx";
-import { Linkedin } from "lucide-react";
-import { FaInstagram, FaYoutube, FaXTwitter } from "react-icons/fa6";
+import { FaInstagram, FaLinkedin, FaYoutube, FaXTwitter } from "react-icons/fa6";
 import { FiGithub } from "react-icons/fi";
 import { TbBrandDiscord } from "react-icons/tb";
 import { SiBuymeacoffee } from "react-icons/si";
@@ -19,7 +18,7 @@ const socialsIcons = [
   {
     id: 2,
     label: "Linkedin",
-    icon: <Linkedin className="size-[1.2rem]" />,
+    icon: <FaLinkedin className="size-[1.2rem]" />,
     href: config.social.linkedin,
     className: "hover:bg-muted hover:text-foreground" as ClassValue,
   },

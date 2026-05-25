@@ -1,5 +1,6 @@
 import { BiLogoPostgresql } from "react-icons/bi";
 import { BsRobot } from "react-icons/bs";
+import { FaAws } from "react-icons/fa6";
 import { IconType } from "react-icons/lib";
 import {
   SiExpress,
@@ -16,7 +17,6 @@ import {
   SiMongodb,
   SiDocker,
   SiRedis,
-  SiAmazonwebservices,
   SiGooglecloud,
 } from "react-icons/si";
 
@@ -49,6 +49,6 @@ export const BACKEND_STACKS = {
   Milvus: { Icon: BsRobot, className: "" },
   Express: { Icon: SiExpress, className: "" },
   Docker: { Icon: SiDocker, className: "" },
-  AWS: { Icon: SiAmazonwebservices, className: "" },
+  AWS: { Icon: FaAws, className: "" },
   GCP: { Icon: SiGooglecloud, className: "" },
 };
