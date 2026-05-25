@@ -58,11 +58,10 @@ const shadcnPlugin = plugin(
           },
         },
         fontFamily: {
-          sans: ["var(--font-inter)", ...fontFamily.sans],
-          serif: ["var(--font-pp-neue-montreal)", ...fontFamily.sans],
-          heading: ["var(--font-soehne)", ...fontFamily.sans],
-          display: ["var(--font-geist)", ...fontFamily.sans],
-          mono: ["var(--font-geist-mono)", ...fontFamily.mono],
+          sans: ["var(--font-inter-tight)", ...fontFamily.sans],
+          serif: ["var(--font-instrument-serif)", ...fontFamily.serif],
+          heading: ["var(--font-instrument-serif)", ...fontFamily.serif],
+          mono: ["var(--font-jetbrains-mono)", ...fontFamily.mono],
         },
         screens: {
           xs: "380px",
@@ -155,7 +154,7 @@ const config = {
             },
             "h1,h2,h3,h4,h5,h6": {
               color: "hsl(var(--foreground))",
-              fontFamily: "var(--font-pp-neue-montreal)",
+              fontFamily: "var(--font-instrument-serif)",
             },
             hr: {
               borderColor: "hsl(var(--border))",
