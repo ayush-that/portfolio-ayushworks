@@ -53,6 +53,7 @@ firebase-debug.log
 # opennext cloudflare
 .open-next
 .dev.vars
+.wrangler
 
 # image staging (images live on R2, not git)
 .r2-staging
