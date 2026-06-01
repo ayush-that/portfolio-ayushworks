@@ -3,6 +3,24 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
+  experimental: {
+    // Tree-shake heavy barrel packages so dev only compiles the icons/components
+    // actually used (huge dev-compile speedup for react-icons / lucide / framer).
+    optimizePackageImports: [
+      "react-icons/ai",
+      "react-icons/bi",
+      "react-icons/bs",
+      "react-icons/fa",
+      "react-icons/fa6",
+      "react-icons/fi",
+      "react-icons/gr",
+      "react-icons/md",
+      "react-icons/si",
+      "react-icons/tb",
+      "lucide-react",
+      "framer-motion",
+    ],
+  },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn"] } : false,
   },

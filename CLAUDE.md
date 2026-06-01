@@ -5,8 +5,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build & Development Commands
 
 ```bash
-bun dev              # TinaCMS local server + (Next.js dev server + Velite watcher); admin at /admin
-bun dev:app          # Next.js dev server + Velite watcher only (no CMS)
+bun dev              # Next.js dev server + Velite watcher (lightweight; no CMS)
+bun dev:cms          # Above + TinaCMS local server; admin at /admin (run only when editing)
+bun dev:app          # Alias for the Next.js dev server + Velite watcher pair
 bun build            # Sequential: build:content (Velite) then build:next (Next.js)
 bun dev:next         # Next.js dev server only
 bun dev:content      # Velite content watcher only
@@ -32,7 +33,7 @@ Blog posts live as flat MDX files in `src/content/*.mdx` (filename = slug). **Ve
 
 ### Content Editing (TinaCMS)
 
-Posts are authored with **TinaCMS** (local mode) at `/admin` while running `bun dev`. Schema is in `tina/config.ts`; it reads/writes the same `src/content/*.mdx` files Velite consumes, so editing and rendering stay decoupled. Editing is local-only (Tina uses a local server on :4001); the `/admin` SPA and `tina/__generated__/` are gitignored and not part of the deployed site. On save, Tina cosmetically reformats frontmatter/markdown (ISO-timestamp dates, YAML unicode escapes for emoji, `*`-style emphasis, block-list tags) — all Velite-safe.
+Posts are authored with **TinaCMS** (local mode) at `/admin` while running `bun dev:cms` (run only when editing — `bun dev` stays lightweight without the CMS/indexer). Schema is in `tina/config.ts`; it reads/writes the same `src/content/*.mdx` files Velite consumes, so editing and rendering stay decoupled. Editing is local-only (Tina uses a local server on :4001); the `/admin` SPA and `tina/__generated__/` are gitignored and not part of the deployed site. On save, Tina cosmetically reformats frontmatter/markdown (ISO-timestamp dates, YAML unicode escapes for emoji, `*`-style emphasis, block-list tags) — all Velite-safe.
 
 ### Images / Media (Cloudflare R2)
 
