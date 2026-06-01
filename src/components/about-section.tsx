@@ -4,7 +4,8 @@ import Image from "next/image";
 import config from "~/config";
 import { cn } from "~/lib/utils";
 import { typo } from "./ui/typograpghy";
-import codingImage from "~/assets/images/coding.webp";
+
+const codingImage = "https://cdn.ayushworks.com/site/coding.webp";
 
 function getAge() {
   const birth = new Date("2005-03-20T00:00:00+05:30");
@@ -66,7 +67,8 @@ const AboutSection = () => {
         <Image
           alt="Locked In"
           src={codingImage}
-          placeholder="blur"
+          fill
+          sizes="(max-width: 768px) 100vw, 360px"
           className="size-full -rotate-3 transform rounded-md object-cover shadow-md"
           priority
         />

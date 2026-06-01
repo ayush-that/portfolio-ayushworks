@@ -1,26 +1,27 @@
 import { createId } from "@paralleldrive/cuid2";
 import { ChainGpt } from "~/assets/svg";
 
-// Project cover images
-import nykaaCover from "~/assets/images/cover/nykaa-product-advisor.webp";
-import finvedaCover from "~/assets/images/cover/finveda.webp";
-import solopongCover from "~/assets/images/cover/solopong.webp";
-import whatsmytrashCover from "~/assets/images/cover/whatsmytrash.webp";
-import mathcamCover from "~/assets/images/cover/mathcam.webp";
-import desinftCover from "~/assets/images/cover/desinft.webp";
-import cryptoniclabsCover from "~/assets/images/cover/cryptonic-labs.webp";
-import wattxCover from "~/assets/images/cover/wattx.webp";
-import typingCover from "~/assets/images/cover/100xtyping.webp";
-import cookinghubCover from "~/assets/images/cover/cookinghub.webp";
-import kooberCover from "~/assets/images/cover/koober.webp";
-import webstCover from "~/assets/images/cover/webst.webp";
-import trendscreenerCover from "~/assets/images/cover/trendscreener-ai.webp";
-import codejeetCover from "~/assets/images/cover/codejeet.webp";
-import subagentsCover from "~/assets/images/cover/sub-agents.webp";
-import vnxcoinCover from "~/assets/images/cover/vnxcoin.webp";
-import vndaCover from "~/assets/images/cover/vnda.webp";
-import lvyougroupCover from "~/assets/images/cover/lvyougroup.webp";
-import reelsFarmerCover from "~/assets/images/cover/reels-farmer.webp";
+// Project cover images (served from Cloudflare R2)
+const COVER = "https://cdn.ayushworks.com/projects";
+const nykaaCover = `${COVER}/nykaa-product-advisor.webp`;
+const finvedaCover = `${COVER}/finveda.webp`;
+const solopongCover = `${COVER}/solopong.webp`;
+const whatsmytrashCover = `${COVER}/whatsmytrash.webp`;
+const mathcamCover = `${COVER}/mathcam.webp`;
+const desinftCover = `${COVER}/desinft.webp`;
+const cryptoniclabsCover = `${COVER}/cryptonic-labs.webp`;
+const wattxCover = `${COVER}/wattx.webp`;
+const typingCover = `${COVER}/100xtyping.webp`;
+const cookinghubCover = `${COVER}/cookinghub.webp`;
+const kooberCover = `${COVER}/koober.webp`;
+const webstCover = `${COVER}/webst.webp`;
+const trendscreenerCover = `${COVER}/trendscreener-ai.webp`;
+const codejeetCover = `${COVER}/codejeet.webp`;
+const subagentsCover = `${COVER}/sub-agents.webp`;
+const vnxcoinCover = `${COVER}/vnxcoin.webp`;
+const vndaCover = `${COVER}/vnda.webp`;
+const lvyougroupCover = `${COVER}/lvyougroup.webp`;
+const reelsFarmerCover = `${COVER}/reels-farmer.webp`;
 
 const projects = [
   {
