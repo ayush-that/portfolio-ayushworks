@@ -53,3 +53,10 @@ firebase-debug.log
 # opennext cloudflare
 .open-next
 .dev.vars
+
+# image staging (images live on R2, not git)
+.r2-staging
+
+# tinacms generated artifacts (admin SPA + graphql client)
+/public/admin
+/tina/__generated__

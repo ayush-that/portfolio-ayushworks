@@ -7,7 +7,8 @@
     "build:content": "velite --clean",
     "dev:next": "next dev",
     "build:next": "next build && find .next/static -name '*.map' -delete",
-    "dev": "run-p dev:*",
+    "dev:app": "run-p dev:next dev:content",
+    "dev": "tinacms dev -c \"bun run dev:app\"",
     "build": "run-s build:*",
     "start": "next start",
     "lint": "eslint .",
@@ -17,7 +18,9 @@
     "preview": "run-s build cf:build cf:preview",
     "deploy": "run-s build cf:build cf:deploy",
     "upgrade:latest": "npm upgrade-interactive --latest",
-    "format": "oxfmt --write ."
+    "format": "oxfmt --write .",
+    "images:migrate": "bun scripts/migrate-images-to-r2.ts",
+    "images:sync": "bun scripts/sync-images.ts"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
@@ -32,6 +35,8 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@radix-ui/react-visually-hidden": "^1.2.4",
     "@tanstack/react-query": "^5.100.14",
+    "@tinacms/auth": "^1.1.3",
+    "@tinacms/cli": "^2.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.40.0",
@@ -42,6 +47,7 @@
     "next": "^16.2.6",
     "next-nprogress-bar": "^2.4.7",
     "next-themes": "^0.4.6",
+    "next-tinacms-s3": "^22.0.3",
     "react": "^19.2.6",
     "react-activity-calendar": "^3.2.0",
     "react-dom": "^19.2.6",
@@ -59,6 +65,7 @@
     "shiki": "^4.1.0",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.6.0",
+    "tinacms": "^3.8.3",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -84,6 +91,7 @@
     "esbuild": "0.24.0"
   },
   "trustedDependencies": [
+    "better-sqlite3",
     "esbuild",
     "rehype-code-titles",
     "sharp",

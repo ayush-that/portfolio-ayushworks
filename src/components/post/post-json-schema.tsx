@@ -19,7 +19,9 @@ const JsonSchemaLD = ({ post }: { post: Post }) => {
           name: post.title,
           headline: post.title,
           description: post.description,
-          image: `https://${config.domainName}${post.cover}`,
+          image: post.cover.startsWith("http")
+            ? post.cover
+            : `https://${config.domainName}${post.cover}`,
           datePublished: post.date,
           dateModified: post.date,
           author: {

@@ -4,7 +4,7 @@ description: the goal is to deploy this flask jinja2 web app on the cheapest pos
 tags: ["docker", "python", "postgresql", "devops", "coolify"]
 date: 2025-09-08
 published: true
-cover: "/cover/stop-using-managed-database-services-or-remain-noob-forever.webp"
+cover: "https://cdn.ayushworks.com/cover/stop-using-managed-database-services-or-remain-noob-forever.webp"
 ---
 
 last week i ditched managed hosting and moved to a vps.
@@ -47,7 +47,7 @@ EMAIL_FOR_TLS=you@example.com
 
 update — i did some things and the VPS crashed. so i will upgrade the vps specs and remove pgadmin. we don’t need it. i need a gf, not pgadmin.
 
-![](https://miro.medium.com/v2/format:webp/1*GlUxQ3KX8KukE_Br9UqiOw.png)
+![](https://cdn.ayushworks.com/posts/stop-using-managed-database-services-or-remain-noob-forever/3e3780f907b5f6c6.png)
 
 the vps crashed because i tried to run pgadmin which is not possible on a machine with this low specs. i’m proceeding with the implementation now. till now i’ve only set the `.env` for the project.
 
@@ -86,6 +86,6 @@ pg_dump --format=custom --no-owner --no-privileges --clean "$NEON_URL" \
 
 and migration complete.
 
-![](https://miro.medium.com/v2/format:webp/1*S7VG2gMkv3MaBcDDWGORmQ.png)
+![](https://cdn.ayushworks.com/posts/stop-using-managed-database-services-or-remain-noob-forever/ac701f80ac328920.png)
 
 that’s it.
