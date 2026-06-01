@@ -27,9 +27,9 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         <div className="relative aspect-video">
           <Image
             alt={`${title} not found`}
+            fill
             priority={eager}
             loading={eager ? undefined : "lazy"}
-            placeholder="blur"
             src={cover}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
             className="size-full rounded-md object-cover"
