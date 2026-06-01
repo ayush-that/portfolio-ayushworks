@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 64, 96, 128, 256, 384],
     qualities: [75, 85],
     minimumCacheTTL: 2592000,
+    remotePatterns: [{ protocol: "https", hostname: "cdn.ayushworks.com" }],
   },
   redirects: async () => {
     return [
