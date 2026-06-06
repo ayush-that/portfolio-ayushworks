@@ -93,12 +93,12 @@ export default function Custom404() {
             />
           </svg>
         </div>
-        <p className="font-serif text-3xl md:text-4xl">This page doesn&apos;t exist</p>
+        <p className="font-serif text-3xl md:text-4xl">This page doesn’t exist</p>
 
         <p className="mx-auto -mt-2 max-w-3xl text-center text-xs sm:text-base">
-          Oops! It seems like you&apos;ve stumbled upon a page that doesn&apos;t exist Don&apos;t
-          worry, even the best of us get lost sometimes. Feel free to navigate back to Home or
-          contact us if you need help
+          Oops! It seems like you’ve stumbled upon a page that doesn’t exist Don’t worry, even the
+          best of us get lost sometimes. Feel free to navigate back to Home or contact us if you
+          need help
         </p>
 
         <SupportButton />
