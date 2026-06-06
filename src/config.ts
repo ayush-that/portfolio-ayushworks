@@ -6,6 +6,9 @@ export const config = {
   appDescription: `Hi, I'm Shydev. I'm funny.`,
 
   domainName: "ayushworks.com",
+  // Cloudflare R2 bucket (ayushworks-media) behind a custom domain.
+  // Bucket layout: site/ (logo, photos), projects/ (covers), cover/ (post covers), posts/ (inline images)
+  cdnUrl: "https://cdn.ayushworks.com",
 
   colors: {
     theme: "dark",

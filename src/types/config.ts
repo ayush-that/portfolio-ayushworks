@@ -5,6 +5,7 @@ export interface ConfigProps {
   appDescription: string;
   appDesignation: string;
   domainName: string;
+  cdnUrl: string;
 
   social: {
     github: string;

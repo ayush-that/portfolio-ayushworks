@@ -31,8 +31,8 @@ export const getSEOTags = ({
     applicationName: config.appName,
 
     icons: {
-      icon: "https://cdn.ayushworks.com/site/logo.png",
-      apple: "https://cdn.ayushworks.com/site/logo.png",
+      icon: `${config.cdnUrl}/site/logo.png`,
+      apple: `${config.cdnUrl}/site/logo.png`,
     },
 
     metadataBase: new URL(
@@ -77,7 +77,7 @@ export const renderSchemaTags = () => {
           "@type": "ProfilePage",
           name: config.appName,
           description: config.appDescription,
-          image: `https://cdn.ayushworks.com/site/logo.png`,
+          image: `${config.cdnUrl}/site/logo.png`,
           url: `https://${config.domainName}/`,
 
           dateCreated: "2022-12-23T12:34:00-05:00",

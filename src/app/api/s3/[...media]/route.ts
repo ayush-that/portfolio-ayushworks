@@ -1,5 +1,6 @@
 import { createMediaHandler } from "next-tinacms-s3/dist/handlers";
 import type { NextRequest } from "next/server";
+import config from "~/config";
 
 // next-tinacms-s3 ships a pages-style (req, res) handler. We adapt it to an
 // App Router route handler so the project stays app-router-only. Editing is
@@ -18,7 +19,7 @@ const handler = createMediaHandler(
     bucket: process.env.R2_BUCKET || "ayushworks-media",
     authorized: async () => process.env.NODE_ENV !== "production",
   },
-  { cdnUrl: "https://cdn.ayushworks.com" },
+  { cdnUrl: config.cdnUrl },
 );
 
 async function run(req: NextRequest, media: string[]) {
