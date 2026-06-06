@@ -25,19 +25,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(fontSans.variable, fontSerif.variable, fontMono.variable)}
+    >
       <head>
         <link rel="alternate" type="text/plain" title="LLM-friendly summary" href="/llms.txt" />
       </head>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.className,
-          fontSans.variable,
-          fontSerif.variable,
-          fontMono.variable,
-        )}
-      >
+      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.className)}>
         {renderSchemaTags()}
 
         <RootProviders>{children}</RootProviders>
