@@ -1,8 +1,9 @@
 import { createId } from "@paralleldrive/cuid2";
 import { ChainGpt } from "~/assets/svg";
+import config from "~/config";
 
 // Project cover images (served from Cloudflare R2)
-const COVER = "https://cdn.ayushworks.com/projects";
+const COVER = `${config.cdnUrl}/projects`;
 const nykaaCover = `${COVER}/nykaa-product-advisor.webp`;
 const finvedaCover = `${COVER}/finveda.webp`;
 const solopongCover = `${COVER}/solopong.webp`;
