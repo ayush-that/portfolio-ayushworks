@@ -62,10 +62,12 @@ Next.js App Router. Pages are grouped under `src/app/(main)/` route group with s
 ### Environment Variables
 
 Client-side (set as build-time env vars in Cloudflare Pages dashboard):
+
 - `NEXT_PUBLIC_GISCUS_REPO` / `NEXT_PUBLIC_GISCUS_REPO_ID` — Giscus GitHub repo
 - `NEXT_PUBLIC_GISCUS_CATEGORY` / `NEXT_PUBLIC_GISCUS_CATEGORY_ID` — Giscus category
 
 Local-only (`.env`, gitignored — used by the R2 media handler during `bun dev`; not needed in production):
+
 - `R2_ENDPOINT`, `R2_BUCKET`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` — Cloudflare R2 S3 API credentials for image uploads from `/admin`.
 
 ## Key Path Aliases
