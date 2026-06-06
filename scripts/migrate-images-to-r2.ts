@@ -82,8 +82,10 @@ async function migrateInline(slug: string, url: string): Promise<string> {
     const res = await fetch(url, { redirect: "follow" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = Buffer.from(await res.arrayBuffer());
-    const ext = extFromUrl(url) ?? EXT_BY_MIME[res.headers.get("content-type")?.split(";")[0] ?? ""];
-    if (!ext) throw new Error(`unknown image type (content-type=${res.headers.get("content-type")})`);
+    const ext =
+      extFromUrl(url) ?? EXT_BY_MIME[res.headers.get("content-type")?.split(";")[0] ?? ""];
+    if (!ext)
+      throw new Error(`unknown image type (content-type=${res.headers.get("content-type")})`);
     const hash = createHash("sha256").update(buf).digest("hex").slice(0, 16);
     const key = `posts/${slug}/${hash}.${ext}`;
     stage(key, buf);
@@ -149,6 +151,10 @@ if (failures.length) {
 console.log(`Covers staged:   ${coversStaged}`);
 console.log(`Inline staged:   ${inlineStaged}`);
 console.log(`Inline skipped (already on CDN): ${inlineSkipped}`);
-console.log(`Failures:        ${failures.length}${failures.length ? " (see migration-report.md)" : ""}`);
-console.log(`MDX rewritten:   ${filesRewritten}${APPLY ? "" : " (dry run — pass --apply to write)"}`);
+console.log(
+  `Failures:        ${failures.length}${failures.length ? " (see migration-report.md)" : ""}`,
+);
+console.log(
+  `MDX rewritten:   ${filesRewritten}${APPLY ? "" : " (dry run — pass --apply to write)"}`,
+);
 console.log(`\nStaged under .r2-staging/. Next: bun images:sync`);

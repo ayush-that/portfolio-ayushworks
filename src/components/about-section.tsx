@@ -41,8 +41,8 @@ const AboutSection = () => {
           >
             15+ Hackathons
           </a>
-          . <span className="text-white">30+ Freelance Products</span> shipped. 2
-          Startup Internships. 2 failed Startups of my own, each one worth the lessons.
+          . <span className="text-white">30+ Freelance Products</span> shipped. 2 Startup
+          Internships. 2 failed Startups of my own, each one worth the lessons.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>

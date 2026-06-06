@@ -114,7 +114,9 @@
 
 .mdx-content a:focus {
   outline: none;
-  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+  box-shadow:
+    0 0 0 2px hsl(var(--background)),
+    0 0 0 4px hsl(var(--ring));
 }
 
 .mdx-content a:hover {
@@ -197,7 +199,9 @@
 .mdx-content ol a:focus,
 .mdx-content ul a:focus {
   outline: none;
-  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+  box-shadow:
+    0 0 0 2px hsl(var(--background)),
+    0 0 0 4px hsl(var(--ring));
 }
 
 .mdx-content ol li,
