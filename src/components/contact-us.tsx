@@ -1,6 +1,7 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { FaGun } from "react-icons/fa6";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "~/components/ui/form";
 import config from "~/config";
 import { ContactSchema, contactSchemaType } from "~/schema";
@@ -68,7 +69,9 @@ const ContactUs = () => {
           </p>
 
           <div className="space-y-3">
-            <h3>Follow me </h3>
+            <h3 className="flex items-center gap-2">
+              Follow me <FaGun className="size-[1.1rem]" />
+            </h3>
             <Socials />
           </div>
         </div>

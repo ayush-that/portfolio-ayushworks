@@ -1,8 +1,6 @@
 import { ClassValue } from "clsx";
-import { FaInstagram, FaLinkedin, FaYoutube, FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin, FaYoutube, FaXTwitter } from "react-icons/fa6";
 import { FiGithub } from "react-icons/fi";
-import { TbBrandDiscord } from "react-icons/tb";
-import { SiBuymeacoffee } from "react-icons/si";
 import config from "~/config";
 import { cn } from "~/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
@@ -24,37 +22,16 @@ const socialsIcons = [
   },
   {
     id: 3,
-    label: "Instagram",
-    icon: <FaInstagram className="size-[1.2rem]" />,
-    href: config.social.instagram,
-    className: "hover:bg-muted hover:text-foreground" as ClassValue,
-  },
-  {
-    id: 4,
-    label: "Discord",
-    icon: <TbBrandDiscord className="size-[1.2rem]" />,
-    href: config.social.discord,
-    className: "hover:bg-muted hover:text-foreground" as ClassValue,
-  },
-  {
-    id: 5,
     label: "YouTube",
     icon: <FaYoutube className="size-[1.2rem]" />,
     href: config.social.youtube,
     className: "hover:bg-muted hover:text-foreground" as ClassValue,
   },
   {
-    id: 6,
+    id: 4,
     label: "Twitter",
     icon: <FaXTwitter className="size-[1.2rem]" />,
     href: config.social.twitter,
-    className: "hover:bg-muted hover:text-foreground" as ClassValue,
-  },
-  {
-    id: 7,
-    label: "Buy Me a Coffee",
-    icon: <SiBuymeacoffee className="size-[1.2rem]" />,
-    href: config.social.buymeacoffee,
     className: "hover:bg-muted hover:text-foreground" as ClassValue,
   },
 ];
