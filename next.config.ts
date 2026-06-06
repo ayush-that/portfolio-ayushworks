@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Pin the workspace root to this project. Without this, a stray lockfile in a
+  // parent directory (e.g. ~/bun.lock) makes Turbopack treat $HOME as the root,
+  // which causes runaway memory/disk usage that can freeze the whole machine.
+  // See https://github.com/vercel/next.js/issues/92978
+  turbopack: {
+    root: __dirname,
+  },
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
   experimental: {
