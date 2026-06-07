@@ -20,7 +20,7 @@ bun cf:build         # Build for Cloudflare via opennextjs-cloudflare
 bun cf:preview       # Preview Cloudflare build locally via Wrangler
 bun cf:deploy        # Deploy to Cloudflare Pages
 bun preview          # Full pipeline: build + cf:build + cf:preview
-bun deploy           # Full pipeline: build + cf:build + cf:deploy
+bun run deploy       # Full pipeline: build + cf:build + cf:deploy ("bun deploy" is a reserved Bun subcommand)
 ```
 
 No test runner or linter is configured in this project.
@@ -81,7 +81,7 @@ Tailwind 3.4 with shadcn/ui preset (`src/lib/shadcn-ui.ts`). Dark mode via CSS s
 
 ## Deployment
 
-Cloudflare Pages via `@opennextjs/cloudflare`. Configuration in `wrangler.jsonc` and `open-next.config.ts`. Deploy with `bun deploy`. Preview locally with `bun preview`. The site is primarily static with a single dynamic API route for page view counts (via Simple Analytics).
+Cloudflare Pages via `@opennextjs/cloudflare`. Configuration in `wrangler.jsonc` and `open-next.config.ts`. Deploy with `bun run deploy` (`bun deploy` without `run` is a reserved Bun subcommand and fails). Preview locally with `bun preview`. The site is primarily static with a single dynamic API route for page view counts (via Simple Analytics).
 
 ## Notable Patterns
 
