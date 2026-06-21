@@ -55,7 +55,9 @@ const AboutSection = () => {
         <p className={cn(typo({ variant: "paragraph", font: "sans" }), "sm:!mt-4")}>
           <span className="text-white">Open to Work</span>: Full-Time, Freelance, or Collabs.{" "}
           <a
-            href={`mailto:${config.social.email}`}
+            href="https://cal.com/shydev"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Hire Me"
             className="el-focus-styles text-ring"
           >
