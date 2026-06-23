@@ -43,8 +43,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/resume",
-        destination:
-          "https://drive.google.com/file/d/14R-EhYkw0C7D-Gg4cWPHoth13VrUWn72/view?usp=sharing",
+        destination: "https://cdn.ayushworks.com/resume.pdf",
         permanent: true,
       },
       {
