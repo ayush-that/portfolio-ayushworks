@@ -1,5 +1,3 @@
-import SupportButton from "~/components/support-btn";
-
 export default function Custom404() {
   return (
     <section className="flex min-h-dvh items-center py-6" id="main-content">
@@ -100,8 +98,6 @@ export default function Custom404() {
           best of us get lost sometimes. Feel free to navigate back to Home or contact us if you
           need help
         </p>
-
-        <SupportButton />
       </main>
     </section>
   );
