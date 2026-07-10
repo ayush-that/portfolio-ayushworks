@@ -58,8 +58,7 @@ const AboutSection = () => {
             href="https://cal.com/shydev"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Hire Me"
-            className="el-focus-styles text-ring"
+            className="el-focus-styles text-ring underline"
           >
             Let’s talk.
           </a>
