@@ -65,12 +65,12 @@ const AboutSection = () => {
         </p>
       </div>
 
-      <div className="relative order-1 block aspect-square sm:order-2 sm:hidden md:block md:h-[360px] md:w-[360px] md:self-center">
+      <div className="relative order-1 block aspect-square sm:order-2 sm:hidden md:block md:self-center">
         <Image
           alt="Locked In"
           src={codingImage}
           fill
-          sizes="(max-width: 768px) 100vw, 360px"
+          sizes="(max-width: 768px) 100vw, 300px"
           className="size-full rounded-md object-cover shadow-md"
           priority
         />
