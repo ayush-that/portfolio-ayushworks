@@ -50,7 +50,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           <div className="!mt-2 flex items-center gap-4">
             {deployedURL && (
               <CustomLink
-                aria-label={`visit ${title} live URL}`}
+                aria-label={`${title} Live Preview`}
                 href={deployedURL}
                 className={linkClass}
               >
@@ -61,7 +61,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 
             {isRepo && (
               <CustomLink
-                aria-label={`visit ${title} Github Repo`}
+                aria-label={`${title} Repo Url`}
                 href={repoUrl as string}
                 className={linkClass}
               >

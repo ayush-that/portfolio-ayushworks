@@ -23,7 +23,6 @@
         "framer-motion": "^12.40.0",
         "github-slugger": "^2.0.0",
         "jiti": "^2.7.0",
-        "lenis": "^1.3.23",
         "lucide-react": "^1.16.0",
         "next": "16.2.7",
         "next-nprogress-bar": "^2.4.7",
@@ -32,7 +31,6 @@
         "react": "19.2.7",
         "react-activity-calendar": "^3.2.0",
         "react-dom": "19.2.7",
-        "react-fast-marquee": "^1.6.5",
         "react-hook-form": "^7.76.1",
         "react-icons": "^5.6.0",
         "react-tweet": "^3.3.0",
@@ -2178,8 +2176,6 @@
 
     "layout-base": ["layout-base@1.0.2", "", {}, "sha512-8h2oVEZNktL4BH2JCOI90iD1yXwL6iNW7KcCKT2QZgQJR2vbqDsldCTPRU9NifTCqHZci57XvQQ15YTu+sTYPg=="],
 
-    "lenis": ["lenis@1.3.23", "", { "peerDependencies": { "@nuxt/kit": ">=3.0.0", "react": ">=17.0.0", "vue": ">=3.0.0" }, "optionalPeers": ["@nuxt/kit", "react", "vue"] }, "sha512-YxYq3TJqj9sJNv0V9SkyQHejt14xwyIwgDaaMK89Uf9SxQfIszu+gTQSSphh6BWlLTNVKvvXAGkg+Zf+oFIevg=="],
-
     "level-read-stream": ["level-read-stream@1.1.1", "", { "dependencies": { "readable-stream": "^3.4.0" }, "peerDependencies": { "abstract-level": ">=1.0.0" }, "optionalPeers": ["abstract-level"] }, "sha512-Rglcw1ltqLjkWb9CZL/HqeKipY+6RQ/ZSH6cEVsLR4BU4o1Pt08bXpe1h9YD5ifEjYlIIDdk10z2KX/WLbCKhA=="],
 
     "level-supports": ["level-supports@4.0.1", "", {}, "sha512-PbXpve8rKeNcZ9C1mUicC9auIYFyGpkV9/i6g76tLgANwWhtG2v7I4xNBUlkn3lE2/dZF3Pi0ygYGtLc4RXXdA=="],
@@ -2693,8 +2689,6 @@
     "react-dom": ["react-dom@19.2.7", "", { "dependencies": { "scheduler": "^0.27.0" }, "peerDependencies": { "react": "^19.2.7" } }, "sha512-t0BRVXvbiE/o20Hfw669rLbMCDWtYZLvmJigy2f0MxsXF+71pxhR3xOkspmsO8h3ZlNzyibAmtCa3l4lYKk6gQ=="],
 
     "react-dropzone": ["react-dropzone@14.2.3", "", { "dependencies": { "attr-accept": "^2.2.2", "file-selector": "^0.6.0", "prop-types": "^15.8.1" }, "peerDependencies": { "react": ">= 16.8 || 18.0.0" } }, "sha512-O3om8I+PkFKbxCukfIR3QAGftYXDZfOE2N1mr/7qebQJHs7U+/RSL/9xomJNpRg9kM5h9soQSdf0Gc7OHF5Fug=="],
-
-    "react-fast-marquee": ["react-fast-marquee@1.6.5", "", { "peerDependencies": { "react": ">= 16.8.0 || ^18.0.0", "react-dom": ">= 16.8.0 || ^18.0.0" } }, "sha512-swDnPqrT2XISAih0o74zQVE2wQJFMvkx+9VZXYYNSLb/CUcAzU9pNj637Ar2+hyRw6b4tP6xh4GQZip2ZCpQpg=="],
 
     "react-final-form": ["react-final-form@6.5.9", "", { "dependencies": { "@babel/runtime": "^7.15.4" }, "peerDependencies": { "final-form": "^4.20.4", "react": "^16.8.0 || ^17.0.0 || ^18.0.0" } }, "sha512-x3XYvozolECp3nIjly+4QqxdjSSWfcnpGEL5K8OBT6xmGrq5kBqbA6+/tOqoom9NwqIPPbxPNsOViFlbKgowbA=="],
 
