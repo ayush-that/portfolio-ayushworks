@@ -3,7 +3,7 @@ import { fontMono, fontSans, fontSerif } from "~/components/ui/fonts";
 import { getSEOTags, renderSchemaTags } from "~/lib/seo";
 import { cn } from "~/lib/utils";
 import RootProviders from "~/providers";
-import "~/styles/globals.css";
+import "../styles/globals.css";
 
 export const viewport = {
   viewportFit: "cover",
@@ -32,6 +32,13 @@ export default function RootLayout({
     >
       <head>
         <link rel="alternate" type="text/plain" title="LLM-friendly summary" href="/llms.txt" />
+        {process.env.NODE_ENV === "development" && (
+          <Script
+            src="//unpkg.com/react-grab/dist/index.global.js"
+            crossOrigin="anonymous"
+            strategy="beforeInteractive"
+          />
+        )}
       </head>
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.className)}>
         {renderSchemaTags()}
