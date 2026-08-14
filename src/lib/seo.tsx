@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import config from "~/config";
+
+const SITE_URL = `https://${config.domainName}`;
+const OG_IMAGE = `${SITE_URL}/og.png`;
 
 export const getSEOTags = ({
   title,
@@ -8,27 +10,36 @@ export const getSEOTags = ({
   keywords,
   openGraph,
   canonicalUrlRelative,
+  ogImage,
   extraTags,
 }: Metadata & {
   canonicalUrlRelative?: string;
+  ogImage?: string;
   extraTags?: Record<string, unknown>;
 } = {}) => {
+  const resolvedTitle = title || config.appTitle;
+  const resolvedDescription = description || config.appDescription;
+  const image = ogImage || OG_IMAGE;
+
   return {
-    title: title || config.appName,
-    description: description || config.appDescription,
+    title: resolvedTitle,
+    description: resolvedDescription,
     keywords: keywords || [
-      "portfolio",
-      "personal portfolio",
-      "web developer",
-      "software engineer",
-      "front-end developer",
-      "creative",
-      "coder",
-      "programmer",
-      "developer",
-      "portfolio website",
+      "Ayush Kumar Singh",
+      "shydev",
+      "software engineer portfolio",
+      "full stack developer",
+      "applied AI engineer",
+      "Next.js",
+      "TypeScript",
+      "Python",
+      "self hosting",
+      "developer blog",
     ],
     applicationName: config.appName,
+    authors: [{ name: config.authorName, url: SITE_URL }],
+    creator: config.authorName,
+    publisher: config.authorName,
 
     icons: {
       icon: `${config.cdnUrl}/site/logo.png`,
@@ -36,78 +47,96 @@ export const getSEOTags = ({
     },
 
     metadataBase: new URL(
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:3000/"
-        : `https://${config.domainName}/`,
+      process.env.NODE_ENV === "development" ? "http://localhost:3000/" : `${SITE_URL}/`,
     ),
 
+    alternates: {
+      canonical: canonicalUrlRelative || "/",
+      types: { "application/rss+xml": `${SITE_URL}/feed.xml` },
+    },
+
     openGraph: {
-      title: openGraph?.title || config.appName,
-      description: openGraph?.description || config.appDescription,
-      url: openGraph?.url || `https://${config.domainName}/`,
-      siteName: openGraph?.title || config.appName,
+      title: openGraph?.title || resolvedTitle,
+      description: openGraph?.description || resolvedDescription,
+      url: openGraph?.url || `${SITE_URL}${canonicalUrlRelative || "/"}`,
+      siteName: config.appTitle,
+      images: [{ url: image, width: 1200, height: 630, alt: config.appTitle }],
       locale: "en_US",
       type: "website",
     },
 
     twitter: {
-      title: openGraph?.title || config.appName,
-      description: openGraph?.description || config.appDescription,
+      title: openGraph?.title || resolvedTitle,
+      description: openGraph?.description || resolvedDescription,
       card: "summary_large_image",
-      creator: "@FaisalTari78554",
+      site: "@shydev69",
+      creator: "@shydev69",
+      images: [image],
     },
 
-    ...(canonicalUrlRelative && {
-      alternates: { canonical: canonicalUrlRelative },
-    }),
-
     ...extraTags,
-  };
+  } satisfies Metadata;
 };
 
-export const renderSchemaTags = () => {
-  return (
-    <Script
-      id="schemaTags"
-      strategy="afterInteractive"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "http://schema.org",
-          "@type": "ProfilePage",
-          name: config.appName,
+// Rendered as a plain <script> so the JSON-LD is in the server HTML. next/script
+// only injects it after hydration, which means crawlers parsing the raw response
+// saw no structured data at all.
+export const JsonLd = ({ id, data }: { id: string; data: Record<string, unknown> }) => (
+  <script
+    id={id}
+    type="application/ld+json"
+    // eslint-disable-next-line react/no-danger
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+  />
+);
+
+// Emitted on every page, so it only claims things that are true on every page:
+// the site itself and the person behind it. Page-type schema (BlogPosting,
+// CollectionPage) is declared by the page that owns it and points back at
+// #person by @id.
+export const renderSchemaTags = () => (
+  <JsonLd
+    id="schema-person"
+    data={{
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          url: `${SITE_URL}/`,
+          name: config.appTitle,
           description: config.appDescription,
+          inLanguage: "en",
+          publisher: { "@id": `${SITE_URL}/#person` },
+        },
+        {
+          "@type": "Person",
+          "@id": `${SITE_URL}/#person`,
+          name: config.authorName,
+          alternateName: "shydev",
+          url: `${SITE_URL}/`,
           image: `${config.cdnUrl}/site/logo.png`,
-          url: `https://${config.domainName}/`,
-
-          dateCreated: "2022-12-23T12:34:00-05:00",
-          dateModified: "2023-12-26T14:53:00-05:00",
-          mainEntity: {
-            "@type": "Person",
-            name: "Faisal Tariq",
-            alternateName: "faisal_griz",
-            identifier: "123475623",
-            interactionStatistic: [
-              {
-                "@type": "InteractionCounter",
-                interactionType: "https://schema.org/FollowAction",
-                userInteractionCount: 1,
-              },
-              {
-                "@type": "InteractionCounter",
-                interactionType: "https://schema.org/LikeAction",
-                userInteractionCount: 5,
-              },
-            ],
-          },
-          applicationCategory: "ProfilePage",
-          agentInteractionStatistic: {
-            "@type": "InteractionCounter",
-            interactionType: "https://schema.org/WriteAction",
-            userInteractionCount: 2346,
-          },
-        }),
-      }}
-    />
-  );
-};
+          jobTitle: config.appDesignation,
+          email: `mailto:${config.social.email}`,
+          knowsAbout: [
+            "Full-stack web development",
+            "Applied AI",
+            "Next.js",
+            "TypeScript",
+            "Python",
+            "Docker",
+            "Kubernetes",
+            "Self-hosting",
+          ],
+          sameAs: [
+            config.social.github,
+            config.social.linkedin,
+            config.social.twitter,
+            config.social.youtube,
+            config.social.instagram,
+          ],
+        },
+      ],
+    }}
+  />
+);

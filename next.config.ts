@@ -39,6 +39,21 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 2592000,
     remotePatterns: [{ protocol: "https", hostname: "cdn.ayushworks.com" }],
   },
+  // public/_headers only covers static assets on Workers, so HTML responses
+  // rendered by the Worker need their headers declared here.
+  headers: async () => [
+    {
+      source: "/:path*",
+      headers: [
+        {
+          key: "Strict-Transport-Security",
+          value: "max-age=63072000; includeSubDomains; preload",
+        },
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      ],
+    },
+  ],
   redirects: async () => {
     return [
       {

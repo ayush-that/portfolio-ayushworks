@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import type { Activity } from "react-activity-calendar";
 import GitHubContributionsClient from "./github-contributions-client";
 
@@ -7,22 +10,25 @@ type ApiResponse = {
   contributions: Array<Activity>;
 };
 
-const fetchContributions = async (): Promise<Array<Activity>> => {
-  try {
-    const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`, {
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) return [];
-    const json = (await res.json()) as ApiResponse;
-    return json.contributions ?? [];
-  } catch {
-    return [];
-  }
-};
+const GitHubContributions = () => {
+  const [data, setData] = useState<Array<Activity> | null>(null);
 
-const GitHubContributions = async () => {
-  const data = await fetchContributions();
-  return <GitHubContributionsClient data={data} />;
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`)
+      .then((res) => (res.ok ? (res.json() as Promise<ApiResponse>) : null))
+      .then((json) => {
+        if (!cancelled) setData(json?.contributions ?? []);
+      })
+      .catch(() => {
+        if (!cancelled) setData([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return <GitHubContributionsClient data={data ?? []} loading={data === null} />;
 };
 
 export default GitHubContributions;

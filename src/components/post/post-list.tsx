@@ -9,9 +9,10 @@ type PostListProps = {
   posts: Post[];
   showRss?: boolean;
   layout?: "single" | "grid";
+  eager?: boolean;
 };
 
-const PostList: React.FC<PostListProps> = ({ posts, showRss, layout = "grid" }) => {
+const PostList: React.FC<PostListProps> = ({ posts, showRss, layout = "grid", eager = true }) => {
   return (
     <section aria-label="articles" className="mt-5 space-y-6">
       {showRss && <h2 className={typo({ variant: "h2" })}>Most recent posts</h2>}
@@ -25,7 +26,7 @@ const PostList: React.FC<PostListProps> = ({ posts, showRss, layout = "grid" }) 
               key={post.slug}
               {...post}
               layout={layout === "single" ? "horizontal" : "vertical"}
-              eager={index < 2}
+              eager={eager && index < 2}
             />
           ))
         ) : (

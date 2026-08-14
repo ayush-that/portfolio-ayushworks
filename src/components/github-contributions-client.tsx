@@ -14,9 +14,10 @@ type TipState = { text: string; x: number; y: number } | null;
 
 type Props = {
   data: Array<Activity>;
+  loading?: boolean;
 };
 
-const GitHubContributionsClient = ({ data }: Props) => {
+const GitHubContributionsClient = ({ data, loading }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [tip, setTip] = useState<TipState>(null);
 
@@ -37,6 +38,7 @@ const GitHubContributionsClient = ({ data }: Props) => {
     <div ref={containerRef} className="relative w-full">
       <ActivityCalendar
         data={data}
+        loading={loading}
         colorScheme="dark"
         fontSize={12}
         blockSize={12}
