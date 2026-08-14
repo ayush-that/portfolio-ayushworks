@@ -68,9 +68,7 @@ const ContactUs = () => {
           </p>
 
           <div className="space-y-3">
-            <h3 className="flex items-center gap-2">
-              Follow me
-            </h3>
+            <h3 className="flex items-center gap-2">Follow me</h3>
             <Socials />
           </div>
         </div>
