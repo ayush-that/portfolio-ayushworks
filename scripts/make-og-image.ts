@@ -15,7 +15,7 @@ const logo = await sharp(
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
   <rect width="${W}" height="${H}" fill="#000000"/>
   <rect x="0" y="${H - 10}" width="${W}" height="10" fill="#ffffff"/>
-  <text x="80" y="360" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#ffffff">Ayush Kumar Singh</text>
+  <text x="80" y="360" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#ffffff">Ayush Singh</text>
   <text x="80" y="430" font-family="Helvetica, Arial, sans-serif" font-size="36" fill="#a1a1aa">Software Engineer &#183; ayushworks.com</text>
 </svg>`;
 

@@ -2,11 +2,11 @@ import { ConfigProps } from "./types/config";
 
 export const config = {
   appName: "$whoami",
-  authorName: "Ayush Kumar Singh",
-  appTitle: "Ayush Kumar Singh · Software Engineer",
+  authorName: "Ayush Singh",
+  appTitle: "Ayush Singh · Software Engineer",
   appDesignation: "Software Engineer",
   appDescription:
-    "Ayush Kumar Singh (shydev) is a full-stack and applied-AI engineer. Projects, writing on Next.js, Python, Docker, Kubernetes and self-hosting, and how to reach me.",
+    "Ayush Singh (shydev) is a full-stack and applied-AI engineer. Projects, writing on Next.js, Python, Docker, Kubernetes and self-hosting, and how to reach me.",
 
   domainName: "ayushworks.com",
   // Cloudflare R2 bucket (ayushworks-media) behind a custom domain.
