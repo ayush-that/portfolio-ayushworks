@@ -25,7 +25,7 @@ export const getSEOTags = ({
     title: resolvedTitle,
     description: resolvedDescription,
     keywords: keywords || [
-      "Ayush Kumar Singh",
+      "Ayush Singh",
       "shydev",
       "software engineer portfolio",
       "full stack developer",
