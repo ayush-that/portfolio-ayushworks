@@ -1,25 +1,41 @@
 "use client";
 import { Search } from "lucide-react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Input } from "~/components/ui/input";
 
-const SearchInput = ({ placeholder = "Search..." }: { placeholder?: string }) => {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
+// Deliberately avoids useSearchParams: reading it makes Next skip prerendering
+// the surrounding subtree, which left /blog and /projects with no list in the
+// static HTML. The query string is read from the URL after mount instead, and
+// written back with replaceState so shared links keep working.
+const SearchInput = ({
+  placeholder = "Search...",
+  onSearch,
+}: {
+  placeholder?: string;
+  onSearch: (term: string) => void;
+}) => {
+  const [term, setTerm] = useState("");
+
+  useEffect(() => {
+    const initial = new URLSearchParams(window.location.search).get("search") ?? "";
+    if (!initial) return;
+    setTerm(initial);
+    onSearch(initial);
+    // Runs once on mount; onSearch is a setState updater from the parent.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const term = e.target.value;
-    const params = new URLSearchParams(searchParams);
+    const next = e.target.value;
+    setTerm(next);
+    onSearch(next);
 
-    if (term) {
-      params.set("search", term);
-    } else {
-      params.delete("search");
-    }
+    const params = new URLSearchParams(window.location.search);
+    if (next) params.set("search", next);
+    else params.delete("search");
 
-    replace(`${pathname}?${params.toString()}`);
+    const query = params.toString();
+    window.history.replaceState(null, "", query ? `?${query}` : window.location.pathname);
   };
 
   return (
@@ -29,7 +45,7 @@ const SearchInput = ({ placeholder = "Search..." }: { placeholder?: string }) =>
         type="search"
         placeholder={placeholder}
         className="w-full rounded-lg bg-background pl-8"
-        defaultValue={searchParams.get("search")?.toString()}
+        value={term}
         onChange={onChangeHandle}
       />
     </div>

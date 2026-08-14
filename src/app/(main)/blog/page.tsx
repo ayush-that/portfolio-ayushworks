@@ -1,34 +1,62 @@
 import { posts } from "#site/content";
-import { getSEOTags } from "~/lib/seo";
+import config from "~/config";
+import { getSEOTags, JsonLd } from "~/lib/seo";
 import BlogPageClient from "./blog-page-client";
 
 export const metadata: ReturnType<typeof getSEOTags> = getSEOTags({
-  title: `All Publications`,
+  title: `Blog · ${config.authorName}`,
   description:
-    "Welcome to my digital garden where I share what I'm learning about shipping great products, becoming a better developer and growing a career in tech.",
-  canonicalUrlRelative: "/blogs",
+    "Posts on shipping software: self-hosting on a $2.5 VPS, Docker and Kubernetes, Next.js, Python, computer vision, and getting more out of AI coding tools.",
+  canonicalUrlRelative: "/blog",
   keywords: [
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Testing",
-    "Career",
-    "Software Development",
-    "Faisal tariq Blog",
+    "developer blog",
+    "self hosting",
+    "VPS",
+    "Docker",
+    "Kubernetes",
+    "Next.js",
+    "Python",
+    "AI coding tools",
+    "shydev blog",
   ],
 });
 
-const BlogPage = async ({
-  searchParams,
-}: {
-  searchParams: Promise<{ search: string | undefined }>;
-}) => {
-  const resolvedSearchParams = await searchParams;
+// Reading `searchParams` here would opt the whole page into dynamic rendering
+// (a full Next render per request). BlogPageClient already filters on the
+// client, so it reads the query string itself and this page stays static.
+const BlogPage = () => {
   const sortedPosts = [...posts].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
 
-  return <BlogPageClient posts={sortedPosts} searchTerm={resolvedSearchParams.search} />;
+  return (
+    <>
+      <JsonLd
+        id="json-ld-blog"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "@id": `https://${config.domainName}/blog#blog`,
+          url: `https://${config.domainName}/blog`,
+          name: `Blog · ${config.authorName}`,
+          inLanguage: "en",
+          author: { "@type": "Person", "@id": `https://${config.domainName}/#person` },
+          blogPost: sortedPosts
+            .filter((post) => post.published)
+            .map((post) => ({
+              "@type": "BlogPosting",
+              "@id": `https://${config.domainName}/blog/${post.slugAsParams}#article`,
+              url: `https://${config.domainName}/blog/${post.slugAsParams}`,
+              headline: post.title,
+              description: post.description,
+              datePublished: post.date,
+              keywords: post.tags,
+            })),
+        }}
+      />
+      <BlogPageClient posts={sortedPosts} />
+    </>
+  );
 };
 
 export default BlogPage;

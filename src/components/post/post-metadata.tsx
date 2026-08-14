@@ -14,13 +14,11 @@ interface PostMetaProps {
 const PostMetadata: React.FC<PostMetaProps> = ({ title, date, metadata, isDetailPage, views }) => {
   return (
     <hgroup className={cn("space-y-2 p-0", { "p-0": isDetailPage })}>
-      <h3
-        className={cn(`font-serif text-xl transition-colors group-hover:text-ring`, {
-          "text-2xl": isDetailPage,
-        })}
-      >
-        {title}
-      </h3>
+      {isDetailPage ? (
+        <h1 className="font-serif text-2xl transition-colors group-hover:text-ring">{title}</h1>
+      ) : (
+        <h3 className="font-serif text-xl transition-colors group-hover:text-ring">{title}</h3>
+      )}
 
       <div
         className={cn("flex items-center gap-2", {

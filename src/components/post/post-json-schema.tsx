@@ -1,36 +1,60 @@
 import { Post } from "#site/content";
-import Script from "next/script";
 import React from "react";
 import config from "~/config";
+import { JsonLd } from "~/lib/seo";
+
+const SITE_URL = `https://${config.domainName}`;
 
 const JsonSchemaLD = ({ post }: { post: Post }) => {
+  const url = `${SITE_URL}/blog/${post.slugAsParams}`;
+  const image = post.cover.startsWith("http") ? post.cover : `${SITE_URL}${post.cover}`;
+
   return (
-    <Script
-      type="application/ld+json"
-      id={`json-ld-article-${post.slug.split("/")}`}
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
+    <>
+      <JsonLd
+        id={`json-ld-article-${post.slugAsParams}`}
+        data={{
           "@context": "https://schema.org",
-          "@type": "Article",
-          mainEntityOfPage: {
-            "@type": "WebPage",
-            "@id": `https://${config.domainName}/blog/${post.slug.split("/")}`,
-          },
-          name: post.title,
+          "@type": "BlogPosting",
+          "@id": `${url}#article`,
+          mainEntityOfPage: { "@type": "WebPage", "@id": url },
+          url,
           headline: post.title,
+          name: post.title,
           description: post.description,
-          image: post.cover.startsWith("http")
-            ? post.cover
-            : `https://${config.domainName}${post.cover}`,
+          image,
+          inLanguage: "en",
+          keywords: post.tags,
+          wordCount: post.metadata.wordCount,
           datePublished: post.date,
           dateModified: post.date,
           author: {
             "@type": "Person",
-            name: "Faisal tariq",
+            "@id": `${SITE_URL}/#person`,
+            name: config.authorName,
+            url: `${SITE_URL}/`,
           },
-        }),
-      }}
-    />
+          publisher: {
+            "@type": "Person",
+            "@id": `${SITE_URL}/#person`,
+            name: config.authorName,
+            url: `${SITE_URL}/`,
+          },
+        }}
+      />
+      <JsonLd
+        id={`json-ld-breadcrumb-${post.slugAsParams}`}
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+            { "@type": "ListItem", position: 3, name: post.title, item: url },
+          ],
+        }}
+      />
+    </>
   );
 };
 

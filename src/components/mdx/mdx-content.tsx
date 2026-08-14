@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, createElement, useState, useEffect } from "react";
+import { useMemo, createElement } from "react";
 import * as runtime from "react/jsx-runtime";
 import Callout from "~/components/ui/callout";
 import { ClientTweetCard } from "~/components/ui/client-tweet-card";
@@ -27,14 +27,7 @@ const getMDXComponent = (code: string) => {
 };
 
 const MDXContent = ({ code, components }: MDXProps) => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const element = useMemo(() => {
-    if (!mounted) return null;
     const Component = getMDXComponent(code);
     return createElement(Component, {
       components: {
@@ -42,7 +35,7 @@ const MDXContent = ({ code, components }: MDXProps) => {
         ...components,
       },
     });
-  }, [code, components, mounted]);
+  }, [code, components]);
 
   return element;
 };

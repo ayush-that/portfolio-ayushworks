@@ -11,11 +11,11 @@ const HomePage = () => {
   const sortedPosts = sortPosts(publishedPosts);
 
   return (
-    <main className="!mt-8 space-y-14">
+    <main id="main-content" className="mt-8! space-y-14">
       <AboutSection />
       <GitHubContributions />
-      <ProjectList projects={projects.slice(0, 4)} metadata />
-      <PostList posts={sortedPosts.slice(0, 4)} showRss layout="single" />
+      <ProjectList projects={projects.slice(0, 4)} metadata eager={false} />
+      <PostList posts={sortedPosts.slice(0, 4)} showRss layout="single" eager={false} />
       <ContactUs />
     </main>
   );

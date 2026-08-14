@@ -2,6 +2,8 @@ export type Theme = "light" | "dark";
 
 export interface ConfigProps {
   appName: string;
+  authorName: string;
+  appTitle: string;
   appDescription: string;
   appDesignation: string;
   domainName: string;

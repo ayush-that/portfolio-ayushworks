@@ -31,24 +31,30 @@ export async function generateMetadata({ params }: BlogPostParams) {
   const resolvedParams = await params;
   const post = await getPostFromParams(resolvedParams);
 
+  const url = `/blog/${post.slugAsParams}`;
+  const cover = post.cover.startsWith("http")
+    ? post.cover
+    : `https://${config.domainName}${post.cover}`;
+
   return getSEOTags({
     title: post.title,
     description: post.description,
-    canonicalUrlRelative: `/blog/${post.slugAsParams.split("/")}`,
+    keywords: post.tags,
+    canonicalUrlRelative: url,
+    ogImage: cover,
     extraTags: {
       openGraph: {
         title: post.title,
         description: post.description,
-        url: `/blog/${post.slug.split("/")}`,
-        images: [
-          {
-            url: `https://${config.domainName}${post.cover}`,
-            width: 1200,
-            height: 630,
-          },
-        ],
+        url: `https://${config.domainName}${url}`,
+        siteName: config.appTitle,
+        images: [{ url: cover, width: 1200, height: 630, alt: post.title }],
         locale: "en_US",
-        type: "website",
+        type: "article",
+        publishedTime: post.date,
+        modifiedTime: post.date,
+        authors: [`https://${config.domainName}/`],
+        tags: post.tags,
       },
     },
   });

@@ -15,9 +15,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ slug: stri
     url.searchParams.set("pages", pagePath);
     url.searchParams.set("start", "2020-01-01"); // All-time views
 
-    const response = await fetch(url.toString(), {
-      next: { revalidate: 60 }, // Cache for 60 seconds
-    });
+    const response = await fetch(url.toString(), { cache: "no-store" });
 
     if (!response.ok) {
       console.error("Simple Analytics API error:", response.status);

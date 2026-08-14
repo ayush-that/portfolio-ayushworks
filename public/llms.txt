@@ -56,7 +56,7 @@ Full project list: https://ayushworks.com/projects
 
 Ayush writes on engineering, AI, and the developer ecosystem.
 
-- [Get Unlimited Claude Code for $3](https://ayushworks.com/blog/get-unlimited-claude-code-for-3)
+- [Get Unlimited Claude Code for $3 (z.ai GLM-4.6)](https://ayushworks.com/blog/get-unlimited-claude-code-for-3)
 - [Stop using managed services or remain noob forever](https://ayushworks.com/blog/stop-using-managed-database-services-or-remain-noob-forever)
 - [$2.5 VPS](https://ayushworks.com/blog/2-5-vps)
 - [How To Craft a Winning Hackathon PPT in 25 Minutes](https://ayushworks.com/blog/winning-hackathon-ppts-in-25-minutes)
@@ -66,6 +66,8 @@ Ayush writes on engineering, AI, and the developer ecosystem.
 - [Run AI Models Locally: No GPU Required](https://ayushworks.com/blog/run-ai-models-locally-no-gpu-required)
 
 Full archive: https://ayushworks.com/blog
+Browse by topic: https://ayushworks.com/tags
+Machine-readable feed: https://ayushworks.com/feed.xml
 
 ## Track record
 

@@ -1,9 +1,19 @@
 import { Post, posts } from "#site/content";
 import { CustomLink } from "~/components/mdx";
 import { Tag } from "~/components/tags";
+import config from "~/config";
+import { getSEOTags } from "~/lib/seo";
 import { getAllTags, sortedTagsCount } from "~/lib/utils";
 
 type OrganizedPost = Record<string, Post[]>;
+
+export const metadata: ReturnType<typeof getSEOTags> = getSEOTags({
+  title: `All topics · ${config.authorName}`,
+  description:
+    "Every topic covered on ayushworks.com, from Next.js and TypeScript to Docker, Kubernetes, Python and self-hosting. Browse the full A-Z index of tags and posts.",
+  keywords: ["blog topics", "developer blog tags", "Next.js", "Python", "Docker", "Kubernetes"],
+  canonicalUrlRelative: "/tags",
+});
 
 const TagsPage = () => {
   const tags = getAllTags(posts);
@@ -36,7 +46,7 @@ const TagsPage = () => {
   return (
     <div className="!mt-8 grid items-start gap-4 md:grid-cols-3">
       <main id="main-content" className="order-2 md:order-1 md:col-span-2">
-        <h3 className="mb-4 text-lg font-medium">Posts by Tag (A-Z)</h3>
+        <h1 className="mb-4 text-lg font-medium">Posts by Tag (A-Z)</h1>
 
         {Object.keys(result).map((tag) => (
           <section
@@ -44,9 +54,9 @@ const TagsPage = () => {
             aria-labelledby={`posts-by-tag ${tag}-title`}
             className="mb-4 space-y-2 border-b pb-4 last:border-none"
           >
-            <h3 id={`${tag}-title`} className="text-base font-medium capitalize">
+            <h2 id={`${tag}-title`} className="text-base font-medium capitalize">
               {tag}
-            </h3>
+            </h2>
 
             <ul role="list" className="space-y-1 sm:list-inside sm:list-disc">
               {result[tag].map((post, index) => (
