@@ -5,6 +5,7 @@ import type { Activity } from "react-activity-calendar";
 import GitHubContributionsClient from "./github-contributions-client";
 
 const USERNAME = "ayush-that";
+const CALENDAR_HEIGHT = 152;
 
 type ApiResponse = {
   contributions: Array<Activity>;
@@ -28,7 +29,9 @@ const GitHubContributions = () => {
     };
   }, []);
 
-  return <GitHubContributionsClient data={data ?? []} loading={data === null} />;
+  if (data === null) return <div className="w-full" style={{ height: CALENDAR_HEIGHT }} />;
+
+  return <GitHubContributionsClient data={data} />;
 };
 
 export default GitHubContributions;
