@@ -74,7 +74,7 @@
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
     "@types/rss": "^0.0.32",
-    "eslint": "^10.4.0",
+    "eslint": "^9.39.5",
     "eslint-config-next": "16.2.7",
     "eslint-config-prettier": "^10.1.8",
     "npm-run-all": "^4.1.5",
@@ -87,7 +87,8 @@
     "wrangler": "^4.94.0"
   },
   "resolutions": {
-    "esbuild": "0.27.3"
+    "esbuild": "0.27.3",
+    "typescript-eslint": "^8.67.0"
   },
   "trustedDependencies": [
     "better-sqlite3",
