@@ -5,7 +5,9 @@ import { writeFile } from "node:fs/promises";
 const W = 1200;
 const H = 630;
 
-const logo = await sharp(await (await fetch("https://cdn.ayushworks.com/site/logo.png")).arrayBuffer())
+const logo = await sharp(
+  await (await fetch("https://cdn.ayushworks.com/site/logo.png")).arrayBuffer(),
+)
   .resize(180, 180)
   .png()
   .toBuffer();
