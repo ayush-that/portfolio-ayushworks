@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import Footer from "~/components/layout/footer";
 import Navbar from "~/components/layout/nav";
 import PrefetchAll from "~/components/prefetch-all";
+
 import SkipContent from "~/components/ui/skip-content";
 import { getAllTags } from "~/lib/utils";
 
@@ -22,7 +23,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="container relative flex min-h-dvh flex-col space-y-4 py-2">
       <PrefetchAll routes={prefetchRoutes} />
-      <div className="!mb-6 space-y-4">
+      <div className="mb-6! space-y-4">
         <SkipContent />
         <Navbar />
         {children}
