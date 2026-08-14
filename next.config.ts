@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
   experimental: {
-    inlineCss: true,
     optimizePackageImports: [
       "react-icons/ai",
       "react-icons/bi",
