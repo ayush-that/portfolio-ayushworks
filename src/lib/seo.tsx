@@ -78,9 +78,6 @@ export const getSEOTags = ({
   } satisfies Metadata;
 };
 
-// Rendered as a plain <script> so the JSON-LD is in the server HTML. next/script
-// only injects it after hydration, which means crawlers parsing the raw response
-// saw no structured data at all.
 export const JsonLd = ({ id, data }: { id: string; data: Record<string, unknown> }) => (
   <script
     id={id}
@@ -89,10 +86,6 @@ export const JsonLd = ({ id, data }: { id: string; data: Record<string, unknown>
   />
 );
 
-// Emitted on every page, so it only claims things that are true on every page:
-// the site itself and the person behind it. Page-type schema (BlogPosting,
-// CollectionPage) is declared by the page that owns it and points back at
-// #person by @id.
 export const renderSchemaTags = () => (
   <JsonLd
     id="schema-person"

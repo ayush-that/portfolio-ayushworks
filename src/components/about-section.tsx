@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import config from "~/config";
 import { cn } from "~/lib/utils";
@@ -52,7 +50,7 @@ const AboutSection = () => {
           sleeping, eating, talking to my side chicks or doing your mom.
         </p>
 
-        <p className={cn(typo({ variant: "paragraph", font: "sans" }), "sm:!mt-4")}>
+        <p className={cn(typo({ variant: "paragraph", font: "sans" }), "sm:mt-4!")}>
           <span className="text-white">Open to Work</span>: Full-Time, Freelance, or Collabs.{" "}
           <a
             href="https://cal.com/shydev"
@@ -73,6 +71,7 @@ const AboutSection = () => {
           sizes="(max-width: 768px) 100vw, 300px"
           className="size-full rounded-md object-cover shadow-md"
           priority
+          fetchPriority="high"
         />
       </div>
     </section>

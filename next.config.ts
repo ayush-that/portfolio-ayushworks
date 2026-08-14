@@ -1,18 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Pin the workspace root to this project. Without this, a stray lockfile in a
-  // parent directory (e.g. ~/bun.lock) makes Turbopack treat $HOME as the root,
-  // which causes runaway memory/disk usage that can freeze the whole machine.
-  // See https://github.com/vercel/next.js/issues/92978
   turbopack: {
     root: __dirname,
   },
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
   experimental: {
-    // Tree-shake heavy barrel packages so dev only compiles the icons/components
-    // actually used (huge dev-compile speedup for react-icons / lucide / framer).
+    inlineCss: true,
     optimizePackageImports: [
       "react-icons/ai",
       "react-icons/bi",
@@ -32,7 +27,8 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn"] } : false,
   },
   images: {
-    formats: ["image/avif", "image/webp"],
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 64, 96, 128, 256, 384],
     qualities: [75, 85, 95],
