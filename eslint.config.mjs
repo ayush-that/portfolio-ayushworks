@@ -7,5 +7,14 @@ export default defineConfig([
   ...nextCoreWebVitals,
   ...nextTypescript,
   prettier,
-  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
+  globalIgnores([
+    ".next/**",
+    ".open-next/**",
+    ".velite/**",
+    ".wrangler/**",
+    "tina/__generated__/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
 ]);
