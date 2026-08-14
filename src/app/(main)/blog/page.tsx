@@ -21,9 +21,6 @@ export const metadata: ReturnType<typeof getSEOTags> = getSEOTags({
   ],
 });
 
-// Reading `searchParams` here would opt the whole page into dynamic rendering
-// (a full Next render per request). BlogPageClient already filters on the
-// client, so it reads the query string itself and this page stays static.
 const BlogPage = () => {
   const sortedPosts = [...posts].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
