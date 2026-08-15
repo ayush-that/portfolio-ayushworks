@@ -103,7 +103,7 @@ const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
           href={tweet.user.url}
           target="_blank"
           rel="noreferrer"
-          className="text-foreground flex items-center font-medium whitespace-nowrap transition-opacity hover:opacity-80"
+          className="text-foreground flex items-center font-medium whitespace-nowrap hover:opacity-80"
         >
           {truncate(tweet.user.name, 20)}
           {tweet.user.verified ||
@@ -116,7 +116,7 @@ const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
             href={tweet.user.url}
             target="_blank"
             rel="noreferrer"
-            className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+            className="text-muted-foreground hover:text-foreground text-sm"
           >
             @{truncate(tweet.user.screen_name, 16)}
           </a>
@@ -125,7 +125,7 @@ const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
     </div>
     <a href={tweet.url} target="_blank" rel="noreferrer">
       <span className="sr-only">Link to tweet</span>
-      <Twitter className="text-muted-foreground hover:text-foreground size-5 items-start transition-all ease-in-out hover:scale-105" />
+      <Twitter className="text-muted-foreground hover:text-foreground size-5 items-start" />
     </a>
   </div>
 );
@@ -144,7 +144,7 @@ const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
               href={entity.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground text-[15px] font-normal transition-colors"
+              className="text-muted-foreground hover:text-foreground text-[15px] font-normal"
             >
               <span>{entity.text}</span>
             </a>

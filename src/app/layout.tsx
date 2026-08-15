@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { fontMono, fontSans, fontSerif } from "~/components/ui/fonts";
+import { fontSans } from "~/components/ui/fonts";
 import { getSEOTags, renderSchemaTags } from "~/lib/seo";
 import { cn } from "~/lib/utils";
 import RootProviders from "~/providers";
@@ -28,7 +28,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn(fontSans.variable, fontSerif.variable, fontMono.variable)}
+      className={fontSans.variable}
+      // Lets Next turn off smooth scrolling for route changes while keeping it for #anchors.
+      data-scroll-behavior="smooth"
     >
       <head>
         <link rel="alternate" type="text/plain" title="LLM-friendly summary" href="/llms.txt" />

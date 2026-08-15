@@ -16,7 +16,7 @@ export default function ProjectsPageClient() {
   return (
     <div className="!mt-8">
       <div className="flex flex-col flex-wrap justify-between gap-4 sm:flex-row sm:items-center">
-        <h1 className="text-left text-xl font-medium"> All Projects </h1>
+        <h1 className="text-left text-xl font-semibold tracking-tight"> All Projects </h1>
         <SearchInput placeholder="Search projects..." onSearch={setSearch} />
       </div>
 

@@ -46,7 +46,7 @@ const Socials = () => {
               <a
                 href={social.href}
                 className={cn(
-                  "flex size-9 items-center justify-center rounded-md border border-input bg-background ring-offset-background transition-colors hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                  "flex size-9 items-center justify-center rounded-md border border-input bg-background ring-offset-background hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                   social.className,
                 )}
                 aria-label={social.label}

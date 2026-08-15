@@ -27,7 +27,7 @@ const ContactUsLazy = () => {
   }, []);
 
   return (
-    <div ref={holderRef} style={{ minHeight: 480 }}>
+    <div ref={holderRef} style={visible ? undefined : { minHeight: 480 }}>
       {visible && <ContactUs />}
     </div>
   );

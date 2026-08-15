@@ -7,7 +7,7 @@ interface SVGRProps {
 }
 
 const ChainGpt = ({ title, titleId, ...props }: SVGProps<SVGSVGElement> & SVGRProps) => (
-  <div className="grid size-16 place-content-center rounded-md border border-border bg-muted transition-colors hover:border-foreground/50">
+  <div className="grid size-16 place-content-center rounded-md border border-border bg-muted hover:border-foreground/50">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={40}

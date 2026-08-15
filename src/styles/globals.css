@@ -1,5 +1,6 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+@import "@fontsource/maple-mono/latin-400.css";
+@import "@fontsource/maple-mono/latin-500.css";
 
 @plugin "@tailwindcss/typography";
 
@@ -9,13 +10,10 @@
   --breakpoint-sm: 500px;
 
   --font-sans:
-    var(--font-inter-tight), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
-  --font-heading: var(--font-instrument-serif), ui-serif, Georgia, serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
-
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
+    var(--font-lexend), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Maple Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /* shadcn CSS vars — channel form for hsl(var(--*)) usage in components */
@@ -69,23 +67,6 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-}
-
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--radix-accordion-content-height);
-  }
-}
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-  to {
-    height: 0;
-  }
 }
 
 /* Base layer — replaces the addBase calls from the shadcn plugin in v3 */
@@ -163,6 +144,8 @@
 
 .prose :where(h1, h2, h3, h4, h5, h6) {
   font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .prose :where(a:hover) {
