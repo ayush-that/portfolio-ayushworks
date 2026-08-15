@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { ActivityCalendar, type Activity } from "react-activity-calendar";
 
 const BLOCK_MARGIN = 4;
-const MIN_BLOCK = 6;
+const MIN_BLOCK = 12;
 const MAX_BLOCK = 20;
 
 const weekCount = (data: Array<Activity>) => {
@@ -39,9 +39,7 @@ const GitHubContributionsClient = ({ data }: Props) => {
     return () => observer.disconnect();
   }, []);
 
-  const weeks = weekCount(data);
-  // Largest block that still fits the measured container; 1px slack keeps the scroll container away.
-  const exact = (width - 1 + BLOCK_MARGIN) / weeks - BLOCK_MARGIN;
+  const exact = (width - 1 + BLOCK_MARGIN) / weekCount(data) - BLOCK_MARGIN;
   const blockSize = Math.max(MIN_BLOCK, Math.min(MAX_BLOCK, Math.floor(exact * 10) / 10));
 
   const showTip = (e: React.MouseEvent<SVGRectElement>, text: string) => {
@@ -59,7 +57,7 @@ const GitHubContributionsClient = ({ data }: Props) => {
 
   return (
     <div ref={containerRef} className="relative w-full">
-      {width > 0 && (
+      <div className="max-w-full overflow-x-auto overflow-y-hidden">
         <ActivityCalendar
           data={data}
           colorScheme="dark"
@@ -84,7 +82,7 @@ const GitHubContributionsClient = ({ data }: Props) => {
             });
           }}
         />
-      )}
+      </div>
 
       {tip && (
         <div
