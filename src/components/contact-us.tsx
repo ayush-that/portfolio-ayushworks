@@ -68,7 +68,7 @@ const ContactUs = () => {
           </p>
 
           <div className="space-y-3">
-            <h3 className="flex items-center gap-2">Follow me</h3>
+            <h3 className="flex items-center gap-2 font-medium">Follow me</h3>
             <Socials />
           </div>
         </div>
@@ -78,7 +78,7 @@ const ContactUs = () => {
             className="w-full space-y-3 rounded-md bg-muted p-3 sm:space-y-4 sm:rounded-none sm:bg-transparent sm:p-0"
             onSubmit={form.handleSubmit(onSubmit)}
           >
-            <h2 className="block text-center font-serif text-xl sm:hidden">Fill this form</h2>
+            <h2 className="block text-center font-serif text-xl font-medium sm:hidden">Fill this form</h2>
             <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
               <FormField
                 control={form.control}

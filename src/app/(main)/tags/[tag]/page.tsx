@@ -49,7 +49,7 @@ const TagDetailPage = async ({ params }: TagDetailPageProps) => {
 
   return (
     <main id="main-content" className="mt-8!">
-      <h1 className="rounded-md bg-neutral-800/50 p-2 text-center text-xl capitalize">
+      <h1 className="rounded-md bg-neutral-800/50 p-2 text-center text-xl font-semibold capitalize tracking-tight">
         Posts tagged {name}
       </h1>
 

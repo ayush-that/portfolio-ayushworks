@@ -34,7 +34,7 @@ const PostTableOfContent = ({ toc }: { toc: Post["toc"] }) => {
   return (
     <Accordion type="single" collapsible className="w-full" onValueChange={setTocValue}>
       <AccordionItem value="post-toc">
-        <AccordionTrigger className="el-focus-styles rounded-sm bg-muted p-2 font-serif text-base">
+        <AccordionTrigger className="el-focus-styles rounded-sm bg-muted p-2 font-serif text-base font-medium">
           <p>
             Table of Contents{" "}
             <span className="text-muted-foreground">(Click to {tocValue ? "Close" : "Open"})</span>

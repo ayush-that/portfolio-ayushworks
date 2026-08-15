@@ -46,7 +46,7 @@ const TagsPage = () => {
   return (
     <div className="!mt-8 grid items-start gap-4 md:grid-cols-3">
       <main id="main-content" className="order-2 md:order-1 md:col-span-2">
-        <h1 className="mb-4 text-lg font-medium">Posts by Tag (A-Z)</h1>
+        <h1 className="mb-4 text-lg font-semibold tracking-tight">Posts by Tag (A-Z)</h1>
 
         {Object.keys(result).map((tag) => (
           <section
@@ -70,7 +70,7 @@ const TagsPage = () => {
       </main>
 
       <div className="top-4 order-1 space-y-1 rounded-md bg-neutral-800/50 p-2 text-xl sm:sticky md:order-2">
-        <h2 className="text-center uppercase">All Tags</h2>
+        <h2 className="text-center text-base font-medium uppercase tracking-widest">All Tags</h2>
         <ul role="list" className="flex flex-wrap justify-center gap-2 pb-1">
           {sortedTags.map((tag, index) => (
             <Tag key={index} tag={tag} count={tags[tag]} />

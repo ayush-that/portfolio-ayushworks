@@ -19,7 +19,6 @@ const nextConfig: NextConfig = {
       "react-icons/si",
       "react-icons/tb",
       "lucide-react",
-      "framer-motion",
     ],
   },
   compiler: {

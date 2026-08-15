@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 const typography = cva([], {
   variants: {
     variant: {
-      h2: "text-xl decoration-ring inline-block font-serif",
+      h2: "text-xl font-medium tracking-tight decoration-ring inline-block font-serif",
       paragraph: "text-muted-foreground font-normal block text-base font-sans",
     },
     size: {

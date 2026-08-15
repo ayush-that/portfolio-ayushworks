@@ -55,13 +55,13 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
 
       <div className="my-4 space-y-1">
         <hr className="!mb-4" />
-        <h3 className="font-serif text-xl">Tags</h3>
+        <h3 className="font-serif text-xl font-medium">Tags</h3>
         <Tags tags={post.tags} />
       </div>
 
       <section className="mt-8">
         <hr className="mb-6" />
-        <h2 className="mb-4 font-serif text-2xl">Comments</h2>
+        <h2 className="mb-4 font-serif text-2xl font-medium tracking-tight">Comments</h2>
         <Comments />
       </section>
     </article>

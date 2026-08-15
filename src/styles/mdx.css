@@ -62,7 +62,7 @@
 }
 
 .mdx-content code {
-  @apply rounded px-1.5 py-0.5 font-mono text-sm;
+  @apply rounded px-1.5 py-0.5 font-mono text-sm font-medium;
   background-color: hsl(var(--muted));
   color: hsl(var(--foreground));
 }
@@ -89,19 +89,19 @@
 }
 
 .mdx-content h1 {
-  @apply mb-3 mt-6 font-serif text-4xl font-normal;
+  @apply mb-3 mt-6 font-serif text-4xl font-semibold tracking-tight;
 }
 
 .mdx-content h2 {
-  @apply mb-3 mt-6 font-serif text-3xl font-normal;
+  @apply mb-3 mt-6 font-serif text-3xl font-semibold tracking-tight;
 }
 
 .mdx-content h3 {
-  @apply mb-2 mt-4 font-serif text-2xl font-normal;
+  @apply mb-2 mt-4 font-serif text-2xl font-medium tracking-tight;
 }
 
 .mdx-content h4 {
-  @apply mb-2 mt-4 font-serif text-xl font-normal;
+  @apply mb-2 mt-4 font-serif text-xl font-medium;
 }
 
 .mdx-content a {
@@ -173,6 +173,11 @@
   background-color: hsl(var(--muted));
 }
 
+.mdx-content strong,
+.mdx-content b {
+  @apply font-semibold;
+}
+
 .mdx-content mark {
   @apply rounded px-1;
   background-color: hsl(var(--foreground) / 0.2);
@@ -227,7 +232,7 @@
   @apply overflow-x-hidden;
 }
 
-* {
+html {
   scroll-behavior: smooth;
 }
 
@@ -260,12 +265,6 @@
 .mdx-content span[data-line] span[style*="color:#6C7086"],
 .mdx-content span[data-line] span[style*="color: rgb(108, 112, 134)"] {
   color: hsl(var(--muted-foreground) / 0.5) !important;
-}
-
-.mdx-content p a,
-.mdx-content ol a,
-.mdx-content ul a {
-  @apply transition-colors duration-200;
 }
 
 /* Reset MDX styles inside tweet card */

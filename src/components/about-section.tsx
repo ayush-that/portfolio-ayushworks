@@ -19,7 +19,7 @@ const AboutSection = () => {
   return (
     <section className="grid gap-8 sm:gap-4 md:grid-cols-3" aria-label="About">
       <div className="order-2 space-y-3 sm:order-1 md:col-span-2">
-        <h1 className="font-serif text-2xl sm:text-3xl">{`Shydev, ${getAge()}`}</h1>
+        <h1 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">{`Shydev, ${getAge()}`}</h1>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
           Product-focused Engineer who ships fast. I turn ideas into polished products and obsess

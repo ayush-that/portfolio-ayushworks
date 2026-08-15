@@ -1,7 +1,17 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ActivityCalendar, type Activity } from "react-activity-calendar";
+
+const BLOCK_MARGIN = 4;
+const MIN_BLOCK = 6;
+const MAX_BLOCK = 20;
+
+const weekCount = (data: Array<Activity>) => {
+  if (data.length === 0) return 53;
+  const offset = new Date(`${data[0].date}T00:00:00`).getDay();
+  return Math.ceil((offset + data.length) / 7);
+};
 
 const formatDate = (iso: string) =>
   new Date(iso).toLocaleDateString(undefined, {
@@ -19,6 +29,20 @@ type Props = {
 const GitHubContributionsClient = ({ data }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [tip, setTip] = useState<TipState>(null);
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+    const observer = new ResizeObserver(([entry]) => setWidth(entry.contentRect.width));
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  const weeks = weekCount(data);
+  // Largest block that still fits the measured container; 1px slack keeps the scroll container away.
+  const exact = (width - 1 + BLOCK_MARGIN) / weeks - BLOCK_MARGIN;
+  const blockSize = Math.max(MIN_BLOCK, Math.min(MAX_BLOCK, Math.floor(exact * 10) / 10));
 
   const showTip = (e: React.MouseEvent<SVGRectElement>, text: string) => {
     const box = containerRef.current?.getBoundingClientRect();
@@ -35,28 +59,32 @@ const GitHubContributionsClient = ({ data }: Props) => {
 
   return (
     <div ref={containerRef} className="relative w-full">
-      <ActivityCalendar
-        data={data}
-        colorScheme="dark"
-        fontSize={12}
-        blockSize={12}
-        theme={{
-          dark: ["#1b1b1b", "#333333", "#666666", "#999999", "#ffffff"],
-        }}
-        renderBlock={(block, activity) => {
-          const text = `${activity.count} contribution${activity.count === 1 ? "" : "s"} on ${formatDate(activity.date)}`;
-          return React.cloneElement(block, {
-            onMouseEnter: (e: React.MouseEvent<SVGRectElement>) => showTip(e, text),
-            onMouseMove: (e: React.MouseEvent<SVGRectElement>) => showTip(e, text),
-            onMouseLeave: hideTip,
-            onFocus: (e: React.FocusEvent<SVGRectElement>) =>
-              showTip(e as unknown as React.MouseEvent<SVGRectElement>, text),
-            onBlur: hideTip,
-            tabIndex: 0,
-            style: { cursor: "pointer" },
-          });
-        }}
-      />
+      {width > 0 && (
+        <ActivityCalendar
+          data={data}
+          colorScheme="dark"
+          fontSize={12}
+          blockSize={blockSize}
+          blockMargin={BLOCK_MARGIN}
+          labels={{ totalCount: "{{count}} contributions in the last year" }}
+          theme={{
+            dark: ["#1b1b1b", "#333333", "#666666", "#999999", "#ffffff"],
+          }}
+          renderBlock={(block, activity) => {
+            const text = `${activity.count} contribution${activity.count === 1 ? "" : "s"} on ${formatDate(activity.date)}`;
+            return React.cloneElement(block, {
+              onMouseEnter: (e: React.MouseEvent<SVGRectElement>) => showTip(e, text),
+              onMouseMove: (e: React.MouseEvent<SVGRectElement>) => showTip(e, text),
+              onMouseLeave: hideTip,
+              onFocus: (e: React.FocusEvent<SVGRectElement>) =>
+                showTip(e as unknown as React.MouseEvent<SVGRectElement>, text),
+              onBlur: hideTip,
+              tabIndex: 0,
+              style: { cursor: "pointer" },
+            });
+          }}
+        />
+      )}
 
       {tip && (
         <div

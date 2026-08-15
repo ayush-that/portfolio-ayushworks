@@ -21,7 +21,7 @@ export default function BlogPageClient({ posts }: BlogPageClientProps) {
   return (
     <div className="!mt-8">
       <div className="flex flex-col flex-wrap justify-between gap-4 sm:flex-row sm:items-center">
-        <h1 className="text-left text-xl font-medium">All Publications</h1>
+        <h1 className="text-left text-xl font-semibold tracking-tight">All Publications</h1>
         <SearchInput placeholder="Search posts..." onSearch={setSearch} />
       </div>
 
