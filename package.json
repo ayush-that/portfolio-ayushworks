@@ -13,6 +13,7 @@
     "build": "run-s build:*",
     "start": "next start",
     "lint": "eslint .",
+    "test": "bun test tests/",
     "cf:build": "opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare preview",
     "cf:deploy": "opennextjs-cloudflare deploy",

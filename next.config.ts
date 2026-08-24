@@ -45,6 +45,9 @@ const nextConfig: NextConfig = {
         },
         { key: "X-Content-Type-Options", value: "nosniff" },
         { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        // Every page content-negotiates text/markdown (src/proxy.ts), so
+        // caches must key on Accept or agents get the wrong variant.
+        { key: "Vary", value: "Accept" },
       ],
     },
   ],

@@ -21,12 +21,9 @@ const NavItem: React.FC<NavType[0] & { setOpen?: Dispatch<SetStateAction<boolean
   return (
     <li
       role="listitem"
-      className={cn(
-        "relative flex h-10 items-center rounded-md px-3 font-medium sm:h-7 sm:px-0",
-        {
-          "bg-muted sm:bg-transparent sm:text-ring": pathname === path,
-        },
-      )}
+      className={cn("relative flex h-10 items-center rounded-md px-3 font-medium sm:h-7 sm:px-0", {
+        "bg-muted sm:bg-transparent sm:text-ring": pathname === path,
+      })}
       onClick={onClickHandler}
     >
       <Link

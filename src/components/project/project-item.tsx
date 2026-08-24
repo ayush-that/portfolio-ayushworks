@@ -37,7 +37,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         </div>
 
         <hgroup className="space-y-2 sm:space-y-1">
-          <h2 className="font-serif text-lg font-medium">{title}</h2>
+          <h3 className="font-serif text-lg font-medium">{title}</h3>
 
           <p className={"text-xs text-ring"} aria-label="project stacks">
             {stacks.join(" / ")}

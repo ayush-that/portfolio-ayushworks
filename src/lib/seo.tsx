@@ -106,6 +106,7 @@ export const renderSchemaTags = () => (
           "@id": `${SITE_URL}/#person`,
           name: config.authorName,
           alternateName: "shydev",
+          description: config.appDescription,
           url: `${SITE_URL}/`,
           image: `${config.cdnUrl}/site/logo.png`,
           jobTitle: config.appDesignation,

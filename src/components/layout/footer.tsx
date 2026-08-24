@@ -7,7 +7,19 @@ const Footer = () => {
       <div className="flex w-full flex-wrap items-center justify-center gap-2 text-center sm:justify-between">
         <span>&copy; {new Date().getFullYear()} Developed with 🤍 by Shydev</span>
 
-        <ul role="list" className="flex items-center gap-2">
+        <ul role="list" className="flex flex-wrap items-center justify-center gap-2">
+          <li role="listitem">
+            <CustomLink href="/about">ABOUT</CustomLink>
+          </li>
+          <span> / </span>
+          <li role="listitem">
+            <CustomLink href="/contact">CONTACT</CustomLink>
+          </li>
+          <span> / </span>
+          <li role="listitem">
+            <CustomLink href="/privacy">PRIVACY</CustomLink>
+          </li>
+          <span> / </span>
           <li role="listitem">
             <CustomLink aria-label="visit rss feed" href={`https://${config.domainName}/feed.xml`}>
               RSS FEED
