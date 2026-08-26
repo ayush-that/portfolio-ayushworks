@@ -44,5 +44,5 @@ export function middleware(req: NextRequest) {
 export const config = {
   // Pages only: skip API routes, the MCP endpoint, Next internals, the Tina
   // admin, the /md handler itself, and anything with a file extension.
-  matcher: ["/((?!api/|mcp|md/|md$|_next/|admin|.*\\..*).*)"],
+  matcher: ["/((?!api/|mcp|md/|md$|_next/|admin|\\.well-known/|.*\\..*).*)"],
 };

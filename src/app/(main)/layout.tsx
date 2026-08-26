@@ -15,6 +15,9 @@ const prefetchRoutes = [
   "/projects",
   "/blog",
   "/tags",
+  "/developers",
+  "/about",
+  "/contact",
   ...published.map((post) => `/blog/${post.slugAsParams}`),
   ...Object.keys(getAllTags(published)).map((tag) => `/tags/${slug(tag)}`),
 ];

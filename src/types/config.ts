@@ -2,12 +2,18 @@ export type Theme = "light" | "dark";
 
 export interface ConfigProps {
   appName: string;
+  brandName: string;
   authorName: string;
   appTitle: string;
   appDescription: string;
   appDesignation: string;
   domainName: string;
   cdnUrl: string;
+  location: {
+    country: string;
+    countryCode: string;
+    timezone: string;
+  };
 
   social: {
     github: string;
@@ -15,7 +21,6 @@ export interface ConfigProps {
     instagram: string;
     discord: string;
     email: string;
-    phone: string;
     youtube: string;
     twitter: string;
     buymeacoffee: string;

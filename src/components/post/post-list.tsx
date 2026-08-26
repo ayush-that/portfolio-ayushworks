@@ -8,14 +8,22 @@ import { cn } from "~/lib/utils";
 type PostListProps = {
   posts: Post[];
   showRss?: boolean;
+  intro?: string;
   layout?: "single" | "grid";
   eager?: boolean;
 };
 
-const PostList: React.FC<PostListProps> = ({ posts, showRss, layout = "grid", eager = true }) => {
+const PostList: React.FC<PostListProps> = ({
+  posts,
+  showRss,
+  intro,
+  layout = "grid",
+  eager = true,
+}) => {
   return (
     <section aria-label="articles" className="mt-5 space-y-6">
       {showRss && <h2 className={typo({ variant: "h2" })}>Most recent posts</h2>}
+      {intro && <p className={typo({ variant: "paragraph", font: "sans" })}>{intro}</p>}
       <ol
         className={cn("gap-6", layout === "grid" ? "grid md:grid-cols-2" : "space-y-6")}
         role="list"
