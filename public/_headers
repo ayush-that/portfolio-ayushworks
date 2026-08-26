@@ -22,6 +22,11 @@
   Cache-Control: public,max-age=3600
   X-Robots-Tag: all
 
+/auth.md
+  Content-Type: text/markdown; charset=utf-8
+  Cache-Control: public,max-age=3600
+  X-Robots-Tag: all
+
 /robots.txt
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public,max-age=3600

@@ -3,7 +3,7 @@ import { slug } from "github-slugger";
 import projects from "~/components/project/_project-mock";
 import config from "~/config";
 import { formatDate, getAllTags, sortPosts } from "~/lib/utils";
-import { trustPages } from "~/lib/site-copy";
+import { developersPage, trustPages } from "~/lib/site-copy";
 
 const SITE_URL = `https://${config.domainName}`;
 
@@ -12,7 +12,7 @@ const published = () => sortPosts(posts.filter((post) => post.published));
 const postLine = (post: (typeof posts)[number]) =>
   `- [${post.title}](${SITE_URL}/blog/${post.slugAsParams}) (${formatDate(post.date)}): ${post.description}`;
 
-const footer = `\n---\n\nThis site serves Markdown to agents via \`Accept: text/markdown\` content negotiation on every page. Machine-readable index: [${SITE_URL}/llms.txt](${SITE_URL}/llms.txt) · Sitemap: [${SITE_URL}/sitemap.xml](${SITE_URL}/sitemap.xml) · RSS: [${SITE_URL}/feed.xml](${SITE_URL}/feed.xml) · MCP server: \`${SITE_URL}/mcp\`\n`;
+const footer = `\n---\n\nThis site serves Markdown to agents via \`Accept: text/markdown\` content negotiation on every page. Machine-readable index: [${SITE_URL}/llms.txt](${SITE_URL}/llms.txt) · Sitemap: [${SITE_URL}/sitemap.xml](${SITE_URL}/sitemap.xml) · RSS: [${SITE_URL}/feed.xml](${SITE_URL}/feed.xml) · ${config.brandName} MCP server: \`${SITE_URL}/mcp\` · Developer portal: [${SITE_URL}/developers](${SITE_URL}/developers) · OpenAPI: [${SITE_URL}/openapi.json](${SITE_URL}/openapi.json)\n`;
 
 function homeMarkdown(): string {
   return [
@@ -20,7 +20,7 @@ function homeMarkdown(): string {
     "",
     config.appDescription,
     "",
-    "Product-focused engineer who ships fast. 69+ freelance products shipped, 15+ hackathon wins, 1 product sold (Trendscreener.ai). Works across applied AI (multimodal RAG, agents), full-stack web, and mobile — mostly TypeScript, Python, and Next.js. Open to full-time, freelance, and collaborations.",
+    "Product-focused engineer who ships fast. 69+ freelance products shipped, 15+ hackathon wins, 1 product sold (Trendscreener.ai). Works across applied AI (multimodal RAG, agents), full-stack web, and mobile — mostly TypeScript, Python, Go, Rust, C++, and Next.js. Open to full-time, freelance, and collaborations.",
     "",
     "## Featured Projects",
     "",
@@ -45,6 +45,7 @@ function homeMarkdown(): string {
     `- [Tags](${SITE_URL}/tags)`,
     `- [Privacy](${SITE_URL}/privacy)`,
     `- [Resume](${SITE_URL}/resume)`,
+    `- [Developer resources](${SITE_URL}/developers)`,
     footer,
   ].join("\n");
 }
@@ -118,7 +119,7 @@ function tagMarkdown(tagSlug: string): string | null {
 }
 
 function trustPageMarkdown(key: string): string | null {
-  const page = trustPages[key];
+  const page = key === "developers" ? developersPage : trustPages[key];
   if (!page) return null;
   return [`# ${page.title}`, "", ...page.paragraphs.flatMap((p) => [p, ""]), footer].join("\n");
 }
@@ -135,6 +136,7 @@ export function notFoundMarkdown(pathname: string): string {
     `- [Blog archive](${SITE_URL}/blog)`,
     `- [Projects](${SITE_URL}/projects)`,
     `- [Contact](${SITE_URL}/contact)`,
+    `- [Developer resources](${SITE_URL}/developers)`,
     "",
     `Blog posts live at \`/blog/<slug>\` and tag pages at \`/tags/<tag>\`.`,
     footer,
@@ -150,6 +152,7 @@ export function markdownForPath(pathname: string): string | null {
     if (parts[0] === "blog") return blogIndexMarkdown();
     if (parts[0] === "projects") return projectsMarkdown();
     if (parts[0] === "tags") return tagsMarkdown();
+    if (parts[0] === "developers") return trustPageMarkdown("developers");
     return trustPageMarkdown(parts[0]);
   }
   if (parts.length === 2 && parts[0] === "blog") return postMarkdown(parts[1]);

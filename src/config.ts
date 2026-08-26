@@ -2,6 +2,7 @@ import { ConfigProps } from "./types/config";
 
 export const config = {
   appName: "$whoami",
+  brandName: "AyushWorks",
   authorName: "Ayush Singh",
   appTitle: "Ayush Singh · Software Engineer",
   appDesignation: "Software Engineer",
@@ -9,6 +10,11 @@ export const config = {
     "Ayush Singh (shydev) is a full-stack and applied-AI engineer. Projects, writing on Next.js, Python, Docker, Kubernetes and self-hosting, and how to reach me.",
 
   domainName: "ayushworks.com",
+  location: {
+    country: "India",
+    countryCode: "IN",
+    timezone: "Asia/Kolkata",
+  },
   // Cloudflare R2 bucket (ayushworks-media) behind a custom domain.
   // Bucket layout: site/ (logo, photos), projects/ (covers), cover/ (post covers), posts/ (inline images)
   cdnUrl: "https://cdn.ayushworks.com",
@@ -24,7 +30,6 @@ export const config = {
     instagram: "https://www.instagram.com/fitlesshot/",
     discord: "https://discordapp.com/users/shydev69",
     email: "ayush1337@hotmail.com",
-    phone: "",
     youtube: "https://www.youtube.com/@shydev69",
     twitter: "https://x.com/shydev69",
     buymeacoffee: "https://buymeacoffee.com/shydev69",

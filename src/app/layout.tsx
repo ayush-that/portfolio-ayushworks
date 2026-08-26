@@ -34,6 +34,18 @@ export default function RootLayout({
     >
       <head>
         <link rel="alternate" type="text/plain" title="LLM-friendly summary" href="/llms.txt" />
+        <link
+          rel="alternate"
+          type="application/json"
+          title="OpenAPI specification"
+          href="/openapi.json"
+        />
+        <link
+          rel="alternate"
+          type="application/mcp-server-card+json"
+          title="MCP server card"
+          href="/.well-known/mcp/server-card.json"
+        />
         {process.env.NODE_ENV === "development" && (
           <Script
             src="//unpkg.com/react-grab/dist/index.global.js"

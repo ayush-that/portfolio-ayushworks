@@ -28,26 +28,12 @@ const AboutSection = () => {
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
           I’ve worked on applied AI, multimodal RAG, full-stack web apps, and mobile apps. Mostly
-          with TypeScript, Python, or whatever gets the job done.
+          with TypeScript, Python, Go, Rust, C++, or whatever gets the job done.
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          <a
-            href="https://docs.google.com/spreadsheets/d/12_9qHndKpcrtrfCzGFSlu9Cb07TkeHIRHsQtRZdIeJ8/edit?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-inherit no-underline"
-          >
-            15+ Hackathons
-          </a>
-          . <span className="text-white">69+ Freelance Products</span> shipped. 2 Startup
-          Internships. 2 failed Startups of my own, each one worth the lessons.
-        </p>
-
-        <p className={typo({ variant: "paragraph", font: "sans" })}>
-          <span className="text-white">42.0K+ Followers</span> across socials. When I’m not
-          shipping, I’m either exploring niche topics (that normies don’t care about), running,
-          sleeping, eating, talking to my side chicks or doing your mom.
+          When I’m not shipping, I’m either exploring niche topics (that normies don’t care about),
+          running, sleeping, or eating (no b*tches).
         </p>
 
         <p className={cn(typo({ variant: "paragraph", font: "sans" }), "sm:mt-4!")}>

@@ -7,15 +7,18 @@ import ProjectItem from "./project-item";
 const ProjectList = ({
   projects,
   metadata,
+  intro,
   eager = true,
 }: {
   projects: TProject[];
   metadata?: boolean;
+  intro?: string;
   eager?: boolean;
 }) => {
   return (
-    <section aria-label="projects" className="mt-5 space-y-6" id="main-content">
+    <section aria-label="projects" className="mt-5 space-y-6">
       {metadata && <h2 className={typo({ variant: "h2" })}>Featured Projects</h2>}
+      {intro && <p className={typo({ variant: "paragraph", font: "sans" })}>{intro}</p>}
 
       <div className="mt-8!">
         {projects.length > 0 ? (
