@@ -55,7 +55,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/resume",
-        destination: "https://cdn.ayushworks.com/resume.pdf",
+        destination: "/resume.pdf",
         permanent: true,
       },
       {
