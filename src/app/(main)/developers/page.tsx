@@ -6,31 +6,21 @@ import { typo } from "~/components/ui/typograpghy";
 import { CustomLink } from "~/components/mdx";
 
 export const metadata: ReturnType<typeof getSEOTags> = getSEOTags({
-  title: `${config.brandName} MCP server and developer resources · ${config.authorName}`,
+  title: `${config.brandName} developer resources · ${config.authorName}`,
   description: developersPage.description,
   canonicalUrlRelative: "/developers",
   keywords: [
-    `${config.brandName} MCP server`,
-    `${config.brandName} OpenAPI`,
-    `${config.brandName} developer portal`,
-    `${config.brandName} auth docs`,
-    "AyushWorks API",
+    `${config.brandName} developer resources`,
     config.authorName,
     "shydev",
   ],
 });
 
 const resources = [
-  { href: "/developers", label: `${config.brandName} developer portal` },
-  { href: "/mcp", label: `${config.brandName} MCP server` },
-  { href: "/.well-known/mcp.json", label: `${config.brandName} MCP manifest` },
-  {
-    href: "/.well-known/mcp/server-card.json",
-    label: `${config.brandName} MCP server card`,
-  },
-  { href: "/openapi.json", label: `${config.brandName} OpenAPI spec` },
-  { href: "/auth.md", label: `${config.brandName} auth docs` },
-  { href: "/llms.txt", label: `${config.brandName} llms.txt` },
+  { href: "/", label: `${config.brandName} home` },
+  { href: "/feed.xml", label: `${config.brandName} RSS feed` },
+  { href: "/sitemap.xml", label: `${config.brandName} sitemap` },
+  { href: "/contact", label: "Contact" },
 ];
 
 const DevelopersPage = () => (
@@ -42,7 +32,7 @@ const DevelopersPage = () => (
         "@type": "WebPage",
         "@id": `${SITE_URL}/developers#page`,
         url: `${SITE_URL}/developers`,
-        name: `${config.brandName} MCP server and developer resources`,
+        name: `${config.brandName} developer resources`,
         description: developersPage.description,
         isPartOf: { "@id": `${SITE_URL}/#website` },
         about: { "@id": `${SITE_URL}/#person` },

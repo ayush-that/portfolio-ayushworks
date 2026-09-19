@@ -2,6 +2,7 @@ import { posts } from "#site/content";
 import { slug } from "github-slugger";
 import { MetadataRoute } from "next";
 import { BasePath, getAllTags } from "~/lib/utils";
+import { contributionsUpdatedAt } from "~/lib/oss";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const published = posts.filter((post) => post.published);
@@ -25,6 +26,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   return [
+    {
+      url: BasePath("/oss"),
+      lastModified: contributionsUpdatedAt,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     {
       url: BasePath("/"),
       lastModified: latestPost,

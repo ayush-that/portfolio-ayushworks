@@ -1,17 +1,13 @@
-import {
-  handleMcpHttp,
-  mcpOptionsResponse,
-  registryManifestResponse,
-} from "~/lib/mcp-http";
+import { goneResponse } from "~/lib/gone";
 
 export async function GET() {
-  return registryManifestResponse();
+  return goneResponse();
 }
 
-export async function POST(req: Request) {
-  return handleMcpHttp(req);
+export async function POST() {
+  return goneResponse();
 }
 
 export async function OPTIONS() {
-  return mcpOptionsResponse();
+  return goneResponse();
 }

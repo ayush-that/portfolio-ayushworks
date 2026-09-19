@@ -1,9 +1,9 @@
-import { mcpOptionsResponse, serverCardResponse } from "~/lib/mcp-http";
+import { goneResponse } from "~/lib/gone";
 
-export async function GET(req: Request) {
-  return serverCardResponse(req);
+export async function GET() {
+  return goneResponse();
 }
 
 export async function OPTIONS() {
-  return mcpOptionsResponse();
+  return goneResponse();
 }

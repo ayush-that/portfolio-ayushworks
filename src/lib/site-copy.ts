@@ -46,13 +46,10 @@ export const trustPages: Record<string, TrustPage> = {
 
 export const developersPage: TrustPage = {
   title: `${config.brandName} developer resources`,
-  description: `${config.brandName} MCP server, OpenAPI spec, auth docs, and Markdown API for ${config.authorName}'s portfolio at ${config.domainName}.`,
+  description: `${config.brandName} is the public portfolio of ${config.authorName}. There is no public API or MCP server.`,
   paragraphs: [
-    `${config.brandName} (${config.domainName}) is the public portfolio of ${config.authorName} (shydev), a software engineer. This page is the developer portal: MCP server, OpenAPI spec, authentication notes, and content negotiation. Nothing here requires an API key.`,
-    `MCP server (Streamable HTTP): POST JSON-RPC 2.0 to https://${config.domainName}/mcp. Protocol versions 2025-06-18, 2025-11-25, and 2026-07-28 are accepted. Tools: get_profile, list_projects, list_posts, get_post. Discovery: /.well-known/mcp.json, /.well-known/mcp, and /.well-known/mcp/server-card.json.`,
-    `OpenAPI specification: https://${config.domainName}/openapi.json. It describes the MCP endpoint, Markdown negotiation, llms.txt, and this portal so agents can map the surface without crawling HTML.`,
-    `Authentication: none. Every public URL on ${config.domainName} is readable without OAuth, cookies, or an API key. Do not send secrets. Details: https://${config.domainName}/auth.md.`,
-    `Markdown: send Accept: text/markdown to any page (for example curl -H "Accept: text/markdown" https://${config.domainName}/). HTML remains the default for browsers. Index: https://${config.domainName}/llms.txt. Sitemap: https://${config.domainName}/sitemap.xml. RSS: https://${config.domainName}/feed.xml.`,
-    `Contact for integrations or hiring: ${config.social.email}. Person: ${config.authorName}. Brand: ${config.brandName}. Location: ${config.location.country}.`,
+    `${config.brandName} (${config.domainName}) is the public portfolio of ${config.authorName} (shydev). It is a website, not a product API.`,
+    `There is no public MCP server, OpenAPI surface, or Markdown content-negotiation API. Use the HTML pages, the RSS feed at /feed.xml, and the sitemap at /sitemap.xml.`,
+    `Contact for hiring or collaboration: ${config.social.email}. Person: ${config.authorName}. Brand: ${config.brandName}. Location: ${config.location.country}.`,
   ],
 };

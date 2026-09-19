@@ -4,6 +4,7 @@ import projects from "~/components/project/_project-mock";
 import config from "~/config";
 import { formatDate, getAllTags, sortPosts } from "~/lib/utils";
 import { developersPage, trustPages } from "~/lib/site-copy";
+import { contributions, contributionsUpdatedAt } from "~/lib/oss";
 
 const SITE_URL = `https://${config.domainName}`;
 
@@ -12,7 +13,7 @@ const published = () => sortPosts(posts.filter((post) => post.published));
 const postLine = (post: (typeof posts)[number]) =>
   `- [${post.title}](${SITE_URL}/blog/${post.slugAsParams}) (${formatDate(post.date)}): ${post.description}`;
 
-const footer = `\n---\n\nThis site serves Markdown to agents via \`Accept: text/markdown\` content negotiation on every page. Machine-readable index: [${SITE_URL}/llms.txt](${SITE_URL}/llms.txt) · Sitemap: [${SITE_URL}/sitemap.xml](${SITE_URL}/sitemap.xml) · RSS: [${SITE_URL}/feed.xml](${SITE_URL}/feed.xml) · ${config.brandName} MCP server: \`${SITE_URL}/mcp\` · Developer portal: [${SITE_URL}/developers](${SITE_URL}/developers) · OpenAPI: [${SITE_URL}/openapi.json](${SITE_URL}/openapi.json)\n`;
+const footer = `\n---\n\nSitemap: [${SITE_URL}/sitemap.xml](${SITE_URL}/sitemap.xml) · RSS: [${SITE_URL}/feed.xml](${SITE_URL}/feed.xml)\n`;
 
 function homeMarkdown(): string {
   return [
@@ -41,6 +42,7 @@ function homeMarkdown(): string {
     `- [About](${SITE_URL}/about)`,
     `- [Contact](${SITE_URL}/contact)`,
     `- [Projects](${SITE_URL}/projects)`,
+    `- [OSS](${SITE_URL}/oss)`,
     `- [Blog](${SITE_URL}/blog)`,
     `- [Tags](${SITE_URL}/tags)`,
     `- [Privacy](${SITE_URL}/privacy)`,
@@ -131,12 +133,10 @@ export function notFoundMarkdown(pathname: string): string {
     `There is no page at that path on ${SITE_URL}. Where to look instead:`,
     "",
     `- [Homepage](${SITE_URL}/)`,
-    `- [Site index for LLMs](${SITE_URL}/llms.txt)`,
     `- [Sitemap](${SITE_URL}/sitemap.xml)`,
     `- [Blog archive](${SITE_URL}/blog)`,
     `- [Projects](${SITE_URL}/projects)`,
     `- [Contact](${SITE_URL}/contact)`,
-    `- [Developer resources](${SITE_URL}/developers)`,
     "",
     `Blog posts live at \`/blog/<slug>\` and tag pages at \`/tags/<tag>\`.`,
     footer,
@@ -151,6 +151,18 @@ export function markdownForPath(pathname: string): string | null {
   if (parts.length === 1) {
     if (parts[0] === "blog") return blogIndexMarkdown();
     if (parts[0] === "projects") return projectsMarkdown();
+    if (parts[0] === "oss")
+      return [
+        `# OSS · ${config.authorName}`,
+        "",
+        `Open source contributions. Status checked on ${contributionsUpdatedAt}.`,
+        "",
+        ...contributions.map(
+          (item) =>
+            `- [${item.title}](${item.url}) · ${item.repo} · ${item.kind === "pr" ? "PR" : "Issue"} #${item.number} · ${item.status} · opened ${item.createdAt}`,
+        ),
+        footer,
+      ].join("\n");
     if (parts[0] === "tags") return tagsMarkdown();
     if (parts[0] === "developers") return trustPageMarkdown("developers");
     return trustPageMarkdown(parts[0]);

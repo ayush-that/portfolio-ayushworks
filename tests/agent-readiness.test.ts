@@ -68,12 +68,11 @@ describe("markdownForPath", () => {
     expect(md.length).toBeGreaterThan(500);
   });
 
-  test("developer portal names AyushWorks MCP, OpenAPI, and auth", () => {
+  test("developer portal does not advertise a public MCP or OpenAPI surface", () => {
     const md = markdownForPath("/developers")!;
     expect(md).toContain("# AyushWorks developer resources");
-    expect(md).toContain("MCP server");
-    expect(md).toContain("openapi.json");
-    expect(md).toContain("auth.md");
+    expect(md).toContain("no public MCP server");
+    expect(md).not.toContain("/openapi.json");
     expect(md).toContain(config.brandName);
   });
 
@@ -93,9 +92,8 @@ describe("markdownForPath", () => {
     expect(markdownForPath("/a/b/c")).toBeNull();
     const body = notFoundMarkdown("/nope");
     expect(body).toContain("404");
-    expect(body).toContain("llms.txt");
     expect(body).toContain("sitemap.xml");
-    expect(body).toContain("/developers");
+    expect(body).not.toContain("llms.txt");
   });
 });
 

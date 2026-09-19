@@ -1,12 +1,5 @@
-import { openApiSpec } from "~/lib/openapi";
+import { goneResponse } from "~/lib/gone";
 
 export async function GET() {
-  return new Response(JSON.stringify(openApiSpec()), {
-    status: 200,
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "public, max-age=300",
-      "Access-Control-Allow-Origin": "*",
-    },
-  });
+  return goneResponse();
 }

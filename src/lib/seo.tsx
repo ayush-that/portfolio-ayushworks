@@ -29,7 +29,6 @@ export const getSEOTags = ({
       "ayushworks.com",
       "Ayush Singh",
       "shydev",
-      "AyushWorks MCP server",
       "software engineer portfolio",
       "full stack developer",
       "applied AI engineer",

@@ -48,11 +48,6 @@ export default function Custom404() {
                 Sitemap
               </a>
             </li>
-            <li>
-              <a className="text-ring underline" href="/llms.txt">
-                llms.txt
-              </a>
-            </li>
           </ul>
         </nav>
       </main>

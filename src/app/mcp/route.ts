@@ -1,22 +1,17 @@
-import {
-  handleMcpHttp,
-  mcpDeleteResponse,
-  mcpGetNotAllowed,
-  mcpOptionsResponse,
-} from "~/lib/mcp-http";
+import { goneResponse } from "~/lib/gone";
 
-export async function POST(req: Request) {
-  return handleMcpHttp(req);
+export async function GET() {
+  return goneResponse();
 }
 
-export async function GET(req: Request) {
-  return mcpGetNotAllowed(req);
+export async function POST() {
+  return goneResponse();
 }
 
 export async function DELETE() {
-  return mcpDeleteResponse();
+  return goneResponse();
 }
 
 export async function OPTIONS() {
-  return mcpOptionsResponse();
+  return goneResponse();
 }
