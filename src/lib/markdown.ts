@@ -1,10 +1,8 @@
 import { posts } from "#site/content";
-import { slug } from "github-slugger";
 import projects from "~/components/project/_project-mock";
 import config from "~/config";
-import { formatDate, getAllTags, sortPosts } from "~/lib/utils";
+import { formatDate, sortPosts } from "~/lib/utils";
 import { developersPage, trustPages } from "~/lib/site-copy";
-import { contributions, contributionsUpdatedAt } from "~/lib/oss";
 
 const SITE_URL = `https://${config.domainName}`;
 
@@ -21,7 +19,7 @@ function homeMarkdown(): string {
     "",
     config.appDescription,
     "",
-    "Product-focused engineer who ships fast. 69+ freelance products shipped, 15+ hackathon wins, 1 product sold (Trendscreener.ai). Works across applied AI (multimodal RAG, agents), full-stack web, and mobile — mostly TypeScript, Python, Go, Rust, C++, and Next.js. Open to full-time, freelance, and collaborations.",
+    "Product-focused engineer who ships fast. 69+ freelance products shipped, 15+ hackathon wins, 1 product sold (Trendscreener.ai). Works across AI (inference, agents), full-stack web and mobile apps at scale — mostly TypeScript, Python, Go, Rust, C++, and Next.js. Open to full-time, freelance, and collaborations.",
     "",
     "## Featured Projects",
     "",
@@ -42,11 +40,8 @@ function homeMarkdown(): string {
     `- [About](${SITE_URL}/about)`,
     `- [Contact](${SITE_URL}/contact)`,
     `- [Projects](${SITE_URL}/projects)`,
-    `- [OSS](${SITE_URL}/oss)`,
     `- [Blog](${SITE_URL}/blog)`,
-    `- [Tags](${SITE_URL}/tags)`,
     `- [Privacy](${SITE_URL}/privacy)`,
-    `- [Resume](${SITE_URL}/resume)`,
     `- [Developer resources](${SITE_URL}/developers)`,
     footer,
   ].join("\n");
@@ -69,7 +64,7 @@ function postMarkdown(slugAsParams: string): string | null {
   return [
     `# ${post.title}`,
     "",
-    `By ${config.authorName} · ${formatDate(post.date)} · Tags: ${post.tags.join(", ")}`,
+    `By ${config.authorName} · ${formatDate(post.date)}`,
     "",
     post.description,
     "",
@@ -82,7 +77,7 @@ function projectsMarkdown(): string {
   return [
     `# Projects · ${config.authorName}`,
     "",
-    `${projects.length} shipped projects: applied-AI tools, full-stack web apps, developer utilities and freelance work.`,
+    `${projects.length} shipped projects: AI tools, full-stack web and mobile apps at scale, developer utilities and freelance work.`,
     "",
     ...projects.map((p) =>
       [
@@ -100,24 +95,6 @@ function projectsMarkdown(): string {
     ),
     footer,
   ].join("\n");
-}
-
-function tagsMarkdown(): string {
-  const tags = getAllTags(published());
-  return [
-    `# Tags · ${config.authorName}`,
-    "",
-    ...Object.entries(tags).map(
-      ([tag, count]) => `- [${tag}](${SITE_URL}/tags/${slug(tag)}): ${count} post(s)`,
-    ),
-    footer,
-  ].join("\n");
-}
-
-function tagMarkdown(tagSlug: string): string | null {
-  const matching = published().filter((post) => post.tags.some((t) => slug(t) === tagSlug));
-  if (matching.length === 0) return null;
-  return [`# Posts tagged "${tagSlug}"`, "", ...matching.map(postLine), footer].join("\n");
 }
 
 function trustPageMarkdown(key: string): string | null {
@@ -138,12 +115,11 @@ export function notFoundMarkdown(pathname: string): string {
     `- [Projects](${SITE_URL}/projects)`,
     `- [Contact](${SITE_URL}/contact)`,
     "",
-    `Blog posts live at \`/blog/<slug>\` and tag pages at \`/tags/<tag>\`.`,
+    `Blog posts live at \`/blog/<slug>\`.`,
     footer,
   ].join("\n");
 }
 
-// Markdown representation for a site pathname, or null when no page exists.
 export function markdownForPath(pathname: string): string | null {
   const parts = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
 
@@ -151,23 +127,9 @@ export function markdownForPath(pathname: string): string | null {
   if (parts.length === 1) {
     if (parts[0] === "blog") return blogIndexMarkdown();
     if (parts[0] === "projects") return projectsMarkdown();
-    if (parts[0] === "oss")
-      return [
-        `# OSS · ${config.authorName}`,
-        "",
-        `Open source contributions. Status checked on ${contributionsUpdatedAt}.`,
-        "",
-        ...contributions.map(
-          (item) =>
-            `- [${item.title}](${item.url}) · ${item.repo} · ${item.kind === "pr" ? "PR" : "Issue"} #${item.number} · ${item.status} · opened ${item.createdAt}`,
-        ),
-        footer,
-      ].join("\n");
-    if (parts[0] === "tags") return tagsMarkdown();
     if (parts[0] === "developers") return trustPageMarkdown("developers");
     return trustPageMarkdown(parts[0]);
   }
   if (parts.length === 2 && parts[0] === "blog") return postMarkdown(parts[1]);
-  if (parts.length === 2 && parts[0] === "tags") return tagMarkdown(parts[1]);
   return null;
 }

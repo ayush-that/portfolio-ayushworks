@@ -24,7 +24,6 @@ const posts = defineCollection({
       body: s.mdx(),
       raw: s.raw(),
       toc: s.toc(),
-      tags: s.array(s.string()),
       metadata: s.metadata(),
     })
     .transform(computedFields),

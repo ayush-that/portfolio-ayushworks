@@ -7,7 +7,7 @@ export const config = {
   appTitle: "Ayush Singh · Software Engineer",
   appDesignation: "Software Engineer",
   appDescription:
-    "Ayush Singh (shydev) is a full-stack and applied-AI engineer. Projects, writing on Next.js, Python, Docker, Kubernetes and self-hosting, and how to reach me.",
+    "Ayush Singh (shydev) is a full-stack and AI engineer. Projects, writing on Next.js, Python, Docker, Kubernetes and self-hosting, and how to reach me.",
 
   domainName: "ayushworks.com",
   location: {

@@ -3,6 +3,8 @@ import RSS from "rss";
 import config from "~/config";
 import { BasePath } from "~/lib/utils";
 
+export const dynamic = "force-static";
+
 export async function GET() {
   const feed = new RSS({
     title: config.appTitle,
@@ -28,7 +30,6 @@ export async function GET() {
         url: BasePath(`/blog/${post.slugAsParams}`),
         date: post.date,
         description: post.description,
-        categories: post.tags,
         author: config.authorName,
       });
     });

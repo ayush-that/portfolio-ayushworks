@@ -31,7 +31,7 @@ export const getSEOTags = ({
       "shydev",
       "software engineer portfolio",
       "full stack developer",
-      "applied AI engineer",
+      "AI engineer",
       "Next.js",
       "TypeScript",
       "Python",
@@ -144,7 +144,7 @@ export const renderSchemaTags = () => (
           worksFor: { "@id": `${SITE_URL}/#organization` },
           knowsAbout: [
             "Full-stack web development",
-            "Applied AI",
+            "AI",
             "Next.js",
             "TypeScript",
             "Python",

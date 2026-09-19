@@ -5,7 +5,7 @@ import ProjectsPageClient from "./projects-page-client";
 
 export const metadata: ReturnType<typeof getSEOTags> = getSEOTags({
   title: `Projects · ${config.authorName}`,
-  description: `${projects.length} shipped projects by ${config.authorName}: applied-AI tools, full-stack web apps, developer utilities and freelance work, each with a live link.`,
+  description: `${projects.length} shipped projects by ${config.authorName}: AI tools, full-stack web and mobile apps at scale, developer utilities and freelance work, each with a live link.`,
   canonicalUrlRelative: "/projects",
   keywords: [
     "software projects",

@@ -47,7 +47,6 @@ const BlogPage = () => {
               headline: post.title,
               description: post.description,
               datePublished: post.date,
-              keywords: post.tags,
             })),
         }}
       />

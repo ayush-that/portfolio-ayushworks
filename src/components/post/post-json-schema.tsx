@@ -24,7 +24,6 @@ const JsonSchemaLD = ({ post }: { post: Post }) => {
           description: post.description,
           image,
           inLanguage: "en",
-          keywords: post.tags,
           wordCount: post.metadata.wordCount,
           datePublished: post.date,
           dateModified: post.date,

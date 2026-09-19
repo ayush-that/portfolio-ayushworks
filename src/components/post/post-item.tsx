@@ -3,9 +3,8 @@ import React from "react";
 
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CardContent } from "~/components/ui/card";
+import { Card } from "~/components/ui/card";
 import PostMetadata from "./post-metadata";
-import Tags from "../tags";
 
 interface PostItemProps extends Post {
   layout?: "vertical" | "horizontal";
@@ -18,7 +17,6 @@ const PostItem: React.FC<PostItemProps> = ({
   description,
   metadata,
   slugAsParams,
-  tags,
   cover,
   layout = "vertical",
   eager = false,
@@ -52,7 +50,6 @@ const PostItem: React.FC<PostItemProps> = ({
               </p>
             </div>
           </Link>
-          <Tags tags={tags} />
         </Card>
       </li>
     );
@@ -85,10 +82,6 @@ const PostItem: React.FC<PostItemProps> = ({
         <p className={"mb-2 mt-1 line-clamp-2 font-sans text-sm text-muted-foreground"}>
           {description}
         </p>
-
-        <CardContent className="p-0">
-          <Tags tags={tags} />
-        </CardContent>
       </Card>
     </li>
   );

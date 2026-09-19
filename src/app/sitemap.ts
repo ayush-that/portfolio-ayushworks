@@ -1,8 +1,8 @@
 import { posts } from "#site/content";
-import { slug } from "github-slugger";
 import { MetadataRoute } from "next";
-import { BasePath, getAllTags } from "~/lib/utils";
-import { contributionsUpdatedAt } from "~/lib/oss";
+import { BasePath } from "~/lib/utils";
+
+export const dynamic = "force-static";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const published = posts.filter((post) => post.published);
@@ -18,20 +18,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  const tagPages = Object.keys(getAllTags(published)).map((tag) => ({
-    url: BasePath(`/tags/${slug(tag)}`),
-    lastModified: latestPost,
-    changeFrequency: "monthly" as const,
-    priority: 0.3,
-  }));
-
   return [
-    {
-      url: BasePath("/oss"),
-      lastModified: contributionsUpdatedAt,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
     {
       url: BasePath("/"),
       lastModified: latestPost,
@@ -50,12 +37,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.9,
     },
-    {
-      url: BasePath("/tags"),
-      lastModified: latestPost,
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
     ...["/about", "/contact", "/privacy", "/developers"].map((path) => ({
       url: BasePath(path),
       lastModified: latestPost,
@@ -63,6 +44,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     })),
     ...blogPosts,
-    ...tagPages,
   ];
 }

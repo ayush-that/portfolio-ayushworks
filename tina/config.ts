@@ -38,12 +38,6 @@ export default defineConfig({
             ui: { component: "textarea" },
           },
           {
-            type: "string",
-            name: "tags",
-            label: "Tags",
-            list: true,
-          },
-          {
             type: "datetime",
             name: "date",
             label: "Date",

@@ -1,7 +1,6 @@
 import config from "~/config";
 import { getSEOTags, JsonLd } from "~/lib/seo";
 import { developersPage } from "~/lib/site-copy";
-import { SITE_URL } from "~/lib/mcp";
 import { typo } from "~/components/ui/typograpghy";
 import { CustomLink } from "~/components/mdx";
 
@@ -15,6 +14,8 @@ export const metadata: ReturnType<typeof getSEOTags> = getSEOTags({
     "shydev",
   ],
 });
+
+const SITE_URL = `https://${config.domainName}`;
 
 const resources = [
   { href: "/", label: `${config.brandName} home` },

@@ -1,62 +1,23 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
 import type { Activity } from "react-activity-calendar";
+import GitHubContributionsClient from "./github-contributions-client";
 
 const USERNAME = "ayush-that";
-const CALENDAR_HEIGHT = 152;
 
-const GitHubContributionsClient = dynamic(() => import("./github-contributions-client"), {
-  ssr: false,
-});
+async function loadContributions(): Promise<Activity[]> {
+  try {
+    const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`);
+    if (!res.ok) return [];
+    const json = (await res.json()) as { contributions?: Activity[] };
+    return json.contributions ?? [];
+  } catch {
+    return [];
+  }
+}
 
-type ApiResponse = {
-  contributions: Array<Activity>;
-};
-
-const GitHubContributions = () => {
-  const holderRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [data, setData] = useState<Array<Activity> | null>(null);
-
-  useEffect(() => {
-    const node = holderRef.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "300px" },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!visible) return;
-    let cancelled = false;
-    fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`)
-      .then((res) => (res.ok ? (res.json() as Promise<ApiResponse>) : null))
-      .then((json) => {
-        if (!cancelled) setData(json?.contributions ?? []);
-      })
-      .catch(() => {
-        if (!cancelled) setData([]);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [visible]);
-
-  return (
-    <div ref={holderRef} className="w-full" style={{ minHeight: CALENDAR_HEIGHT }}>
-      {data !== null && <GitHubContributionsClient data={data} />}
-    </div>
-  );
+const GitHubContributions = async () => {
+  const data = await loadContributions();
+  if (data.length === 0) return null;
+  return <GitHubContributionsClient data={data} />;
 };
 
 export default GitHubContributions;

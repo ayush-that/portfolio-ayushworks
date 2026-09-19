@@ -1,16 +1,20 @@
 import { posts } from "#site/content";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { JsonSchemaLD } from "~/components/post";
+import { MDXContent } from "~/components/mdx";
+import { JsonSchemaLD, PostMetadata, TableOfContent } from "~/components/post";
 import { getSEOTags } from "~/lib/seo";
+import { cn } from "~/lib/utils";
 import config from "~/config";
 import "~/styles/mdx.css";
-import BlogDetailClient from "./blog-detail-client";
 
 interface BlogPostParams {
   params: Promise<{
     slug: string[];
   }>;
 }
+
+export const dynamicParams = false;
 
 async function getPostFromParams(params: { slug: string[] }) {
   const slug = params?.slug?.join("/");
@@ -24,7 +28,9 @@ async function getPostFromParams(params: { slug: string[] }) {
 }
 
 export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
-  return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
+  return posts
+    .filter((post) => post.published)
+    .map((post) => ({ slug: post.slugAsParams.split("/") }));
 }
 
 export async function generateMetadata({ params }: BlogPostParams) {
@@ -39,7 +45,6 @@ export async function generateMetadata({ params }: BlogPostParams) {
   return getSEOTags({
     title: post.title,
     description: post.description,
-    keywords: post.tags,
     canonicalUrlRelative: url,
     ogImage: cover,
     extraTags: {
@@ -54,7 +59,6 @@ export async function generateMetadata({ params }: BlogPostParams) {
         publishedTime: post.date,
         modifiedTime: post.date,
         authors: [`https://${config.domainName}/`],
-        tags: post.tags,
       },
     },
   });
@@ -67,7 +71,34 @@ export default async function BlogDetail({ params }: BlogPostParams) {
   return (
     <>
       <JsonSchemaLD post={post} />
-      <BlogDetailClient post={post} />
+      <article className="w-full">
+        <div className="mb-6 mt-2 space-y-6">
+          <PostMetadata
+            isDetailPage
+            title={post.title}
+            metadata={post.metadata}
+            date={post.date}
+          />
+
+          <TableOfContent toc={post.toc} />
+
+          <div className="relative aspect-video">
+            <Image
+              src={post.cover}
+              alt={post.title}
+              priority
+              fill
+              quality={95}
+              className="size-full rounded-md object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
+        </div>
+
+        <main id="main-content" className={cn("mdx-content prose max-w-none")}>
+          <MDXContent code={post.body} />
+        </main>
+      </article>
     </>
   );
 }

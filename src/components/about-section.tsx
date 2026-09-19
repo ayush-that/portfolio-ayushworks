@@ -27,7 +27,7 @@ const AboutSection = () => {
         </p>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          I’ve worked on applied AI, multimodal RAG, full-stack web apps, and mobile apps. Mostly
+          I’ve worked on AI, inference, full-stack web and mobile apps at scale. Mostly
           with TypeScript, Python, Go, Rust, C++, or whatever gets the job done.
         </p>
 
