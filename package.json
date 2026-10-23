@@ -21,7 +21,8 @@
     "upgrade:latest": "npm upgrade-interactive --latest",
     "format": "oxfmt --write .",
     "images:migrate": "bun scripts/migrate-images-to-r2.ts",
-    "images:sync": "bun scripts/sync-images.ts"
+    "images:sync": "bun scripts/sync-images.ts",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@fontsource/maple-mono": "^5.3.0",
@@ -64,6 +65,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "@tailwindcss/postcss": "^4.3.0",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^25.9.1",
