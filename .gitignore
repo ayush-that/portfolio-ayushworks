@@ -61,3 +61,7 @@ firebase-debug.log
 # tinacms generated artifacts (admin SPA + graphql client)
 /public/admin
 /tina/__generated__
+
+# browser test artifacts
+/test-results/
+/playwright-report/

@@ -16,7 +16,6 @@ async function loadContributions(): Promise<Activity[]> {
 
 const GitHubContributions = async () => {
   const data = await loadContributions();
-  if (data.length === 0) return null;
   return <GitHubContributionsClient data={data} />;
 };
 

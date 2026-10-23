@@ -26,10 +26,31 @@ type Props = {
   data: Array<Activity>;
 };
 
-const GitHubContributionsClient = ({ data }: Props) => {
+const GitHubContributionsClient = ({ data: initialData }: Props) => {
+  const [data, setData] = useState(initialData);
   const containerRef = useRef<HTMLDivElement>(null);
   const [tip, setTip] = useState<TipState>(null);
   const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    // The static export's data only advances at build time.
+    fetch("https://github-contributions-api.jogruber.de/v4/ayush-that?y=last", {
+      cache: "no-store",
+      signal: controller.signal,
+    })
+      .then(async (res) => {
+        if (!res.ok) return;
+        const json = (await res.json()) as { contributions?: Activity[] };
+        if (Array.isArray(json.contributions) && json.contributions.length > 0) {
+          setData(json.contributions);
+        }
+      })
+      .catch(() => {
+        // Keep the build-time fallback when the API is unavailable.
+      });
+    return () => controller.abort();
+  }, []);
 
   useEffect(() => {
     const node = containerRef.current;
@@ -58,30 +79,32 @@ const GitHubContributionsClient = ({ data }: Props) => {
   return (
     <div ref={containerRef} className="relative w-full">
       <div className="max-w-full overflow-x-auto overflow-y-hidden">
-        <ActivityCalendar
-          data={data}
-          colorScheme="dark"
-          fontSize={12}
-          blockSize={blockSize}
-          blockMargin={BLOCK_MARGIN}
-          labels={{ totalCount: "{{count}} contributions in the last year" }}
-          theme={{
-            dark: ["#1b1b1b", "#333333", "#666666", "#999999", "#ffffff"],
-          }}
-          renderBlock={(block, activity) => {
-            const text = `${activity.count} contribution${activity.count === 1 ? "" : "s"} on ${formatDate(activity.date)}`;
-            return React.cloneElement(block, {
-              onMouseEnter: (e: React.MouseEvent<SVGRectElement>) => showTip(e, text),
-              onMouseMove: (e: React.MouseEvent<SVGRectElement>) => showTip(e, text),
-              onMouseLeave: hideTip,
-              onFocus: (e: React.FocusEvent<SVGRectElement>) =>
-                showTip(e as unknown as React.MouseEvent<SVGRectElement>, text),
-              onBlur: hideTip,
-              tabIndex: 0,
-              style: { cursor: "pointer" },
-            });
-          }}
-        />
+        {data.length > 0 && (
+          <ActivityCalendar
+            data={data}
+            colorScheme="dark"
+            fontSize={12}
+            blockSize={blockSize}
+            blockMargin={BLOCK_MARGIN}
+            labels={{ totalCount: "{{count}} contributions in the last year" }}
+            theme={{
+              dark: ["#1b1b1b", "#333333", "#666666", "#999999", "#ffffff"],
+            }}
+            renderBlock={(block, activity) => {
+              const text = `${activity.count} contribution${activity.count === 1 ? "" : "s"} on ${formatDate(activity.date)}`;
+              return React.cloneElement(block, {
+                onMouseEnter: (e: React.MouseEvent<SVGRectElement>) => showTip(e, text),
+                onMouseMove: (e: React.MouseEvent<SVGRectElement>) => showTip(e, text),
+                onMouseLeave: hideTip,
+                onFocus: (e: React.FocusEvent<SVGRectElement>) =>
+                  showTip(e as unknown as React.MouseEvent<SVGRectElement>, text),
+                onBlur: hideTip,
+                tabIndex: 0,
+                style: { cursor: "pointer" },
+              });
+            }}
+          />
+        )}
       </div>
 
       {tip && (
