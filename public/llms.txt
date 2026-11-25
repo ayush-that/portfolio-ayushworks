@@ -1,6 +1,6 @@
 # AyushWorks · Ayush Singh (shydev)
 
-AyushWorks (ayushworks.com) is the public portfolio of Ayush Singh (shydev), a product-focused full-stack and AI engineer.
+AyushWorks (ayushworks.com) is the public portfolio of Ayush Singh (shydev), a result-oriented full-stack and AI engineer.
 
 He ships production software across TypeScript, Python, Go, Rust, C++, and Next.js. He is available for full-time, freelance, and collaboration work.
 

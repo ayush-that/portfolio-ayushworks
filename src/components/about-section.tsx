@@ -22,7 +22,7 @@ const AboutSection = () => {
         <h1 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">{`Shydev, ${getAge()}`}</h1>
 
         <p className={typo({ variant: "paragraph", font: "sans" })}>
-          Product-focused Engineer who ships fast. I turn ideas into polished products and obsess
+          Result-oriented Engineer who ships fast. I turn ideas into polished products and obsess
           over the details that make software feel right.
         </p>
 

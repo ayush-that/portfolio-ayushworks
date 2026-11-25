@@ -6,9 +6,9 @@ export type TrustPage = { title: string; description: string; paragraphs: string
 
 export const aboutPage: TrustPage = {
   title: "About",
-  description: `Who ${config.authorName} (shydev) is: a product-focused full-stack and AI engineer.`,
+  description: `Who ${config.authorName} (shydev) is: a result-oriented full-stack and AI engineer.`,
   paragraphs: [
-    `I'm ${config.authorName}, known online as shydev. I'm a product-focused full-stack engineer who ships fast: I turn ambiguous ideas into polished, working software and obsess over the details that make products feel right.`,
+    `I'm ${config.authorName}, known online as shydev. I'm a result-oriented full-stack engineer who ships fast: I turn ambiguous ideas into polished, working software and obsess over the details that make products feel right.`,
     "I work across AI (inference, agent systems, scraping and content pipelines), full-stack web and mobile apps at scale. My daily tools are TypeScript, Python, Go, Rust, C++, and Next.js, with Cloudflare Workers, self-hosted VPS boxes, and PostgreSQL underneath. I'm comfortable in every layer of the stack, from infrastructure to interface design.",
     "The track record: 69+ freelance products shipped to production, 15+ hackathon wins, one product sold (Trendscreener.ai), two startup internships, and two failed startups of my own that taught me more than any job could. I also write about engineering, AI, and self-hosting on this site's blog, and I've built an audience of 42K+ followers across social platforms.",
     "I'm currently open to full-time roles, freelance contracts, and collaborations. If you want an engineer who takes a product from zero to launched without hand-holding, get in touch via the contact page.",

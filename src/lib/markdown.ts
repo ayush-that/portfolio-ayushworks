@@ -19,7 +19,7 @@ function homeMarkdown(): string {
     "",
     config.appDescription,
     "",
-    "Product-focused engineer who ships fast. 69+ freelance products shipped, 15+ hackathon wins, 1 product sold (Trendscreener.ai). Works across AI (inference, agents), full-stack web and mobile apps at scale — mostly TypeScript, Python, Go, Rust, C++, and Next.js. Open to full-time, freelance, and collaborations.",
+    "Result-oriented engineer who ships fast. 69+ freelance products shipped, 15+ hackathon wins, 1 product sold (Trendscreener.ai). Works across AI (inference, agents), full-stack web and mobile apps at scale — mostly TypeScript, Python, Go, Rust, C++, and Next.js. Open to full-time, freelance, and collaborations.",
     "",
     "## Featured Projects",
     "",
